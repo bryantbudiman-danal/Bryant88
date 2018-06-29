@@ -71,12 +71,11 @@
                   die('Failed to connect to MySQL: '. mysqli_connect_error());
                 }
 
-                echo "hmm weird\n";
-                if(!isset($_SESSION['user'])){
-                  echo "strange..\n";
-                } else {
-                  echo "$_SESSION['user'] is: " . $_SESSION['user'] . "\n";
-                } 
+                echo "lol!\n";
+
+                echo "hmm: " .  $_SESSION['user'] . "\n";
+
+                echo ":)\n"; 
                 
                 // $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
