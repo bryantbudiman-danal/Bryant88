@@ -15,7 +15,6 @@
 
 	if ($mysqli->connect_errno) {
 		// DB Error
-		echo "here!";
 		echo $mysqli->connect_error;
 	} else {
 		$username = $_POST['username'];
