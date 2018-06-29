@@ -70,7 +70,13 @@
                 if (mysqli_connect_errno($mysqli)) {
                   die('Failed to connect to MySQL: '. mysqli_connect_error());
                 }
-                echo "$_SESSION['user'] is: " . $_SESSION['user'] . "\n";
+
+                if(!isset($_SESSION['user'])){
+                  echo "strange..\n";
+                } else {
+                  echo "$_SESSION['user'] is: " . $_SESSION['user'] . "\n";
+                } 
+                
                 // $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
                 // $results = $mysqli->query($statement);

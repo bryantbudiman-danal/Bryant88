@@ -31,7 +31,10 @@
 			if($result_count > 0) {
 				// login sukses
 				// redirect to home page, but with different nav bar 
-				$_SESSION['user'] = $username;
+				if(!isset($_SESSION['user'])){
+	    			$_SESSION['user'] = $username;
+				}
+
 				$_SESSION['login'] = true; 
 				header('Location: ../index.php'); 
 				$results->close();
