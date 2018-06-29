@@ -59,7 +59,7 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Bryant88! NICE</div>
+          <div class="intro-lead-in">Welcome To NICE</div>
           <div class="intro-heading text-uppercase">We have cool sneakers.</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#collection">See Collection</a>
         </div>
