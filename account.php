@@ -26,7 +26,7 @@
 
     <style>
       header.masthead {
-        background-image: url("background.jpg");
+        background-image: url("img/background.jpg");
         background-size: cover;
       }
 
@@ -43,49 +43,13 @@
         color: #fed136;
       }
 
-       #mainNav .navbar-nav .nav-item .nav-link  {
-        color: black;
+      #mainNav .navbar-nav .nav-item .nav-link  {
+        color: white;
       }
 
-      .top_buffer {
-        margin-top: 20px;
+      #mainNav {
+        background-color: #232323;
       }
-
-      .row img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .label {
-        font-size: 90%;
-        font-weight: 400;
-        letter-spacing: 1px;
-        font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
-
-      .thumbnail {
-        width: 33%;
-        height: 100%;
-      }
-
-      .thumbnail > img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .thumbnail > img:hover {
-        border: 2px solid #021a40;
-        background-color: #ff0;
-      }
-
-      #right-container {
-        padding-left: 38px;
-      }
-
-      .row > #product-description {
-        color: black;
-      }
-
     </style>
 
   </head>
@@ -97,10 +61,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            hi!!!!
             <?php 
               session_start();
-              echo "hi!";
+    
                 $host = 'bryant88.mysql.database.azure.com';
                 $username = 'bryantbudiman@bryant88';
                 $password = 'KopiLuwak88';
@@ -112,8 +75,8 @@
                 if (mysqli_connect_errno($mysqli)) {
                   die('Failed to connect to MySQL: '. mysqli_connect_error());
                 }
-
-                $statement = "SELECT * FROM users.people where username=" . $_SESSION['user']; 
+                echo "$_SESSION['user'] is: " . $_SESSION['user'] . "\n";
+                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
                 $results = $mysqli->query($statement);
 
@@ -169,8 +132,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Portfolio Modals -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
