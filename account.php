@@ -70,23 +70,17 @@
                 if (mysqli_connect_errno($mysqli)) {
                   die('Failed to connect to MySQL: '. mysqli_connect_error());
                 }
-
-                echo "lol!\n";
-
-                echo "hmm: " .  $_SESSION['user'] . "\n";
-
-                echo ":)\n"; 
                 
-                // $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
+                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
-                // $results = $mysqli->query($statement);
+                $results = $mysqli->query($statement);
 
-                // $row = mysql_fetch_array($results);
+                $row = mysql_fetch_array($results);
 
-                // echo "Fullname: " . $row['fullname'] . "\n";
-                // echo "Address: " . $row['address'] . "\n";
-                // echo "Email: " . $row['email'] . "\n";
-                // echo "Phone: " . $row['phone'] . "\n";
+                echo "Fullname: " . $row['fullname'] . "\n";
+                echo "Address: " . $row['address'] . "\n";
+                echo "Email: " . $row['email'] . "\n";
+                echo "Phone: " . $row['phone'] . "\n";
             ?>
 
           </div> 
