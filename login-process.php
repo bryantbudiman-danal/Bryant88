@@ -36,11 +36,12 @@
 				}
 
 				$_SESSION['login'] = true; 
-				header('Location: ../index.php'); 
+				echo "user is: " . $_SESSION['user'] . "\n";
+				//header('Location: ../index.php'); 
 				$results->close();
 			} else {
 				// don't login - redirect back to login.php
-				header('Location: ../login.php?fail=true'); 
+				//header('Location: ../login.php?fail=true'); 
 				$results->close();
 			}
 		}
