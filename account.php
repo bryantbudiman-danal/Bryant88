@@ -25,11 +25,6 @@
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
 
     <style>
-      header.masthead {
-        background-image: url("img/background.jpg");
-        background-size: cover;
-      }
-
       .team-member h4 {
         color: white;
       }
@@ -78,14 +73,14 @@
                 echo "$_SESSION['user'] is: " . $_SESSION['user'] . "\n";
                 $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
-                $results = $mysqli->query($statement);
+                // $results = $mysqli->query($statement);
 
-                $row = mysql_fetch_array($results);
+                // $row = mysql_fetch_array($results);
 
-                echo "Fullname: " . $row['fullname'] . "\n";
-                echo "Address: " . $row['address'] . "\n";
-                echo "Email: " . $row['email'] . "\n";
-                echo "Phone: " . $row['phone'] . "\n";
+                // echo "Fullname: " . $row['fullname'] . "\n";
+                // echo "Address: " . $row['address'] . "\n";
+                // echo "Email: " . $row['email'] . "\n";
+                // echo "Phone: " . $row['phone'] . "\n";
             ?>
 
           </div> 
