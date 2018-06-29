@@ -1,7 +1,17 @@
 <?php
 	session_start();
 
-	$mysqli = new mysqli('127.0.0.1', 'root', 'root', 'bryant88-users');
+	$host = 'bryant88.mysql.database.azure.com';
+	$username = 'bryantbudiman@bryant88';
+	$password = 'KopiLuwak88';
+	$db_name = 'users';
+
+	//Establishes the connection
+	$mysqli = mysqli_init();
+	mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+	if (mysqli_connect_errno($mysqli)) {
+		die('Failed to connect to MySQL: '.mysqli_connect_error());
+	}
 
 	if ($mysqli->connect_errno) {
 		// DB Error
@@ -11,7 +21,7 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$statement = "SELECT username FROM users where username='" . $username . "' and password='" . $password . "'";
+		$statement = "SELECT username FROM users.people where username='" . $username . "' and password='" . $password . "'";
 
 		$results = $mysqli->query($statement);
 

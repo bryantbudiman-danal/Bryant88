@@ -1,7 +1,16 @@
 <?php
 	session_start();
 
-	$mysqli = new mysqli('127.0.0.1', 'root', 'root', 'bryant88-users');
+	$host = 'bryant88.mysql.database.azure.com';
+	$username = 'bryantbudiman@bryant88';
+	$password = 'KopiLuwak88';
+	$db_name = 'users';
+
+	$mysqli = mysqli_init();
+	mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+	if (mysqli_connect_errno($mysqli)) {
+		die('Failed to connect to MySQL: '.mysqli_connect_error());
+	}
 
 	if ($mysqli->connect_errno) {
 		// DB Error
@@ -15,7 +24,7 @@
 		$phone = "'". $_POST['phone'] . "'";
 		$password = "'" . $_POST['password'] + "'";
 
-		$statement = "SELECT username FROM users where username=" . $username; 
+		$statement = "SELECT username FROM users.people where username=" . $username; 
 
 		$results = $mysqli->query($statement);
 
@@ -31,7 +40,7 @@
 			} else {
 				// edit below to match with bryant88 users database 
 				echo "hmm: " . $fullName . ", " . $address . ", " . $email . ", " . $phone . ", " . $username . ", " . $password . ");/\n";
-				$sql = "INSERT INTO users (fullName, address, email, phone, username, password)
+				$sql = "INSERT INTO users.people (fullname, address, email, phone, username, password)
 					VALUES (" . $fullName . ", " . $address . ", " . $email . ", " . $phone . ", " . $username . ", " . $password . ");";
 						
 				$register = $mysqli->query($sql);
