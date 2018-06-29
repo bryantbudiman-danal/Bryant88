@@ -17,8 +17,8 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
+		$username = $_GET['username'];
+		$password = $_GET['password'];
 
 		$statement = "SELECT username FROM users.people where username='" . $username . "' and password='" . $password . "'";
 
