@@ -26,7 +26,7 @@
 
     <style>
       header.masthead {
-        background-image: url("img/background.jpg");
+        background-image: url("background.jpg");
         background-size: cover;
       }
 
@@ -41,6 +41,10 @@
 
       .intro-text {
         color: #fed136;
+      }
+
+       #mainNav .navbar-nav .nav-item .nav-link  {
+        color: black;
       }
 
       .top_buffer {
@@ -82,19 +86,6 @@
         color: black;
       }
 
-      #mainNav .navbar-nav .nav-item .nav-link  {
-        color: white;
-      }
-
-      #mainNav {
-        background-color: #232323;
-      }
-
-      .errorBar {
-        background-color: red;
-        color: white;
-      }
-
     </style>
 
   </head>
@@ -104,35 +95,15 @@
 
     <section id="product">
       <div class="container">
-        <form action="login-process.php" method="POST" class="form-signin">
-          <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="row">
+          <div class="col-md-12">
 
-          <?php
+            
 
-            if(isset($_GET['fail']) && $_GET['fail'] == true) {
-              echo '<div class="row">';
-                echo '<div class="col-lg-12 text-center my-auto errorBar">';
-                  echo "Login failed: username or password is invalid!";
-                echo '</div>';
-              echo '</div>';
-            }
 
-          ?>
-
-          <div class="row top_buffer"></div><!-- end row -->
-          <label for="inputUsername" class="sr-only">Username</label>
-          <input name = "username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <div class="row top_buffer"></div><!-- end row -->
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
-      </div> <!-- /container -->
+          </div> 
+        </div><!-- end row -->
+      </div><!-- end container -->
     </section>
 
     <!-- Footer -->
@@ -190,6 +161,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
+
   </body>
 
 </html>

@@ -120,9 +120,9 @@
                                 echo "<tr>";
                                     echo "<td data-th='Product' class='text-center'>";
                                         echo "<div class='row'>";
-                                            echo "<div class='col-sm-5'><img src='img/asics" . $id . ".0.jpg' alt='...'' class='img-responsive'/></div>";
+                                            echo "<div class='col-sm-5'><img src='asics" . $id . ".0.jpg' alt='...'' class='img-responsive'/></div>";
                                             echo "<div class='col-sm-5 my-auto'>";
-                                            echo "Item " . $id;
+                                                echo "Item " . $id;
                                             echo "</div>";
                                         echo "</div>";
                                     echo "</td>";
@@ -207,7 +207,7 @@
                 numInputs[i].onchange = function() {
                     var id = this.id;
                     var quantity = this.value;
-                    window.location.href="http://localhost:8888/refresh_cart.php?id=" + id + "&quantity=" + quantity;
+                    window.location = "refresh_cart.php?id=" + id + "&quantity=" + quantity;
                 }
             }
 
