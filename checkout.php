@@ -543,7 +543,7 @@
               <!-- PUT PAYPAL LOGO HERE -->
               <h5>Paypal</h5>
             </div>
-            <div class="row">
+     <!--        <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="cc-name">Name on card</label>
                 <input type="text" class="form-control" id="cc-name" placeholder="" required>
@@ -559,8 +559,8 @@
                   Credit card number is required
                 </div>
               </div>
-            </div>
-            <div class="row">
+            </div> -->
+       <!--      <div class="row">
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">Expiration</label>
                 <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
@@ -575,7 +575,7 @@
                   Security code required
                 </div>
               </div>
-            </div>
+            </div> -->
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
