@@ -130,7 +130,7 @@
             if (mysqli_connect_errno($mysqli)) {
               die('Failed to connect to MySQL: '.mysqli_connect_error());
             } else {
-              $statement = "SELECT * FROM `bryant88-users`.users where username='" . $_SESSION['user'] . "';";
+              $statement = "SELECT * FROM 'users'.people where username='" . $_SESSION['user'] . "';";
 
               $results = $mysqli->query($statement);
 
