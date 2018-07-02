@@ -40,7 +40,7 @@
 				  "intendedUseCase" => "RM"
 				);
 
-	$parameters['identity'] = json_decode($identityArray, true); 
+	$parameters['identity'] = json_decode($identityJSON, true); 
 
 	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
