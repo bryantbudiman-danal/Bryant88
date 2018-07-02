@@ -30,18 +30,17 @@
 						   "consumerEmailAddress" => "" . $email . ""
 				 	);
 
-	//$identityJSON = json_encode($identityArray);
+	$identityJSON = json_encode($identityArray);
 
 	$randomID = randString();
 
 	$parameters = array("merchantId" => "0218000710B56C", 
 				  "attributeGroups" => "matchScores", 
 				  "correlationId" => $randomID, 
-				  "intendedUseCase" => "RM",
-				  "identity" => "",
+				  "intendedUseCase" => "RM"
 				);
 
-	$parameters["identity"] = json_decode($identityArray, true); 
+	$parameters['identity'] = json_decode($identityArray, true); 
 
 	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
