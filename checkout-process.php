@@ -55,7 +55,7 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
 		'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
 		'Accept: application/json',
-		"'RequestTime: '" . $date . "'",
+		'RequestTime: ' . $date,
 	    'Content-Type: application/json'                                                                 
 	);                     
 	                                                                                                                     
