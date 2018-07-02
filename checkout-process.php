@@ -37,7 +37,8 @@
 	$parameters = array("merchantId" => "0218000710B56C", 
 				  "attributeGroups" => "matchScores", 
 				  "correlationId" => $randomID, 
-				  "intendedUseCase" => "RM"
+				  "intendedUseCase" => "RM",
+				  "consumerMdn" => "+12133092721"
 				);
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
