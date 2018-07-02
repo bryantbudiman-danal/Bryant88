@@ -141,7 +141,7 @@
 
                 $firstName = $user['firstName'];
                 $lastName = $user['lastName'];
-                $email = $user['emaill'];
+                $email = $user['email'];
                 $address1 = $user['address1'];
                 $address2 = $user['address2'];
                 $city = $user['city'];
