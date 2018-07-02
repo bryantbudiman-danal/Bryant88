@@ -17,11 +17,15 @@
 		echo $mysqli->connect_error;
 	} else {
 		$username = "'" . $_POST['userName'] . "'";
-		$fullName = "'" . $_POST['firstName'] . "' '" . $_POST['lastName'] . "'";
-		$address = "'" . $_POST['address1'] . " " . $_POST['address2'] . " " . $_POST['cityTown'] . " " .
-			$_POST['stateProvinceRegion'] ." " . $_POST['country'] . "'";
+		$firstName = "'" . $_POST['firstName'] . "'";
+		$lastName = "'" . $_POST['lastName'] . "'";
 		$email = "'" . $_POST['email'] . "'";
-		$phone = "'". $_POST['phone'] . "'";
+		$address1 = "'" . $_POST['address1'] . "'";
+		$address2 = "'" . $_POST['address2'] . "'";
+		$city = "'" . $_POST['city'] . "'";
+		$state = "'" . $_POST['state'] . "'";
+		$zip = "'" . $_POST['zip'] . "'";
+		$country = "'" . $_POST['country'] . "'";
 		$password = "'" . $_POST['password'] + "'";
 
 		$statement = "SELECT username FROM users.people where username=" . $username; 
@@ -38,9 +42,7 @@
 				header('Location: ../register.php?fail=true'); 
 				$results->close();
 			} else {
-				// edit below to match with bryant88 users database 
-				echo "hmm: " . $fullName . ", " . $address . ", " . $email . ", " . $phone . ", " . $username . ", " . $password . ");/\n";
-				$sql = "INSERT INTO users.people (fullname, address, email, phone, username, password)
+				$sql = "INSERT INTO users.people (username, firstName, lastName, email, address1, address2, city, state, zip, country, password)
 					VALUES (" . $fullName . ", " . $address . ", " . $email . ", " . $phone . ", " . $username . ", " . $password . ");";
 						
 				$register = $mysqli->query($sql);
@@ -49,7 +51,6 @@
 					echo $mysqli->error;
 				} else {
 					// go back to home page
-					echo "here!";
 					$_SESSION['user'] = $username;
 					header('Location: ../index.php?login=success'); 
 					$results->close();

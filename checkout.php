@@ -1,16 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bryant88 Cool Sneakers</title>
+    <title>Bryant88</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/checkout/form-validation.css" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -23,9 +27,9 @@
     <!-- Custom styles for this template -->
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
 
-    <style>
+        <style>
       header.masthead {
-        background-image: url("img/background.jpg");
+        background-image: url("background.jpg");
         background-size: cover;
       }
 
@@ -51,103 +55,196 @@
       }
 
       .top_buffer {
-        margin-top: 20px;
+        margin-top: 88px;
       }
-
-      .row img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .label {
-        font-size: 90%;
-        font-weight: 400;
-        letter-spacing: 1px;
-        font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
-
-      .thumbnail {
-        width: 33%;
-        height: 100%;
-      }
-
-      .thumbnail > img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .thumbnail > img:hover {
-        border: 2px solid #021a40;
-        background-color: #ff0;
-      }
-
-      #right-container {
-        padding-left: 38px;
-      }
-
-      .row > #product-description {
-        color: black;
-      }
-
-      .invalid {
-        color: #E00;
-      }
-    
-      .valid {
-        color: #0B0;
-      }
-
     </style>
 
   </head>
 
-  <body id="page-top">
+  <body class="bg-light">
     <?php include 'nav.php'; ?>
+    <div class="container">
+      <div class="row top_buffer"></div><!-- end row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="py-5 text-center">
+            <h2>Checkout form</h2>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <section id="product">
-      <div class="container">
-        <form action="register-process.php" method="POST" class="form-signin">
-          <h2 class="form-signin-heading">Register</h2>
-          <div class="row top_buffer"></div><!-- end row -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <?php
+              $total_items = 0;
+              foreach($_SESSION['cart'] as $id=>$value){
+                $total_items += $_SESSION['cart'][$id]['quantity'];
+              }
+            
+              echo '<span class="badge badge-secondary badge-pill">' . $total_items . '</span>';
+            ?>
+          </h4>
 
-          <label for="userName" class="sr-only">User Name</label>
-          <input name="userName" id="userName" class="form-control checkForm" placeholder="User Name" required autofocus>
-          <div class="row top_buffer"></div><!-- end row -->
+          <ul class="list-group mb-3">
+          <?php
+          $sub_total = 0;
+            foreach($_SESSION['cart'] as $id=>$value){
+              echo '<li class="list-group-item d-flex justify-content-between lh-condensed">';
+                echo '<div>';
+                  echo '<h6 class="my-0">Item ' . $id . '</h6>'; 
+                  $quantity = $_SESSION['cart'][$id]['quantity'];
+                  echo '<h6 class="my-0">Quantity: ' . $quantity . '</h6>'; 
+                echo '</div>';
+                $price = 8;
+                if($id == 2) $price = 88;
+                else if($id == 3) $price = 888;
+                $sub_total += $price*$quantity;
+                echo '<span class="text-muted">$' . $price*$quantity . '</span>';
+              echo '</li>';
+            }
 
-          <label for="firstName" class="sr-only">First Name</label>
-          <input name="firstName" id="firstName" class="form-control checkForm" placeholder="First Name" required autofocus>
-          <div class="row top_buffer"></div><!-- end row -->
+            echo '<li class="list-group-item d-flex justify-content-between">';
+              echo '<span>Total (USD)</span>';
+              echo '<strong>' . $sub_total . '</strong>';
+            echo '</li>';
+          ?>
+          </ul>
 
-          <label for="lastName" class="sr-only">Last Name</label>
-          <input name="lastName" type="password" id="lastName" class="form-control checkForm" placeholder="Last Name" required>
-          <div class="row top_buffer"></div><!-- end row -->
+        </div>
 
-          <label for="email" class="sr-only">Email</label>
-          <input name="email" type="email" id="email" class="form-control checkForm" placeholder="Email" required>
-          <div class="row top_buffer"></div><!-- end row -->
+        <?php
+          session_start();
 
-          <label for="address1" class="sr-only">Address Line 1</label>
-          <input name="address1" id="address1" class="form-control checkForm" placeholder="Address Line 1" required>
-          <div class="row top_buffer"></div><!-- end row -->
+          if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+            $host = 'bryant88.mysql.database.azure.com';
+            $username = 'bryantbudiman@bryant88';
+            $password = 'KopiLuwak88';
+            $db_name = 'users';
 
-          <label for="address2" class="sr-only">Address Line 2</label>
-          <input name="address2" id="address2" class="form-control checkForm" placeholder="Address Line 2" required>
-          <div class="row top_buffer"></div><!-- end row -->
+            $mysqli = mysqli_init();
+            mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+            if (mysqli_connect_errno($mysqli)) {
+              die('Failed to connect to MySQL: '.mysqli_connect_error());
+            } else {
+              $statement = "SELECT * FROM `bryant88-users`.users where username='" . $_SESSION['user'] . "';";
 
-          <label for="city" class="sr-only">City</label>
-          <input name="city" id="city" class="form-control checkForm" placeholder="City / Town" required>
-          <div class="row top_buffer"></div><!-- end row -->
+              $results = $mysqli->query($statement);
 
-          <label for="state" class="sr-only">State</label>
-          <input name="state" id="state" class="form-control checkForm" placeholder="State / Province / Region" required>
-          <div class="row top_buffer"></div><!-- end row -->
+              if(!$results) {
+                echo $mysqli->error;
+              } else {
+                $user = $results->fetch_assoc();
 
-          <label for="zip" class="sr-only">Zip / Postal Code</label>
-          <input name="zip" id="zip" class="form-control checkForm" placeholder="Zip / Postal Code" required>
-          <div class="row top_buffer"></div><!-- end row -->
+                $firstName = $user['firstName'];
+                $lastName = $user['lastName'];
+                $email = $user['emaill'];
+                $address1 = $user['address1'];
+                $address2 = $user['address2'];
+                $city = $user['city'];
+                $state = $user['state'];
+                $zip = $user['zip'];
+                $country = $user['country'];
+              }
+            }
+          }
+        ?>
 
-          <label for="country" class="sr-only">Country</label>
-          <select class="custom-select d-block w-100" name ="country" id="country">
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Billing address</h4>
+          <form class="needs-validation" action="checkout-process.php" method="POST" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <?php
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="text" class="form-control" id="firstName" placeholder="' . $firstName . '" readonly>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="firstName" placeholder="First name" required>';
+                  }
+                ?>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <?php
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="text" class="form-control" id="lastName" placeholder="' . $lastName . '" readonly>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="lastName" placeholder="Last name" required>';
+                  }
+                ?>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">Email <span class="text-muted">(Optional)</span></label>
+              <?php
+                if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                  echo '<input type="email" class="form-control" id="email" placeholder="' . $firstName . '" readonly>';
+                } else {
+                  echo '<input type="email" class="form-control" id="email" placeholder="you@example.com" required>';
+                }
+              ?>              
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <?php
+                if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                  echo '<input type="text" class="form-control" id="address" placeholder="' . $address1 . '" readonly>';
+                } else {
+                  echo '<input type="text" class="form-control" id="address" placeholder="1234 Main St" required>';
+                }
+              ?>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address2">Address 2<span class="text-muted">(Optional)</span></label>
+              <?php
+                if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                  echo '<input type="text" class="form-control" id="address2" placeholder="' . $address2 . '" readonly>';
+                } else {
+                  echo '<input type="text" class="form-control" id="address2" placeholder="Apartment or suite" required>';
+                }
+              ?>
+            </div>
+
+            <div class="mb-3">
+              <label for="city">City</label>
+              <?php
+                if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                  echo '<input type="text" class="form-control" id="city" placeholder="' . $city . '" readonly>';
+                } else {
+                  echo '<input type="text" class="form-control" id="city" placeholder="Apartment or suite" required>';
+                }
+              ?>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <?php
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="text" class="form-control" id="address2" placeholder="' . $country . '" readonly>';
+                  } else {
+                ?>
+                
+                <select class="custom-select d-block w-100" name ="country" id="country">
                   <option value="United States" selected="selected">United States</option> 
                   <option value="United Kingdom">United Kingdom</option> 
                   <option value="Afghanistan">Afghanistan</option> 
@@ -389,195 +486,181 @@
                   <option value="Yemen">Yemen</option> 
                   <option value="Zambia">Zambia</option> 
                   <option value="Zimbabwe">Zimbabwe</option>
-          </select>
-           
-          <div class="row top_buffer"></div><!-- end row -->
+                </select>
 
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input name="password" type="password" id="inputPassword" class="form-control checkForm" placeholder="Password" required>
-          <div class="row top_buffer"></div><!-- end row -->
+                <?php } ?>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <?php
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="text" class="form-control" id="state" placeholder="' . $state . '" readonly>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="state" placeholder="State" required>';
+                  }
+                ?>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <?php
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="text" class="form-control" id="zip" placeholder="' . $zip . '" readonly>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="zip" placeholder="Zip" required>';
+                  }
+                ?>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
 
-          <ul class="passwordRequirements">
-            <li class="item">Cannot be empty/blank.</li>
-            <li class="item">Must contain at least 5 characters.</li>
-            <li class="item">Must have at least one special character @ or #.</li>
-            <li class="item">Must contain upper AND lower case characters.</li>
-            <li class="item">Cannot contain word 'pass' (case insensitive).</li>
-          </ul>
+            <?php
+              if(isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                echo '<hr class="mb-4">';
+                echo '<div class="custom-control custom-checkbox">';
+                  if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
+                    echo '<input type="checkbox" class="custom-control-input" id="autoFill" name="checkbox" checked>';
+                  } else {
+                    echo '<input type="checkbox" class="custom-control-input" id="autoFill" name="checkbox">';
+                  }
+                  echo '<label class="custom-control-label" for="autoFill">Use account information</label>';
+                echo '</div>';
+                echo '<hr class="mb-4">';
+              }
+            ?>
 
-          <div class="row top_buffer"></div><!-- end row -->
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        </form>
-      </div> <!-- /container -->
-    </section>
+            <h4 class="mb-3">Payment</h4>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
+            <div class="d-block my-3">
+              <!-- PUT PAYPAL LOGO HERE -->
+              <h5>Paypal</h5>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Name on card</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Full name as displayed on card</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Credit card number</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Expiration</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">CVV</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+          </form>
         </div>
       </div>
-    </footer>
 
-    <!-- Portfolio Modals -->
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="copyright">Copyright &copy; Your Website 2018</span>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline quicklinks">
+                <li class="list-inline-item">
+                  <a href="#">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">Terms of Use</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
     <script>
-      // get all elements
-      var element = document.querySelectorAll('.passwordRequirements li');
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
 
-      Array.from(element).forEach(function(ele, i) {
-        ele.setAttribute("id", 'requirement' + (i + 1));
-      })
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
 
-      var passwordValid = false; 
-
-      document.querySelector('#inputPassword').oninput = function(){
-        var rule1RegExp =  /^\s*$/;
-        var rule2RegExp = /^.{5,}$/;
-        var rule3RegExp = /(@|#)/;
-        var rule4RegExpLower = /(?=.*[a-z])/;
-        var rule4RegExpUpper = /(?=.*[A-Z])/;
-        var rule5RegExp = /pass/i;
-
-        var pass = this.value;
-        pass = pass.trim();
-
-        // 1: Cannot be empty/blank.
-        if ( !rule1RegExp.test(pass) ) {
-          // Empty – Invalid
-          document.querySelector('#requirement1').classList.add('valid');
-          document.querySelector('#requirement1').classList.remove('invalid');
-          passwordValid = false;
-        } else {
-          //  Valid
-          document.querySelector('#requirement1').classList.remove('valid');
-          document.querySelector('#requirement1').classList.add('invalid');
-          passwordValid = true; 
-        }
-
-        // 2: Must contain at least 5 characters.
-        if ( rule2RegExp.test(pass) ) {
-          // Invalid
-          document.querySelector('#requirement2').classList.add('valid');
-          document.querySelector('#requirement2').classList.remove('invalid');
-          passwordValid = false; 
-        } else {
-          // Valid
-          document.querySelector('#requirement2').classList.remove('valid');
-          document.querySelector('#requirement2').classList.add('invalid');
-          passwordValid = true;
-        }
-
-        // 3: Must have at least one special character @ or #.
-        if ( rule3RegExp.test(pass) ) {
-          // Invalid
-          document.querySelector('#requirement3').classList.add('valid');
-          document.querySelector('#requirement3').classList.remove('invalid');
-          passwordValid = false; 
-        } else {
-          // Valid
-          document.querySelector('#requirement3').classList.remove('valid');
-          document.querySelector('#requirement3').classList.add('invalid');
-          passwordValid = true;
-        }
-
-        // 4: Must contain upper AND lower case characters.
-        if ( rule4RegExpLower.test(pass) && rule4RegExpUpper.test(pass)) {
-          // Invalid
-          document.querySelector('#requirement4').classList.add('valid');
-          document.querySelector('#requirement4').classList.remove('invalid');
-          passwordValid = false; 
-        } else {
-          // Valid
-          document.querySelector('#requirement4').classList.remove('valid');
-          document.querySelector('#requirement4').classList.add('invalid');
-          passwordValid = true; 
-        }
-
-        // 5: Cannot contain word 'pass' (case insensitive).
-        if ( !rule5RegExp.test(pass) ) {
-          // Invalid
-          document.querySelector('#requirement5').classList.add('valid');
-          document.querySelector('#requirement5').classList.remove('invalid');
-          passwordValid = false; 
-        } else {
-          // Valid
-          document.querySelector('#requirement5').classList.remove('valid');
-          document.querySelector('#requirement5').classList.add('invalid');
-          passwordValid = true; 
-        }
-
-        if (passwordValid == false) {
-          $('.btn').attr('disabled', 'disabled');
-        } else {
-          $('.btn').removeAttr('disabled');
-        }
-      }
-
-      $(document).ready(function() {
-        $('.checkForm').keyup(function() {
-          var empty = false;
-          $('.checkForm').each(function() {
-              if ($(this).val().length == 0) {
-                  empty = true;
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
               }
+              form.classList.add('was-validated');
+            }, false);
           });
+        }, false);
+      })();
 
-          if (empty && passwordValid == false) {
-              $('.btn').attr('disabled', 'disabled');
-          } else {
-              $('.btn').removeAttr('disabled');
-          }
-        });
+      var checkbox = document.querySelector("input[name=checkbox]");
+
+      checkbox.addEventListener('change', function() {
+        if(this.checked) {
+           window.location = "checkout.php?autoFill=true";
+        } else {
+           window.location = "checkout.php?";
+        }
       });
     </script>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
-
   </body>
-
 </html>
