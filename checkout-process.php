@@ -46,7 +46,7 @@
 
 	$date = date("c");
 
-	echo $date . "\n";
+	//echo $date . "\n";
                                                            
 	$ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/matchAndAttributes');             
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
