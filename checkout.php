@@ -130,7 +130,6 @@
             if (mysqli_connect_errno($mysqli)) {
               die('Failed to connect to MySQL: '.mysqli_connect_error());
             } else {
-              echo "username is: " . $_SESSION['user'] . "\n";
               $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'";
 
               $results = $mysqli->query($statement);
@@ -231,7 +230,7 @@
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
                   echo '<input type="text" class="form-control" id="city" placeholder="' . $city . '" readonly>';
                 } else {
-                  echo '<input type="text" class="form-control" id="city" placeholder="Apartment or suite" required>';
+                  echo '<input type="text" class="form-control" id="city" placeholder="Los Angeles" required>';
                 }
               ?>
             </div>
