@@ -45,8 +45,7 @@
 	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
 	$date = date("c");
-
-	//echo $date . "\n";
+	echo $date . "\n";
                                                            
 	$ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/matchAndAttributes');             
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
@@ -56,11 +55,11 @@
 		'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
 		'Accept: application/json',
 		'RequestTime: ' . $date,
-	    'Content-Type: application/json'                                                                 
+	    'Content-Type: application/json',                                                                                
+	    'Content-Length: ' . strlen($parametersJSON))                                                                       
 	);                     
 	                                                                                                                     
 	$result = curl_exec($ch);
 
 	echo $result; 
-
 ?>
