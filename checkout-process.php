@@ -57,12 +57,7 @@
 	    'Content-Type: application/json',                                                                                
 	    'Content-Length: ' . strlen($parametersJSON))                                                                       
 	);                     
-
-	echo $identityJSON . "\n";
-	echo $parametersJSON . "\n";
-
 	                                                                                                                     
-	//$result = curl_exec($ch);
-
-
+	$result = curl_exec($ch);
+	
 ?>
