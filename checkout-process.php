@@ -58,7 +58,9 @@
 	    'Content-Length: ' . strlen($parametersJSON))                                                                       
 	);                     
 
-	echo $parametersJSON;                                                                                              
+	echo $identityJSON . "\n";
+	echo $parametersJSON . "\n";
+
 	                                                                                                                     
 	//$result = curl_exec($ch);
 
