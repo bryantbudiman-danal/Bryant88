@@ -38,7 +38,7 @@
 				  "attributeGroups" => "matchScores", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
-				  "consumerMdn" => "+12133092721"
+				  "consumerMdn" => "+14444441002"
 				);
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
