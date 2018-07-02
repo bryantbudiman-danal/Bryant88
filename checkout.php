@@ -131,7 +131,7 @@
               die('Failed to connect to MySQL: '.mysqli_connect_error());
             } else {
               echo "username is: " . $_SESSION['user'] . "\n";
-              $statement = "SELECT * FROM 'users'.people where username='" . $_SESSION['user'] . "';";
+              $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'";
 
               $results = $mysqli->query($statement);
 
