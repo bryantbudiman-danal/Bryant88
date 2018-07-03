@@ -43,7 +43,7 @@
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
 
-	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);R
+	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
 	$date = date("c");
                                                            
@@ -63,12 +63,12 @@
 	$result = json_decode($resultJSON, true);
 
 	$aesDecryptionKey = 'BbRDqr+rvcdHsb63w49xJA==';
-	//$decodedSecretKey = base64_decode($aesDecryptionKey);
-	//echo "decoded secret key: " . $decodedSecretKey . "\n";
+	$decodedSecretKey = base64_decode($aesDecryptionKey);
+	echo "decoded secret key: " . $decodedSecretKey . "\n";
 
-	//$encryptedPayload = $result['results']['encryptedData'];
-	//echo "encyptedData: " . $encryptedPayload . "\n";
-	//$decodedPayload = base64_decode($encryptedPayload);
+	$encryptedPayload = $result['results']['encryptedData'];
+	echo "encyptedData: " . $encryptedPayload . "\n";
+	$decodedPayload = base64_decode($encryptedPayload);
 
 // 	JSON Data Decryption AES Key: BbRDqr+rvcdHsb63w49xJA==
 // JSON Decryption Algo: AES/CTR/NoPadding
