@@ -43,10 +43,9 @@
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
 
-	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+	$parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);R
 
 	$date = date("c");
-	echo $date . "\n";
                                                            
 	$ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/matchAndAttributes');             
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
@@ -61,6 +60,18 @@
 	);                     
 	                                                                                                                     
 	$result = curl_exec($ch);
+	$result = json_decode($result, true);
+
+	$aesDecryptionKey = 'BbRDqr+rvcdHsb63w49xJA==';
+	$decodedSecretKey = base64_decode($aesDecryptionKey);
+	echo "decoded secret key: " . $decodedSecretKey . "\n";
+
+	$encryptedPayload = $result['results']['encyptedData'];
+	echo "encyptedData: " . $encryptedPayload . "\n";
+	$decodedPayload = base64_decode($encryptedPayload);
+
+// 	JSON Data Decryption AES Key: BbRDqr+rvcdHsb63w49xJA==
+// JSON Decryption Algo: AES/CTR/NoPadding
 
 	echo $result; 
 ?>
