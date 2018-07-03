@@ -66,7 +66,7 @@
 	$decodedSecretKey = base64_decode($aesDecryptionKey);
 	echo "decoded secret key: " . $decodedSecretKey . "\n";
 
-	$encryptedPayload = $result['results']['encyptedData'];
+	$encryptedPayload = $result['results']['encryptedData'];
 	echo "encyptedData: " . $encryptedPayload . "\n";
 	$decodedPayload = base64_decode($encryptedPayload);
 
