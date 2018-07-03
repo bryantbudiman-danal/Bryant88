@@ -72,7 +72,7 @@
 
 	$decodedPayload = base64_decode($encryptedPayload);
 
-	$decodedPayload = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, 0, $iv);
+	$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_ZERO_PADDING, $iv);
 
-	echo "decodedPayload: " . $decodedPayload; 
+	echo "decodedPayload: " . $pleaseDecode; 
 ?>
