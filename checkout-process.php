@@ -63,6 +63,8 @@
 	$result = json_decode($resultJSON, true);
 
 	$aesKey = base64_decode('BbRDqr+rvcdHsb63w49xJA==');
+
+	echo "aesKey after decode: " . $aesKey . "\n";
 	$iv =  trim($result['results']['cipherSalt']);
 
 	echo "iv: " . $iv . "\n";
@@ -73,7 +75,7 @@
 
 	$decodedPayload = base64_decode($encryptedPayload);
 
-	$decodedPayload = openssl_encrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, $iv);
+	$decodedPayload = openssl_encrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, hex2bin($iv));
 
-	echo $decodedPayload; 
+	echo "decodedPayload: " . $decodedPayload; 
 ?>
