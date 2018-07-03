@@ -112,7 +112,7 @@
 
     <section id="product">
       <div class="container">
-        <form class="needs-validation" action="register-process.php" method="POST" novalidate>
+        <form class="needs-validation" action="phone-identification.php" method="POST" novalidate>
           <h2 class="form-signin-heading">Register</h2>
           <div class="row top_buffer"></div><!-- end row -->
 

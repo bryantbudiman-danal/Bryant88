@@ -21,10 +21,10 @@
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode($aesKey);
 
-	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('AES-128-CTR'));
+	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
 
 	    // Encrypt the data using AES 256 encryption in CBC mode using our encryption key and initialization vector.
-	    $encryptedPayload = openssl_encrypt($payload, 'AES-128-CTR', $aesKey, 0, $iv);
+	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
 	    $encryptedPayload = base64_encode($encryptedPayload);
 
@@ -33,5 +33,5 @@
 	    return $EVURL;
 	}
 
-
+	echo generateEVURL();
 ?>
