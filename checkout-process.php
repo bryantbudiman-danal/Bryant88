@@ -62,6 +62,8 @@
 	$resultJSON = curl_exec($ch);
 	$result = json_decode($resultJSON, true);
 
+	echo $result . "\n";
+
 	$aesKey = base64_decode('BbRDqr+rvcdHsb63w49xJA==');
 
 	echo "aesKey after decode: " . $aesKey . "\n";
@@ -75,7 +77,7 @@
 
 	$decodedPayload = base64_decode($encryptedPayload);
 
-	$decodedPayload = openssl_encrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, hex2bin($iv));
+	$decodedPayload = openssl_decrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, hex2bin($iv));
 
 	echo "decodedPayload: " . $decodedPayload; 
 ?>
