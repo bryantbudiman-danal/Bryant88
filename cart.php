@@ -150,8 +150,12 @@
                             <tr>
                                 <td><a href="../index.php#collection" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                                 <td colspan="2" class="hidden-xs"></td>
-                                <?php echo "<td class='hidden-xs text-center'><strong>Total $" . $total_price . "</strong></td>"; ?>
-                                <td><a href="../checkout.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                                <?php 
+                                    echo "<td class='hidden-xs text-center'><strong>Total $" . $total_price . "</strong></td>"; 
+                                    if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0) {
+                                        echo '<td><a href="../checkout.php" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>';
+                                    } 
+                                ?>
                             </tr>
                         </tfoot>
                 </table>

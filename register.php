@@ -23,6 +23,12 @@
     <!-- Custom styles for this template -->
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
 
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/checkout/form-validation.css" rel="stylesheet">
+
     <style>
       header.masthead {
         background-image: url("img/background.jpg");
@@ -106,47 +112,53 @@
 
     <section id="product">
       <div class="container">
-        <form action="register-process.php" method="POST" class="form-signin">
+        <form class="needs-validation" action="register-process.php" method="POST" novalidate>
           <h2 class="form-signin-heading">Register</h2>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="userName" class="sr-only">User Name</label>
-          <input name="userName" id="userName" class="form-control checkForm" placeholder="User Name" required autofocus>
+          <label for="userName">User Name</label>
+          <input name="userName" type="text" id="userName" class="form-control checkForm" placeholder="User Name" required autofocus>
+          <div class="invalid-feedback">
+            Please enter a user name.
+          </div>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="firstName" class="sr-only">First Name</label>
-          <input name="firstName" id="firstName" class="form-control checkForm" placeholder="First Name" required autofocus>
+          <label for="firstName">First Name</label>
+          <input name="firstName" type="text" id="firstName" class="form-control checkForm" placeholder="First Name" required autofocus>
+          <div class="invalid-feedback">
+            Please enter a first name.
+          </div>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="lastName" class="sr-only">Last Name</label>
+          <label for="lastName">Last Name</label>
           <input name="lastName" type="password" id="lastName" class="form-control checkForm" placeholder="Last Name" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="email" class="sr-only">Email</label>
+          <label for="email">Email</label>
           <input name="email" type="email" id="email" class="form-control checkForm" placeholder="Email" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="address1" class="sr-only">Address Line 1</label>
-          <input name="address1" id="address1" class="form-control checkForm" placeholder="Address Line 1" required>
+          <label for="address1">Address Line 1</label>
+          <input name="address1" type="text" id="address1" class="form-control checkForm" placeholder="1234 Main St" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="address2" class="sr-only">Address Line 2</label>
-          <input name="address2" id="address2" class="form-control checkForm" placeholder="Address Line 2" required>
+          <label for="address2">Address Line 2</label>
+          <input name="address2" type="text" id="address2" class="form-control checkForm" placeholder="Apartment or suite" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="city" class="sr-only">City</label>
-          <input name="city" id="city" class="form-control checkForm" placeholder="City / Town" required>
+          <label for="city">City</label>
+          <input name="city" type="text" id="city" class="form-control checkForm" placeholder="City / Town" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="state" class="sr-only">State</label>
-          <input name="state" id="state" class="form-control checkForm" placeholder="State / Province / Region" required>
+          <label for="state">State</label>
+          <input name="state" type="text" id="state" class="form-control checkForm" placeholder="State / Province / Region" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="zip" class="sr-only">Zip / Postal Code</label>
-          <input name="zip" id="zip" class="form-control checkForm" placeholder="Zip / Postal Code" required>
+          <label for="zip">Zip / Postal Code</label>
+          <input name="zip" type="text" id="zip" class="form-control checkForm" placeholder="Zip / Postal Code" required>
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="country" class="sr-only">Country</label>
+          <label for="country">Country</label>
           <select class="custom-select d-block w-100" name ="country" id="country">
                   <option value="United States" selected="selected">United States</option> 
                   <option value="United Kingdom">United Kingdom</option> 
@@ -381,7 +393,7 @@
                   <option value="Uzbekistan">Uzbekistan</option> 
                   <option value="Vanuatu">Vanuatu</option> 
                   <option value="Venezuela">Venezuela</option> 
-                  <option value="Viet Nam">Vietnam</option> 
+                  <option value="Vietnam">Vietnam</option> 
                   <option value="Virgin Islands, British">Virgin Islands, British</option> 
                   <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
                   <option value="Wallis and Futuna">Wallis and Futuna</option> 
@@ -393,7 +405,7 @@
            
           <div class="row top_buffer"></div><!-- end row -->
 
-          <label for="inputPassword" class="sr-only">Password</label>
+          <label for="inputPassword">Password</label>
           <input name="password" type="password" id="inputPassword" class="form-control checkForm" placeholder="Password" required>
           <div class="row top_buffer"></div><!-- end row -->
 
@@ -453,7 +465,33 @@
 
     <!-- Portfolio Modals -->
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+
     <script>
+      (function() {
+          'use strict';
+
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            console.log(forms.length);
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+      })();
+
       // get all elements
       var element = document.querySelectorAll('.passwordRequirements li');
 
@@ -538,30 +576,6 @@
           document.querySelector('#requirement5').classList.add('invalid');
           passwordValid = true; 
         }
-
-        if (passwordValid == false) {
-          $('.btn').attr('disabled', 'disabled');
-        } else {
-          $('.btn').removeAttr('disabled');
-        }
-      }
-
-      $(document).ready(function() {
-        $('.checkForm').keyup(function() {
-          var empty = false;
-          $('.checkForm').each(function() {
-              if ($(this).val().length == 0) {
-                  empty = true;
-              }
-          });
-
-          if (empty && passwordValid == false) {
-              $('.btn').attr('disabled', 'disabled');
-          } else {
-              $('.btn').removeAttr('disabled');
-          }
-        });
-      });
     </script>
 
     <!-- Bootstrap core JavaScript -->

@@ -76,30 +76,30 @@
           </div>
         </div>
         <div class="row text-center">
-          <div class="col-md-4">
-            <img src="img/asics1.0.jpg" alt="Item 1" width="200">
-            <a href="../item1.php">
+          <a href="../item1.php">
+            <div class="col-md-4">
+              <img src="img/asics1.0.jpg" alt="Item 1" width="200">
               <h4 class="service-heading">Item 1</h4>
-            </a>
-            <h4 class="service-heading">$8</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <img src="img/asics2.0.jpg" alt="Item 2" width="200">
-            <a href="../item2.php">
+              <h4 class="service-heading">$8</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+          </a>
+          <a href="../item2.php">
+            <div class="col-md-4">
+              <img src="img/asics2.0.jpg" alt="Item 2" width="200">
               <h4 class="service-heading">Item 2</h4>
-            </a>
-            <h4 class="service-heading">$88</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <img src="img/asics3.0.jpg" alt="Item 3" width="200">
-            <a href="../item3.php">
+              <h4 class="service-heading">$88</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+          </a>
+          <a href="../item3.php">
+            <div class="col-md-4">
+              <img src="img/asics3.0.jpg" alt="Item 3" width="200">
               <h4 class="service-heading">Item 3</h4>
-            </a>
-            <h4 class="service-heading">$888</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
+              <h4 class="service-heading">$888</h4>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>

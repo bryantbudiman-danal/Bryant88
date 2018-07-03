@@ -34,7 +34,7 @@
 
 	$randomID = randString();
 
-	$parameters = array("merchantId" => "", 
+	$parameters = array("merchantId" => "0218000710B56C", 
 				  "attributeGroups" => "matchScores", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
@@ -47,12 +47,12 @@
 
 	$date = date("c");
                                                            
-	$ch = curl_init('');             
+	$ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/matchAndAttributes');             
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                                                                  
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-		'Authorization: ',
+		'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
 		'Accept: application/json',
 		'RequestTime: ' . $date,
 	    'Content-Type: application/json',                                                                                
@@ -62,16 +62,13 @@
 	$resultJSON = curl_exec($ch);
 	$result = json_decode($resultJSON, true);
 
-	$aesDecryptionKey = '';
-	$decodedSecretKey = base64_decode($aesDecryptionKey);
-	echo "decoded secret key: " . $decodedSecretKey . "\n";
+	$aesKey = base64_decode('BbRDqr+rvcdHsb63w49xJA==');
+	$iv =  trim($result['results']['cipherSalt']);
 
-	$encryptedPayload = $result['results']['encryptedData'];
-	echo "encyptedData: " . $encryptedPayload . "\n";
+	$encryptedPayload = trim($result['results']['encryptedData']);
 	$decodedPayload = base64_decode($encryptedPayload);
 
-// 	JSON Data Decryption AES Key: BbRDqr+rvcdHsb63w49xJA==
-// JSON Decryption Algo: AES/CTR/NoPadding
+	$decodedPayload = openssl_encrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, $iv);
 
-	echo $result; 
+	echo $decodedPayload; 
 ?>
