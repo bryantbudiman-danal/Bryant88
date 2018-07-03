@@ -65,7 +65,12 @@
 	$aesKey = base64_decode('BbRDqr+rvcdHsb63w49xJA==');
 	$iv =  trim($result['results']['cipherSalt']);
 
+	echo "iv: " . $iv . "\n";
+
 	$encryptedPayload = trim($result['results']['encryptedData']);
+
+	echo "encryptedPayload: " . $encryptedPayload . "\n\n";
+
 	$decodedPayload = base64_decode($encryptedPayload);
 
 	$decodedPayload = openssl_encrypt($decodedPayload, 'AES-128-CTR', $aesKey, 0, $iv);
