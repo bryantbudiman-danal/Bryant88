@@ -59,11 +59,11 @@
 	    'Content-Length: ' . strlen($parametersJSON))                                                                       
 	);                     
 	                                                                                                                     
-	$result = curl_exec($ch);
-	$result = json_decode($result, true);
+	$resultJSON = curl_exec($ch);
+	$result = json_decode($resultJSON, true);
 
 	$aesDecryptionKey = 'BbRDqr+rvcdHsb63w49xJA==';
-	$decodedSecretKey = base64_decode($aesDecryptionKey);
+	//$decodedSecretKey = base64_decode($aesDecryptionKey);
 	//echo "decoded secret key: " . $decodedSecretKey . "\n";
 
 	//$encryptedPayload = $result['results']['encryptedData'];
