@@ -16,8 +16,6 @@
 		$payload = "correlationid=" . randString() . "&TimeStamp=" . date("YmdHis") .
 			"&Nonce=" . rand(pow(10, 4), pow(10, 4)-1);
 
-		echo $payload . "\n"; // TEST
-
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode($aesKey);
 
