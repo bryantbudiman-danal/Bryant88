@@ -1,14 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bryant88 Cool Sneakers</title>
+    <title>Bryant88</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/checkout/form-validation.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,15 +27,9 @@
     <!-- Custom styles for this template -->
     <link href="https://blackrockdigital.github.io/startbootstrap-agency/css/agency.min.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.0/examples/checkout/form-validation.css" rel="stylesheet">
-
     <style>
       header.masthead {
-        background-image: url("img/background.jpg");
+        background-image: url("background.jpg");
         background-size: cover;
       }
 
@@ -57,42 +55,7 @@
       }
 
       .top_buffer {
-        margin-top: 20px;
-      }
-
-      .row img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .label {
-        font-size: 90%;
-        font-weight: 400;
-        letter-spacing: 1px;
-        font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
-
-      .thumbnail {
-        width: 33%;
-        height: 100%;
-      }
-
-      .thumbnail > img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .thumbnail > img:hover {
-        border: 2px solid #021a40;
-        background-color: #ff0;
-      }
-
-      #right-container {
-        padding-left: 38px;
-      }
-
-      .row > #product-description {
-        color: black;
+        margin-top: 88px;
       }
 
       .invalid {
@@ -102,64 +65,69 @@
       .valid {
         color: #0B0;
       }
-
     </style>
-
   </head>
 
-  <body id="page-top">
+  <body class="bg-light">
     <?php include 'nav.php'; ?>
-
-    <section id="product">
-      <div class="container">
-        <form class="needs-validation" action="phone-identification.php" method="POST" novalidate>
-          <h2 class="form-signin-heading">Register</h2>
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <label for="userName">User Name</label>
-          <input name="userName" type="text" id="userName" class="form-control checkForm" placeholder="User Name" required autofocus>
-          <div class="invalid-feedback">
-            Please enter a user name.
+    <div class="container">
+      <div class="row top_buffer"></div><!-- end row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="py-5 text-center">
+            <h2>Registration Form</h2>
           </div>
-          <div class="row top_buffer"></div><!-- end row -->
+        </div>
+      </div>
+    </div>
 
-          <label for="firstName">First Name</label>
-          <input name="firstName" type="text" id="firstName" class="form-control checkForm" placeholder="First Name" required autofocus>
-          <div class="invalid-feedback">
-            Please enter a first name.
-          </div>
-          <div class="row top_buffer"></div><!-- end row -->
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-md-12 order-md-1">
+          <form class="needs-validation" action="register-process.php" method="POST" novalidate >
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
 
-          <label for="lastName">Last Name</label>
-          <input name="lastName" type="password" id="lastName" class="form-control checkForm" placeholder="Last Name" required>
-          <div class="row top_buffer"></div><!-- end row -->
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>            
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
 
-          <label for="email">Email</label>
-          <input name="email" type="email" id="email" class="form-control checkForm" placeholder="Email" required>
-          <div class="row top_buffer"></div><!-- end row -->
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
 
-          <label for="address1">Address Line 1</label>
-          <input name="address1" type="text" id="address1" class="form-control checkForm" placeholder="1234 Main St" required>
-          <div class="row top_buffer"></div><!-- end row -->
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
 
-          <label for="address2">Address Line 2</label>
-          <input name="address2" type="text" id="address2" class="form-control checkForm" placeholder="Apartment or suite" required>
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <label for="city">City</label>
-          <input name="city" type="text" id="city" class="form-control checkForm" placeholder="City / Town" required>
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <label for="state">State</label>
-          <input name="state" type="text" id="state" class="form-control checkForm" placeholder="State / Province / Region" required>
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <label for="zip">Zip / Postal Code</label>
-          <input name="zip" type="text" id="zip" class="form-control checkForm" placeholder="Zip / Postal Code" required>
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <label for="country">Country</label>
-          <select class="custom-select d-block w-100" name ="country" id="country">
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select class="custom-select d-block w-100" name ="country" id="country">
                   <option value="United States" selected="selected">United States</option> 
                   <option value="United Kingdom">United Kingdom</option> 
                   <option value="Afghanistan">Afghanistan</option> 
@@ -393,7 +361,7 @@
                   <option value="Uzbekistan">Uzbekistan</option> 
                   <option value="Vanuatu">Vanuatu</option> 
                   <option value="Venezuela">Venezuela</option> 
-                  <option value="Vietnam">Vietnam</option> 
+                  <option value="Viet Nam">Vietnam</option> 
                   <option value="Virgin Islands, British">Virgin Islands, British</option> 
                   <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option> 
                   <option value="Wallis and Futuna">Wallis and Futuna</option> 
@@ -401,107 +369,112 @@
                   <option value="Yemen">Yemen</option> 
                   <option value="Zambia">Zambia</option> 
                   <option value="Zimbabwe">Zimbabwe</option>
-          </select>
-           
-          <div class="row top_buffer"></div><!-- end row -->
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" placeholder="State" required>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="Zip" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
 
-          <label for="inputPassword">Password</label>
-          <input name="password" type="password" id="inputPassword" class="form-control checkForm" placeholder="Password" required>
-          <div class="row top_buffer"></div><!-- end row -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control inputPassword" id="password" required>
+                <div class="invalid-feedback">
+                  Valid password is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <ul class="passwordRequirements">
+                  <li class="item">Cannot be empty/blank.</li>
+                  <li class="item">Must contain at least 5 characters.</li>
+                  <li class="item">Must have at least one special character @ or #.</li>
+                  <li class="item">Must contain upper AND lower case characters.</li>
+                  <li class="item">Cannot contain word 'pass' (case insensitive).</li>
+                </ul>
+              </div>
+            </div>
 
-          <ul class="passwordRequirements">
-            <li class="item">Cannot be empty/blank.</li>
-            <li class="item">Must contain at least 5 characters.</li>
-            <li class="item">Must have at least one special character @ or #.</li>
-            <li class="item">Must contain upper AND lower case characters.</li>
-            <li class="item">Cannot contain word 'pass' (case insensitive).</li>
-          </ul>
+            <hr class="mb-4">
 
-          <div class="row top_buffer"></div><!-- end row -->
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        </form>
-      </div> <!-- /container -->
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
+            <button id="theButton" class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+          </form>
         </div>
       </div>
-    </footer>
 
-    <!-- Portfolio Modals -->
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="copyright">Copyright &copy; Your Website 2018</span>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline social-buttons">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <ul class="list-inline quicklinks">
+                <li class="list-inline-item">
+                  <a href="#">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">Terms of Use</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
-
     <script>
-      (function() {
-          'use strict';
+      var validPassword = false; 
 
-          window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            console.log(forms.length);
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-              }, false);
-            });
-          }, false);
-      })();
-
-      // get all elements
       var element = document.querySelectorAll('.passwordRequirements li');
 
       Array.from(element).forEach(function(ele, i) {
         ele.setAttribute("id", 'requirement' + (i + 1));
       })
 
-      var passwordValid = false; 
-
-      document.querySelector('#inputPassword').oninput = function(){
+      document.querySelector('.inputPassword').onkeyup = function() {
         var rule1RegExp =  /^\s*$/;
         var rule2RegExp = /^.{5,}$/;
         var rule3RegExp = /(@|#)/;
@@ -512,86 +485,94 @@
         var pass = this.value;
         pass = pass.trim();
 
+        var rule1 = false; 
+        var rule2 = false; 
+        var rule3 = false; 
+        var rule4 = false;
+        var rule5 = false; 
+
         // 1: Cannot be empty/blank.
         if ( !rule1RegExp.test(pass) ) {
-          // Empty – Invalid
           document.querySelector('#requirement1').classList.add('valid');
           document.querySelector('#requirement1').classList.remove('invalid');
-          passwordValid = false;
+          rule1 = true; 
         } else {
-          //  Valid
           document.querySelector('#requirement1').classList.remove('valid');
           document.querySelector('#requirement1').classList.add('invalid');
-          passwordValid = true; 
+          rule1 = false; 
         }
 
         // 2: Must contain at least 5 characters.
         if ( rule2RegExp.test(pass) ) {
-          // Invalid
           document.querySelector('#requirement2').classList.add('valid');
           document.querySelector('#requirement2').classList.remove('invalid');
-          passwordValid = false; 
+          rule2 = true; 
         } else {
-          // Valid
           document.querySelector('#requirement2').classList.remove('valid');
           document.querySelector('#requirement2').classList.add('invalid');
-          passwordValid = true;
+          rule2 = false;
         }
 
         // 3: Must have at least one special character @ or #.
         if ( rule3RegExp.test(pass) ) {
-          // Invalid
           document.querySelector('#requirement3').classList.add('valid');
-          document.querySelector('#requirement3').classList.remove('invalid');
-          passwordValid = false; 
+          document.querySelector('#requirement3').classList.remove('invalid'); 
+          rule3 = true; 
         } else {
-          // Valid
           document.querySelector('#requirement3').classList.remove('valid');
           document.querySelector('#requirement3').classList.add('invalid');
-          passwordValid = true;
+          rule3 = false;
         }
 
         // 4: Must contain upper AND lower case characters.
         if ( rule4RegExpLower.test(pass) && rule4RegExpUpper.test(pass)) {
-          // Invalid
           document.querySelector('#requirement4').classList.add('valid');
           document.querySelector('#requirement4').classList.remove('invalid');
-          passwordValid = false; 
+          rule4 = true; 
         } else {
-          // Valid
           document.querySelector('#requirement4').classList.remove('valid');
           document.querySelector('#requirement4').classList.add('invalid');
-          passwordValid = true; 
+          rule4 = false; 
         }
 
         // 5: Cannot contain word 'pass' (case insensitive).
         if ( !rule5RegExp.test(pass) ) {
-          // Invalid
           document.querySelector('#requirement5').classList.add('valid');
-          document.querySelector('#requirement5').classList.remove('invalid');
-          passwordValid = false; 
+          document.querySelector('#requirement5').classList.remove('invalid'); 
+          rule5 = true; 
         } else {
-          // Valid
           document.querySelector('#requirement5').classList.remove('valid');
           document.querySelector('#requirement5').classList.add('invalid');
-          passwordValid = true; 
+          rule5 = false;  
         }
+
+        if(rule1&&rule2&&rule3&&rule4&&rule5) {
+          document.getElementById("theButton").disabled = false;
+        } else {
+          document.getElementById("theButton").disabled = true;
+        }
+      }
     </script>
+    <script>
+      (function() {
+        'use strict';
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
 
-    <!-- Plugin JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
-
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false && !validPassword) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
   </body>
-
 </html>
