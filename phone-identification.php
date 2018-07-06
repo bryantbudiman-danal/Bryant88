@@ -2,7 +2,7 @@
 	function randString() {
     	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
     	$char = str_shuffle($char);
-    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
+    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 38; $i ++) {
         	$rand .= $char{mt_rand(0, $l)};
     	}
     	return $rand;
