@@ -120,7 +120,7 @@
                                 echo "<tr>";
                                     echo "<td data-th='Product' class='text-center'>";
                                         echo "<div class='row'>";
-                                            echo "<div class='col-sm-5'><img src='asics" . $id . ".0.jpg' alt='...'' class='img-responsive'/></div>";
+                                            echo "<div class='col-sm-5'><img src='img/asics" . $id . ".0.jpg' alt='...'' class='img-responsive'/></div>";
                                             echo "<div class='col-sm-5 my-auto'>";
                                                 echo "Item " . $id;
                                             echo "</div>";
