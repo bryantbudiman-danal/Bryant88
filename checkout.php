@@ -541,7 +541,7 @@
 
             <div class="d-block my-3">
               <!-- PUT PAYPAL LOGO HERE -->
-              <img src="paypal.png" alt="paypal" width="100">
+              <img src="img/paypal.png" alt="paypal" width="100">
             </div>
      <!--        <div class="row">
               <div class="col-md-6 mb-3">
