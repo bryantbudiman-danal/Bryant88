@@ -125,6 +125,20 @@
             </div>
 
             <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" placeholder="State" required>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="Zip" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
                 <select class="custom-select d-block w-100" name ="country" id="country">
@@ -372,20 +386,6 @@
                 </select>
                 <div class="invalid-feedback">
                   Please select a valid country.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State" required>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip" required>
-                <div class="invalid-feedback">
-                  Zip code required.
                 </div>
               </div>
             </div>

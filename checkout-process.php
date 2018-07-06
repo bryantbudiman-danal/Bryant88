@@ -62,8 +62,6 @@
 	$resultJSON = curl_exec($ch);
 	$result = json_decode($resultJSON, true);
 
-	echo $resultJSON . "\r\n";
-
 	$aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
 	$iv =  trim($result['results']['cipherSalt']);
