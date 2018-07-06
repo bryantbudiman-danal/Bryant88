@@ -13,8 +13,9 @@
 
 		echo "url is: " . $url . "\n\n\n";
 
-		$payload = "correlationid=" . randString() . "&timestamp=" . date("YmdHis") .
-			"&nonce=" . rand(pow(10, 4), pow(10, 4)-1);
+		$payload = "correlationid=" . randString() . 
+					html_entity_decode('&amp;timestamp=') . date("YmdHis") .
+					"&nonce=" . rand(10000,99999);
 
 		echo "payload is: " . $payload . "\n\n\n";
 
