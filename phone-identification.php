@@ -11,28 +11,40 @@
 	function generateEVURL() {
 		$url =  "http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo";
 
-		echo "url is: " . $url . "\n\n\n";
+		$payload = "correlationid=" . urlencode(randString()) . 
+				   '&amp;TimeStamp=' . date("YmdHis") .
+				   "&Nonce=" . rand(10000,99999);
 
-		$payload = "correlationid=" . randString() . 
-					html_entity_decode('&amp;timestamp=') . date("YmdHis") .
-					"&nonce=" . rand(10000,99999);
+				   echo "payload: " . $payload . "\n";
 
-		echo "payload is: " . $payload . "\n\n\n";
-
-		$aesKey = "ExNYKNKh2iCwPGijJdP64A==";
 	    // Remove the base64 encoding from our key
-	    $aesKey = base64_decode($aesKey);
+	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
+	    // Generate the cipher salt
 	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
 
-	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey,OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
 	    $encryptedPayload = base64_encode($encryptedPayload);
 
-	    $EVURL = $url . "?data=" . rawurlencode($encryptedPayload) . "&cipherSalt=" . rawurlencode($iv);
+	    $encryptedPayload = urlencode($encryptedPayload);
+
+	    $requestBody = "cipherSalt=" . urlencode($iv) .
+	    		 "&amp;data=" . $encryptedPayload;
+
+	    //echo $requestBody;
 
 	    //return $EVURL;
+		$decodedPayload = urldecode($encryptedPayload);
+
+		$decodedPayload = base64_decode($encryptedPayload);
+
+			$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+
+
+	echo "decodedPayload: " . $pleaseDecode;
+
 	}
 
-	echo generateEVURL();
+	generateEVURL();
 ?>
