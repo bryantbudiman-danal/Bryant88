@@ -25,7 +25,6 @@
                       "consentTimeStamp" => $consentTimeStamp
                 );
 
-
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
   $date = date("c");
@@ -49,6 +48,8 @@
   $resultJSON = curl_exec($ch);
   
   $result = json_decode($resultJSON, true);
+
+  echo $result;
 
   $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
