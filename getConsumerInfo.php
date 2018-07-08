@@ -11,15 +11,16 @@
     return $rand;
   }
 
+  session_start();
+
   $correlationID = randString();
   $consentId = randString();
   $consentTimeStamp = date("YmdHis");
 
   $parameters = array("merchantId" => "0218000710B56C", 
-                      "attributeGroups" => "matchScores", 
                       "intendedUseCase" => "AR",
-                      "consumerAuthType" => "PostalCode",
                       "consumerAuth" => "02903",
+                      "consumerAuthType" => "PostalCode",
                       "consumerMdn" => "+13333332001",
                       "consentId" => $consentId,
                       "consentTimeStamp" => $consentTimeStamp
