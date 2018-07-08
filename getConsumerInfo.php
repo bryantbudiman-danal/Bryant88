@@ -22,7 +22,7 @@
                       "consumerAuth" => "02903",
                       "consumerAuthType" => "PostalCode",
                       "consumerMdn" => "+13333332001",
-                      "correlationID" => $correlationID,
+                      "correlationId" => $correlationID,
                       "consentId" => $consentId,
                       "consentTimeStamp" => $consentTimeStamp
                 );
