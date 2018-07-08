@@ -19,17 +19,15 @@
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "AR",
-                      "consumerAuth" => "02903",
+                      "consumerAuth" => "46220",
                       "consumerAuthType" => "PostalCode",
-                      "consumerMdn" => "+13333332001",
+                      "consumerMdn" => "+13333331001",
                       "correlationId" => $correlationID,
                       "consentId" => $consentId,
                       "consentTimeStamp" => $consentTimeStamp
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
-
-  echo $parametersJSON;
 
   $date = date("c");
                                                            
@@ -53,7 +51,7 @@
   
   $result = json_decode($resultJSON, true);
 
-  echo $result;
+  echo $resultJSON;
 
   $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
