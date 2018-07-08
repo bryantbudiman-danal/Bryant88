@@ -104,7 +104,7 @@
 
     <section id="product">
       <div class="container">
-        <form action="phone-identification.php" method="GET" class="form-signin">
+        <form action="login-process.php" method="GET" class="form-signin">
           <h2 class="form-signin-heading">Please sign in</h2>
 
           <?php
