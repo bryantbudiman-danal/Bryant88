@@ -11,8 +11,6 @@
     return $rand;
   }
 
-  session_start();
-
   $correlationID = randString();
   $consentId = randString();
   $consentTimeStamp = date("YmdHis");
@@ -21,9 +19,7 @@
                       "intendedUseCase" => "AR",
                       "consumerAuth" => "02903",
                       "consumerAuthType" => "PostalCode",
-                      "consumerMdn" => "+13333332001",
-                      "consentId" => $consentId,
-                      "consentTimeStamp" => $consentTimeStamp
+                      "consumerMdn" => "+13333332001"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
