@@ -27,16 +27,18 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
+	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
-	    $encryptedPayload = urldecode($encryptedPayload);
-	    $iv = urldecode($iv);
+	    echo $requestBody;
 
-		$decodedPayload = base64_decode($encryptedPayload);
+	    // $encryptedPayload = urldecode($encryptedPayload);
+	    // $iv = urldecode($iv);
 
-		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+		// $decodedPayload = base64_decode($encryptedPayload);
 
-		echo "decodedPayload: " . $pleaseDecode;
+		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+
+		// echo "decodedPayload: " . $pleaseDecode;
 
 		return $requestBody;
 	}
@@ -45,12 +47,15 @@
 
 	$postBody = generateRequestBody();
 
-	
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);                                                                  
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                                          
-	                                                                                                                     
-	//curl_exec($ch);
+	curl_setopt($ch, CURLOPT_POST, true);      
+
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
+
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                        
+
+	//$result = curl_exec($ch);
+
+	echo $result;
 
 	//echo "date_time_set()";
 
