@@ -64,9 +64,9 @@
 
 	$aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
-	$iv =  urldecode(trim($result['results']['cipherSalt']));
+	$iv =  trim($result['results']['cipherSalt']);
 
-	$encryptedPayload = urldecode(trim($result['results']['encryptedData']));
+	$encryptedPayload = trim($result['results']['encryptedData']);
 
 	$decodedPayload = base64_decode($encryptedPayload);
 
