@@ -18,20 +18,15 @@
   $consentTimeStamp = date("YmdHis");
 
   $parameters = array("merchantId" => "0218000710B56C", 
-                      "intendedUseCase" => "AR",
-                      "consumerAuth" => "46220",
-                      "consumerAuthType" => "PostalCode",
-                      "consumerMdn" => "+13333331001",
                       "correlationId" => $correlationID,
-                      "consentId" => $consentId,
-                      "consentTimeStamp" => $consentTimeStamp
+                      "associationKey" => "SBOX_TEST_AK3333331001"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
   $date = date("c");
                                                            
-  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfo');        
+  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/phoneIdResult');        
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 

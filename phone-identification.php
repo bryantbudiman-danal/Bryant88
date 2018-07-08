@@ -49,12 +49,13 @@
 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                        
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
 
-	//$result = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+		'Content-Length: ' . strlen($postBody))                                
+    );                          
+
+	$result = curl_exec($ch);
 
 	echo $result;
-
-	//echo "date_time_set()";
-
 ?>
