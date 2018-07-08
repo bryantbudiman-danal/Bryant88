@@ -85,7 +85,7 @@
       <div class="row">
   
         <div class="col-md-12 order-md-1">
-          <form class="needs-validation" action="register-process.php" method="POST" novalidate >
+          <form class="needs-validation" action="getConsumerInfo.php" method="POST" novalidate >
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>

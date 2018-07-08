@@ -29,8 +29,6 @@
 
 	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success.php" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
-	    echo $requestBody;
-
 	    // $encryptedPayload = urldecode($encryptedPayload);
 	    // $iv = urldecode($iv);
 
