@@ -11,14 +11,11 @@
     return $rand;
   }
 
-  session_start();
-
   $correlationID = randString();
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "correlationId" => $correlationID,
-                      "associationKey" => "SBOX_TEST_AK3333332001",
-                      "consumerMdn" => "+13333332001"
+                      "associationKey" => "SBOX_TEST_AK3333332001"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);

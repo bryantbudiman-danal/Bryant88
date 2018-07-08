@@ -11,8 +11,6 @@
     return $rand;
   }
 
-  session_start();
-
   $correlationID = randString();
   $consentId = randString();
   $consentTimeStamp = date("YmdHis");
