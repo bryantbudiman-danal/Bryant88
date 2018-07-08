@@ -15,7 +15,7 @@
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "correlationId" => $correlationID,
-                      "associationKey" => "SBOX_TEST_AK3333333001"
+                      "associationKey" => "SBOX_TEST_AK3333334001"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
