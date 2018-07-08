@@ -27,7 +27,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
+	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success.php" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
 	    echo $requestBody;
 
