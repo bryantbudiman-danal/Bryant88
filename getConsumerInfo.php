@@ -29,6 +29,8 @@
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
+  echo $parametersJSON;
+
   $date = date("c");
                                                            
   $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfo');        
