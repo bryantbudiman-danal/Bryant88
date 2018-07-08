@@ -8,14 +8,10 @@
     	return $rand;
     }
 
-	function generateEVURL() {
-		$url =  "http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo";
-
+	function generateRequestBody() {
 		$payload = "correlationid=" . urlencode(randString()) . 
 				   '&amp;TimeStamp=' . date("YmdHis") .
 				   "&Nonce=" . rand(10000,99999);
-
-				   echo "payload: " . $payload . "\n";
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
@@ -31,21 +27,31 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "cipherSalt=" . urlencode($iv) .
-	    		 "&amp;data=" . $encryptedPayload;
+	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
-	    //return $EVURL;
+	    // $encryptedPayload = urldecode($encryptedPayload);
+	    // $iv = urldecode($iv);
 
-	    $encryptedPayload = urldecode($encryptedPayload);
-	    $iv = urldecode($iv);
+		// $decodedPayload = base64_decode($encryptedPayload);
 
-		$decodedPayload = base64_decode($encryptedPayload);
+		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+		// echo "decodedPayload: " . $pleaseDecode;
 
-		echo "decodedPayload: " . $pleaseDecode;
-
+		return $requestBody;
 	}
 
-	generateEVURL();
+	$ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
+
+	$postBody = generateRequestBody();
+
+	
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);                                                                  
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                                          
+	                                                                                                                     
+	//curl_exec($ch);
+
+	//echo "date_time_set()";
+
 ?>
