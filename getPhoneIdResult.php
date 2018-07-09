@@ -41,7 +41,7 @@
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "correlationId" => $correlationID,
-                      "associationKey" => "aaaaa88888"
+                      "associationKey" => "12345"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);

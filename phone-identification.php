@@ -9,9 +9,9 @@
     }
 
 	function generateRequestBody() {
-		$payload = "correlationid=aaaaa88888123".
+		$payload = 'correlationid=12345'.
 				   '&amp;timestamp=' . date("YmdHis") .
-				   "&nonce=" . rand(10000,99999);
+				   '&amp;nonce=' . rand(10000,99999);
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
