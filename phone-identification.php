@@ -31,14 +31,14 @@
 	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
 		
-	    $encryptedPayload = urldecode($encryptedPayload);
-	    $iv = urldecode($iv);
+	 //    $encryptedPayload = urldecode($encryptedPayload);
+	 //    $iv = urldecode($iv);
 
-		$decodedPayload = base64_decode($encryptedPayload);
+		// $decodedPayload = base64_decode($encryptedPayload);
 
-		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-		echo "decodedPayload: " . $pleaseDecode;
+		// echo "decodedPayload: " . $pleaseDecode;
 		
 
 		return $requestBody;
