@@ -15,7 +15,7 @@
 
   $associationKey = $_GET['id']);
 
-echo "associationKey: " . $associationKey;
+  echo "hey!!";
 
   $evurlRequest = curl_init($EVURL);
 
