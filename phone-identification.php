@@ -15,7 +15,7 @@
  
 		$payload = 'correlationid=' . $correlationid .
 				   '&timestamp=' . date("YmdHis") .
-				   '&nonce='.rand(10000,99999);
+				   '&nonce=' . rand(10000,99999);
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
@@ -55,5 +55,6 @@
 	curl_setopt($evurlRequest, CURLOPT_HEADER, false);
 	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
 
-	curl_exec($evurlRequest);
+	$result = curl_exec($evurlRequest);
+	echo $result;
 ?>
