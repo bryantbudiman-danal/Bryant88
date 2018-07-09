@@ -13,11 +13,10 @@
 
 		date_default_timezone_set('UTC');
  
-		$payload = "correlationid=" . $correlationid .
+		$payload = 'correlationid=' . $correlationid .
 				   '&timestamp=' . date("YmdHis") .
 				   '&nonce='.rand(10000,99999);
 
-		echo "payload is: " . $payload . "\n\n";
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
@@ -31,7 +30,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "data=" . $encryptedPayload . "&cipherSalt=" . $iv;
+	    $requestBody = 'data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 
 		///
@@ -53,6 +52,8 @@
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 
 	$evurlRequest = curl_init($EVURL);
+	curl_setopt($evurlRequest, CURLOPT_HEADER, false);
+	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
 
 	curl_exec($evurlRequest);
 ?>
