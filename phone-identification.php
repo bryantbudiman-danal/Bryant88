@@ -49,9 +49,14 @@
 
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+
+    $date = date("c"); 
 
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+        'Accept: application/json',
+        'RequestTime: ' . $date,
 		'Content-Length: ' . strlen($postBody))                                
     );                          
 

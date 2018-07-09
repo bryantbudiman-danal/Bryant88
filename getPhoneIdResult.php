@@ -13,27 +13,27 @@
 
   /////////////////////
 
-  $temp = curl_init('http://misbox.dnlsrv.com/msbox/id/vIZtkeID?data=hbJjZ0Rc%2Fw0NjZl0v3RACFIyqDt74Za3PgejS6PNxicSHj%2FRvZniIbYhpBrN
-217JDBI8AaA3Zj3DlZXpRt6G&cipherSalt=BOeg3HVwm9aBacHT');               
+//   $temp = curl_init('http://misbox.dnlsrv.com/msbox/id/vIZtkeID?data=hbJjZ0Rc%2Fw0NjZl0v3RACFIyqDt74Za3PgejS6PNxicSHj%2FRvZniIbYhpBrN
+// 217JDBI8AaA3Zj3DlZXpRt6G&cipherSalt=BOeg3HVwm9aBacHT');               
 
-  curl_setopt($temp, CURLOPT_RETURNTRANSFER, true);   
+//   curl_setopt($temp, CURLOPT_RETURNTRANSFER, true);   
 
-    curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
-    'Content-Length: ' . strlen($postBody))                                
-    );                          
+//     curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
+//     'Content-Length: ' . strlen($postBody))                                
+//     );                          
 
-     $date = date("c");
+//      $date = date("c");
 
-      curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
-    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-    'Accept: application/json',
-    'RequestTime: ' . $date,
-    'Content-Type: application/json'                              
-  ));  
+//       curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
+//     'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+//     'Accept: application/json',
+//     'RequestTime: ' . $date,
+//     'Content-Type: application/json'                              
+//   ));  
 
-  $result = curl_exec($temp);
+//   $result = curl_exec($temp);
 
-  echo $result;
+//   echo $result;
 
 /////////////////
 
@@ -66,6 +66,8 @@
   );                     
                                                                                                                        
   $resultJSON = curl_exec($ch);
+
+  echo $resultJSON;
   
   $result = json_decode($resultJSON, true);
 
