@@ -14,16 +14,15 @@
 		echo "correlationid is: " . $correlationid . "\n\n\n\n\n";
  
 		$payload = "correlationid=" . $correlationid .
-				   '&amp;timestamp=' . date("YmdHis") .
-				   '&amp;nonce='.rand(10000,99999);
+				   '&timestamp=' . date("YmdHis") .
+				   '&nonce='.rand(10000,99999);
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
  	    // Generate the cipher salt
-	    // $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
-	    // $iv = bin2hex($iv);
-	    $iv = randString(14);
+	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
+	    $iv = bin2hex($iv);
 
 	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
@@ -33,7 +32,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
+	    $requestBody = "data=" . $encryptedPayload . "&cipherSalt=" . $iv;
 
 
 		///
@@ -48,28 +47,9 @@
 		///
 
 		return $requestBody;
-	}
-
-	// $ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
+	}          
 
 	$postBody = generateRequestBody();
-
-	// curl_setopt($ch, CURLOPT_POST, true);      
-
-	// curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
-
-	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-
- //    $date = date("c"); 
-
- //    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
- //    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
- //        'Accept: application/json',
- //        'RequestTime: ' . $date,
-	// 	'Content-Length: ' . strlen($postBody))                                
- //    );                          
-
-	// $result = curl_exec($ch);
 
 	echo 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 ?>
