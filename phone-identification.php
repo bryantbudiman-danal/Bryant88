@@ -9,7 +9,7 @@
     }
 
 	function generateRequestBody() {
-		$payload = "correlationid=aaaaa88888" .
+		$payload = "correlationid=aaaaa88888123".
 				   '&amp;timestamp=' . date("YmdHis") .
 				   "&nonce=" . rand(10000,99999);
 
@@ -46,6 +46,8 @@
 
     $postBody = generateRequestBody();
 	$url = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+
+	echo $url;
 	$ch = curl_init($url);      
 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
@@ -58,5 +60,5 @@
         'RequestTime: ' . $date                            
     ))                          
 
-	$result = curl_exec($ch);
+	//esult = curl_exec($ch);
 ?>
