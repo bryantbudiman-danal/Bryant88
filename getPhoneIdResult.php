@@ -11,6 +11,8 @@
     return $rand;
   }
 
+  session_start();
+
   $associationKey = $_GET['id']);
 
 echo "associationKey: " . $associationKey;
