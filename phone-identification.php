@@ -52,17 +52,17 @@
 	$url = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 
 	echo $url;
-	$ch = curl_init($url);      
+	// $ch = curl_init($url);      
 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
 
-    $date = date("c"); 
+ //    $date = date("c"); 
 
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-        'Accept: application/json',
-        'RequestTime: ' . $date                            
-    ))                          
+ //    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+ //    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+ //        'Accept: application/json',
+ //        'RequestTime: ' . $date                            
+ //    ))                          
 
 	//esult = curl_exec($ch);
 ?>
