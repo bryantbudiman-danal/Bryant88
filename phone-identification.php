@@ -11,7 +11,7 @@
 	function generateRequestBody() {
 		$correlationid = randString(11);
 
-		echo "correlationid is: " . $correlationid . "\n\n\n\n\n";
+		date_default_timezone_set('UTC');
  
 		$payload = "correlationid=" . $correlationid .
 				   '&timestamp=' . date("YmdHis") .
