@@ -11,9 +11,9 @@
     return $rand;
   }
 
-  $associationKey = $_GET['id']);
+  //$associationKey = $_GET['id']);
 
-echo "associationKey: " . $associationKey;
+echo "associationKey: ";
 
   $evurlRequest = curl_init($EVURL);
 
