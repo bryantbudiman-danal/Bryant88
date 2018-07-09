@@ -33,7 +33,7 @@
 	    $requestBody = 'data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 
-		///
+		//
 	 //    $encryptedPayload = urldecode($encryptedPayload);
 	 //    $iv = urldecode($iv);
 
@@ -42,7 +42,7 @@
 		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
 		// echo "decodedPayload: " . $pleaseDecode;
-		///
+		//
 
 		return $requestBody;
 	}          
@@ -51,12 +51,12 @@
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 
-	// $evurlRequest = curl_init($EVURL);
-	// curl_setopt($evurlRequest, CURLOPT_HEADER, false);
-	// curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
+	$evurlRequest = curl_init();
+	curl_setopt($evurlRequest, CURLOPT_URL, $EVURL);
+	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
+	curl_setopt($evurlRequest, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($evurlRequest, CURLOPT_AUTOREFERER, true);
 
-	// $result = curl_exec($evurlRequest);
-	// echo $result;
-
-	echo $EVURL;
+	$result = curl_exec($evurlRequest);
+	echo $result;
 ?>
