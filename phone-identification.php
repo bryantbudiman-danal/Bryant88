@@ -2,23 +2,27 @@
 	function randString() {
     	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
     	$char = str_shuffle($char);
-    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 38; $i ++) {
+    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 11$i ++) {
         	$rand .= $char{mt_rand(0, $l)};
     	}
     	return $rand;
     }
 
 	function generateRequestBody() {
-		$payload = 'correlationid=12345'.
+		$payload = 'correlationid=88rising'.
 				   '&amp;timestamp=' . date("YmdHis") .
 				   '&amp;nonce=' . rand(10000,99999);
+
+				   echo $payload . "             ";
+
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
  	    // Generate the cipher salt
-	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
-	    $iv = bin2hex($iv);
+	    // $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
+	    // $iv = bin2hex($iv);
+	    $iv = randString();
 
 	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
@@ -28,7 +32,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
+	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
 
 		
 	 //    $encryptedPayload = urldecode($encryptedPayload);
