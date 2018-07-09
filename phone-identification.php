@@ -9,7 +9,7 @@
     }
 
 	function generateRequestBody() {
-		$payload = 'correlationid=88rising'.
+		$payload = 'correlationid=bryantbudiman'.
 				   '&amp;timestamp=' . date("YmdHis") .
 				   '&amp;nonce=' . rand(10000,99999);
 
