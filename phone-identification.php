@@ -51,10 +51,12 @@
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 
-	$evurlRequest = curl_init($EVURL);
-	curl_setopt($evurlRequest, CURLOPT_HEADER, false);
-	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
+	// $evurlRequest = curl_init($EVURL);
+	// curl_setopt($evurlRequest, CURLOPT_HEADER, false);
+	// curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
 
-	$result = curl_exec($evurlRequest);
-	echo $result;
+	// $result = curl_exec($evurlRequest);
+	// echo $result;
+
+	echo $EVURL;
 ?>
