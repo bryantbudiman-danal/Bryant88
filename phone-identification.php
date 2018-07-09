@@ -23,13 +23,14 @@
 	    // $iv = bin2hex($iv);
 	    $iv = randString(8);
 
-	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+	    // $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+	     $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_ZERO_PADDING, $iv);
 
 	    $encryptedPayload = base64_encode($encryptedPayload);
 
-	    //$encryptedPayload = urlencode($encryptedPayload);
+	    $encryptedPayload = urlencode($encryptedPayload);
 
-		//$iv = urlencode($iv);
+		$iv = urlencode($iv);
 
 	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
 
