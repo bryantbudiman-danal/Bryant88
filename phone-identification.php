@@ -9,10 +9,14 @@
     }
 
 	function generateRequestBody() {
-		$payload = "correlationid=88888888" . 
+		$correlationid = randString();
+
+		$payload = "correlationid=" . $correlationid .
 				   '&amp;timestamp=' . date("YmdHis") .
 				   '&amp;nonce='.rand(10000,99999);
 
+        echo "correlationid is: " . $correlationid;
+        
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
