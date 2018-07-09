@@ -10,19 +10,21 @@
 
 	function generateRequestBody() {
 		$correlationid = randString(11);
+
+		echo "correlationid is: " . $correlationid . "\n\n\n\n\n";
  
 		$payload = "correlationid=" . $correlationid .
-				   '&timestamp=' . date("YmdHis") .
-				   '&nonce='.rand(10000,99999);
+				   '&amp;timestamp=' . date("YmdHis") .
+				   '&amp;nonce='.rand(10000,99999);
 
-	    echo "payload: " . $payload . "\n\n";
-
+		echo "payload is: " . $payload . "\n\n";
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
  	    // Generate the cipher salt
-	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
-	    $iv = bin2hex($iv);
+	    // $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
+	    // $iv = bin2hex($iv);
+	    $iv = randString(14);
 
 	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
@@ -32,7 +34,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "data=" . $encryptedPayload . "&cipherSalt=" . $iv;
+	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
 
 
 		///
