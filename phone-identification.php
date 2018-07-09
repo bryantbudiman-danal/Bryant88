@@ -15,8 +15,8 @@
 				   '&amp;timestamp=' . date("YmdHis") .
 				   '&amp;nonce='.rand(10000,99999);
 
-        echo "correlationid is: " . $correlationid;
-        
+        echo "correlationid is: " . $correlationid . "\n\n\n";
+
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
