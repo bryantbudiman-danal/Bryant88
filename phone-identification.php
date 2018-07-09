@@ -9,7 +9,7 @@
     }
 
 	function generateRequestBody() {
-		$payload = "correlationid=88888888" . 
+		$payload = "correlationid=aaaaa88888" .
 				   '&amp;timestamp=' . date("YmdHis") .
 				   "&nonce=" . rand(10000,99999);
 
@@ -44,26 +44,19 @@
 		return $requestBody;
 	}
 
-	// $ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
+    $postBody = generateRequestBody();
+	$url = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+	$ch = curl_init($url);      
 
-	$postBody = generateRequestBody();
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
 
-	// curl_setopt($ch, CURLOPT_POST, true);      
+    $date = date("c"); 
 
-	// curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+        'Accept: application/json',
+        'RequestTime: ' . $date                            
+    ))                          
 
-	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-
- //    $date = date("c"); 
-
- //    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
- //    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
- //        'Accept: application/json',
- //        'RequestTime: ' . $date,
-	// 	'Content-Length: ' . strlen($postBody))                                
- //    );                          
-
-	// $result = curl_exec($ch);
-
-	echo 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+	$result = curl_exec($ch);
 ?>
