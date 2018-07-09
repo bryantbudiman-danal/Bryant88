@@ -18,6 +18,7 @@
 
  	    // Generate the cipher salt
 	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
+	    $iv = bin2hex($iv);
 
 	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
@@ -25,21 +26,20 @@
 
 	    $encryptedPayload = urlencode($encryptedPayload);
 
-		$iv = urlencode(bin2hex($iv));
+		$iv = urlencode($iv);
 
 	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
-		///
-	 //    $encryptedPayload = urldecode($encryptedPayload);
-	 //    $iv = urldecode($iv);
-	 //    $iv = hex2bin($iv);
+		
+	    $encryptedPayload = urldecode($encryptedPayload);
+	    $iv = urldecode($iv);
 
-		// $decodedPayload = base64_decode($encryptedPayload);
+		$decodedPayload = base64_decode($encryptedPayload);
 
-		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-		// echo "decodedPayload: " . $pleaseDecode;
-		///
+		echo "decodedPayload: " . $pleaseDecode;
+		
 
 		return $requestBody;
 	}
