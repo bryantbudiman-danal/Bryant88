@@ -25,18 +25,23 @@
 
 	    $encryptedPayload = urlencode($encryptedPayload);
 
-		$iv = urlencode($iv);
+		$iv = urlencode(bin2hex($iv));
 
 	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success.php" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
 
-	    // $encryptedPayload = urldecode($encryptedPayload);
-	    // $iv = urldecode($iv);
 
-		// $decodedPayload = base64_decode($encryptedPayload);
+		//
+	    $encryptedPayload = urldecode($encryptedPayload);
+	    $iv = urldecode($iv);
+	    $iv = hex2bin($iv);
 
-		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+		$decodedPayload = base64_decode($encryptedPayload);
 
-		// echo "decodedPayload: " . $pleaseDecode;
+		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+
+		echo "decodedPayload: " . $pleaseDecode;
+		//
+
 
 		return $requestBody;
 	}
