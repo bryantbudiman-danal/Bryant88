@@ -13,6 +13,8 @@
 
   $associationKey = $_GET['id']);
 
+echo "associationKey: " . $associationKey;
+
   $evurlRequest = curl_init($EVURL);
 
   $parameters = array("merchantId" => "0218000710B56C", 
