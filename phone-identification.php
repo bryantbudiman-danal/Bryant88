@@ -30,7 +30,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = 'data=' . $encryptedPayload . '&cipherSalt=' . $iv;
+	    $requestBody = '&redirect=https://bryant88.azurewebsites.net/phone-identification-success.php' . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 
 		///
@@ -51,11 +51,5 @@
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 
-	$evurlRequest = curl_init($EVURL);
-
-	curl_setopt($evurlRequest, CURLOPT_CUSTOMREQUEST, "POST");  
-	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
-
-	$result = curl_exec($evurlRequest);
-	echo $result;
+	header('Location: ' . $EVURL);
 ?>
