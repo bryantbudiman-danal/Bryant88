@@ -9,7 +9,7 @@
     }
 
 	function generateRequestBody() {
-		$payload = "correlationid=" . urlencode(randString()) . 
+		$payload = "correlationid=88888888" . 
 				   '&amp;timestamp=' . date("YmdHis") .
 				   "&nonce=" . rand(10000,99999);
 
@@ -19,7 +19,7 @@
  	    // Generate the cipher salt
 	    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
 
-	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey,OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
 	    $encryptedPayload = base64_encode($encryptedPayload);
 
@@ -28,7 +28,6 @@
 		$iv = urlencode(bin2hex($iv));
 
 	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
-	    echo "requestBody: " . $requestBody; 
 
 		///
 	 //    $encryptedPayload = urldecode($encryptedPayload);
@@ -45,26 +44,26 @@
 		return $requestBody;
 	}
 
-	$ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
+	// $ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
 
-	$postBody = generateRequestBody();
+	// $postBody = generateRequestBody();
 
-	curl_setopt($ch, CURLOPT_POST, true);      
+	// curl_setopt($ch, CURLOPT_POST, true);      
 
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
+	// curl_setopt($ch, CURLOPT_POSTFIELDS, $postBody);
 
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
 
-    $date = date("c"); 
+ //    $date = date("c"); 
 
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-        'Accept: application/json',
-        'RequestTime: ' . $date,
-		'Content-Length: ' . strlen($postBody))                                
-    );                          
+ //    curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+ //    	'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+ //        'Accept: application/json',
+ //        'RequestTime: ' . $date,
+	// 	'Content-Length: ' . strlen($postBody))                                
+ //    );                          
 
-	$result = curl_exec($ch);
+	// $result = curl_exec($ch);
 
-	echo $result;
+	echo 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 ?>

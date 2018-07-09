@@ -18,7 +18,7 @@
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
                       "consumerMdn" => "+13333331001",
-                      "correlationId" => $correlationID,
+                      "correlationId" => "$correlationID",
                       "consentId" => $consentId,
                       "consentTimeStamp" => $consentTimeStamp
                 );
