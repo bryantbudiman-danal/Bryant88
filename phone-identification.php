@@ -46,7 +46,7 @@
 
 	// $ch = curl_init('http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo');          
 
-	// $postBody = generateRequestBody();
+	$postBody = generateRequestBody();
 
 	// curl_setopt($ch, CURLOPT_POST, true);      
 
