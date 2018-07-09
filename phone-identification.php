@@ -21,9 +21,6 @@
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
- 	    // Generate the cipher salt
-	    // $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-128-ctr'));
-	    // $iv = bin2hex($iv);
 	    $iv = randString(14);
 
 	    $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
@@ -53,5 +50,9 @@
 
 	$postBody = generateRequestBody();
 
-	echo 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+
+	$evurlRequest = curl_init($EVURL);
+
+	curl_exec($evurlRequest);
 ?>

@@ -1,5 +1,5 @@
 <?php
-  function randString() {
+  function randString($length) {
     $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
 
     $char = str_shuffle($char);
@@ -11,36 +11,36 @@
     return $rand;
   }
 
-  /////////////////////
+  // START OF EVURL GENERATION //
+  $correlationId = randString(11);
 
-//   $temp = curl_init('http://misbox.dnlsrv.com/msbox/id/vIZtkeID?data=hbJjZ0Rc%2Fw0NjZl0v3RACFIyqDt74Za3PgejS6PNxicSHj%2FRvZniIbYhpBrN
-// 217JDBI8AaA3Zj3DlZXpRt6G&cipherSalt=BOeg3HVwm9aBacHT');               
+  date_default_timezone_set('UTC');
+ 
+  $payload = "correlationid=" . $correlationid .
+             '&timestamp=' . date("YmdHis") .
+             '&nonce='.rand(10000,99999);
 
-//   curl_setopt($temp, CURLOPT_RETURNTRANSFER, true);   
+  $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
-//     curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
-//     'Content-Length: ' . strlen($postBody))                                
-//     );                          
+  $iv = randString(14);
 
-//      $date = date("c");
+  $encryptedPayload = openssl_encrypt($payload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-//       curl_setopt($temp, CURLOPT_HTTPHEADER, array(  
-//     'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-//     'Accept: application/json',
-//     'RequestTime: ' . $date,
-//     'Content-Type: application/json'                              
-//   ));  
+  $encryptedPayload = base64_encode($encryptedPayload);
 
-//   $result = curl_exec($temp);
+  $encryptedPayload = urlencode($encryptedPayload);
 
-//   echo $result;
+  $iv = urlencode($iv);
 
-/////////////////
+  $requestBody = "data=" . $encryptedPayload . "&cipherSalt=" . $iv;
 
-  $correlationID = randString();
+  $EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
+  // END OF EVURL GENERATION //
+
+  $evurlRequest = curl_init($EVURL);
 
   $parameters = array("merchantId" => "0218000710B56C", 
-                      "correlationId" => $correlationID,
+                      "correlationId" => $correlationId,
                       "associationKey" => "88rising"
                 );
 
