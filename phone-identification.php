@@ -72,3 +72,20 @@
 
 //cho 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  </head>
+
+ <body>
+ 	<?php
+		echo "<link href=" . 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody . ">";
+	?>
+
+ </body>
+
+ </html>
