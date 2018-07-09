@@ -14,8 +14,8 @@
 		echo "correlationid is: " . $correlationid . "\n\n\n\n\n";
  
 		$payload = "correlationid=" . $correlationid .
-				   '&amp;timestamp=' . date("YmdHis") .
-				   '&amp;nonce='.rand(10000,99999);
+				   '&timestamp=' . date("YmdHis") .
+				   '&nonce='.rand(10000,99999);
 
 		echo "payload is: " . $payload . "\n\n";
 	    // Remove the base64 encoding from our key
@@ -34,7 +34,7 @@
 
 		$iv = urlencode($iv);
 
-	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
+	    $requestBody = "data=" . $encryptedPayload . "&cipherSalt=" . $iv;
 
 
 		///
