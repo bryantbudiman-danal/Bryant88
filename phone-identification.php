@@ -56,5 +56,6 @@
 	curl_setopt($evurlRequest, CURLOPT_CUSTOMREQUEST, "POST");  
 	curl_setopt($evurlRequest, CURLOPT_RETURNTRANSFER, true); 
 
-	curl_exec($evurlRequest);
+	$result = curl_exec($evurlRequest);
+	echo $result;
 ?>
