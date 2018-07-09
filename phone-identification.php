@@ -69,5 +69,5 @@
 
 	// $result = curl_exec($ch);
 
-	echo 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
+	echo 'https://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $postBody;
 ?>
