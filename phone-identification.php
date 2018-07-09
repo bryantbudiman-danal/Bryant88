@@ -27,11 +27,9 @@
 
 	    $encryptedPayload = base64_encode($encryptedPayload);
 
-	    $encryptedPayload = urlencode($encryptedPayload);
+	    //$encryptedPayload = urlencode($encryptedPayload);
 
-		$iv = urlencode($iv);
-
-
+		//$iv = urlencode($iv);
 
 	    $requestBody = "data=" . $encryptedPayload . "&amp;cipherSalt=" . $iv;
 
