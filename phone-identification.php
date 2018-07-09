@@ -17,7 +17,7 @@
 				   '&amp;timestamp=' . date("YmdHis") .
 				   '&amp;nonce='.rand(10000,99999);
 
-		echo "payload is: " . $payload . "hello\n\n";
+		echo "payload is: " . $payload . "\n\n";
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
 
