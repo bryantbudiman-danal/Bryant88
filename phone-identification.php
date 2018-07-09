@@ -10,8 +10,8 @@
 
 	function generateRequestBody() {
 		$payload = "correlationid=" . urlencode(randString()) . 
-				   '&amp;TimeStamp=' . date("YmdHis") .
-				   "&Nonce=" . rand(10000,99999);
+				   '&amp;timestamp=' . date("YmdHis") .
+				   "&nonce=" . rand(10000,99999);
 
 	    // Remove the base64 encoding from our key
 	    $aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
@@ -27,21 +27,20 @@
 
 		$iv = urlencode(bin2hex($iv));
 
-	    $requestBody = "redirect=https://bryant88.azurewebsites.net/phone-identification-success.php" . "&amp;cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
+	    $requestBody = "cipherSalt=" . $iv . "&amp;data=" . $encryptedPayload;
+	    echo "requestBody: " . $requestBody; 
 
+		///
+	 //    $encryptedPayload = urldecode($encryptedPayload);
+	 //    $iv = urldecode($iv);
+	 //    $iv = hex2bin($iv);
 
-		//
-	    $encryptedPayload = urldecode($encryptedPayload);
-	    $iv = urldecode($iv);
-	    $iv = hex2bin($iv);
+		// $decodedPayload = base64_decode($encryptedPayload);
 
-		$decodedPayload = base64_decode($encryptedPayload);
+		// $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-		$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
-
-		echo "decodedPayload: " . $pleaseDecode;
-		//
-
+		// echo "decodedPayload: " . $pleaseDecode;
+		///
 
 		return $requestBody;
 	}
