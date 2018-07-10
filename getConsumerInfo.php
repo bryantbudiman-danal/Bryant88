@@ -1,26 +1,26 @@
 <?php
-  function randString() {
-    $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
+  // function randString() {
+  //   $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
 
-    $char = str_shuffle($char);
+  //   $char = str_shuffle($char);
 
-    for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
-      $rand .= $char{mt_rand(0, $l)};
-    }
+  //   for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
+  //     $rand .= $char{mt_rand(0, $l)};
+  //   }
       
-    return $rand;
-  }
+  //   return $rand;
+  // }
 
-  $correlationId = randString();
+  // $correlationId = randString();
   $authenticationKey = $_GET['authenticationKey'];
 
   echo "auth key is: " $authenticationKey;
   
-  $parameters = array("merchantId" => "0218000710B56C", 
-                      "intendedUseCase" => "PC",
-                      "authenticationKey" => $authenticationKey,
-                      "correlationId" => $correlationId
-                );
+  // $parameters = array("merchantId" => "0218000710B56C", 
+  //                     "intendedUseCase" => "PC",
+  //                     "authenticationKey" => $authenticationKey,
+  //                     "correlationId" => $correlationId
+  //               );
 
   // $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
