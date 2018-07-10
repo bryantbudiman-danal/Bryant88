@@ -11,22 +11,21 @@
     return $rand;
   }
 
-  date_default_timezone_set('UTC');
   $correlationID = randString();
-  $consentId = randString();
-  $consentTimeStamp = date("YmdHis");
+  $authenticationKey = $_GET['authenticationKey'];
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
-                      "consumerMdn" => "+13333331001",
-                      "correlationId" => "$correlationID"
+                      "authenticationKey" => $authenticationKey,
+                      "correlationId" => $correlationID
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
+  date_default_timezone_set('UTC');
   $date = date("c");
                                                            
-  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoWithMatch');
+  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
@@ -46,18 +45,18 @@
 
   echo $resultJSON;
   
-  $result = json_decode($resultJSON, true);
+  // $result = json_decode($resultJSON, true);
 
-  $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
+  // $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
-  $iv =  trim($result['results']['cipherSalt']);
+  // $iv =  trim($result['results']['cipherSalt']);
 
-  $encryptedPayload = trim($result['results']['encryptedData']);
+  // $encryptedPayload = trim($result['results']['encryptedData']);
 
-  $decodedPayload = base64_decode($encryptedPayload);
+  // $decodedPayload = base64_decode($encryptedPayload);
 
-  $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+  // $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-  echo $pleaseDecode;
+  // echo $pleaseDecode;
 
 ?>

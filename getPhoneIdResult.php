@@ -46,18 +46,5 @@
 
   $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
 
-  echo "authenticationKey is: " . $authenticationKey;
-
-  // $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
-
-  // $iv =  trim($result['results']['cipherSalt']);
-
-  // $encryptedPayload = trim($result['results']['encryptedData']);
-
-  // $decodedPayload = base64_decode($encryptedPayload);
-
-  // $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
-
-  // echo $pleaseDecode;
-
+  header('Location: ../getConsumerInfo.php?authenticationKey=' . $authenticationKey);
 ?>
