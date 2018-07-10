@@ -58,5 +58,5 @@
 
   echo "auth key: " . $authenticationKey;
 
-  //header('Location: ../check.php?authenticationKey=' . $authenticationKey);
+  //header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
 ?>

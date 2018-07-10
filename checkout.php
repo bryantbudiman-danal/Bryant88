@@ -233,7 +233,7 @@
               <label for="address2">Address 2<span class="text-muted">(Optional)</span></label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="' . $address2 . '" value="' . $address2 . '" required>';
+                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="' . $address2 . '" value="' . $address2 . '">';
                 } else {
                   echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="Apartment or suite">';
                 }
