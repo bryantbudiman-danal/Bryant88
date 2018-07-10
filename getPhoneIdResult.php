@@ -41,6 +41,8 @@
   );                     
                                                                                                                        
   $resultJSON = curl_exec($ch);
+
+  echo $resultJSON;
   
   $result = json_decode($resultJSON, true);
 
