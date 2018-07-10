@@ -171,7 +171,7 @@
             }
           ?>
 
-          <form class="needs-validation" action="checkout-process.php" method="POST" novalidate>
+          <form class="needs-validation" action="phoneID-match.php" method="POST" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>

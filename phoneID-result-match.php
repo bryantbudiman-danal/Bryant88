@@ -11,6 +11,16 @@
     return $rand;
   }
 
+  echo "firstName: " . $_GET['firstName'];
+  echo "lastName: " . $_GET['lastName'];
+  echo "email: " . $_GET['email'];
+  echo 'address1: ' . $_GET['address1'];
+  echo 'address2: ' . $_GET['address2'];
+  echo 'city: ' . $_GET['city'];
+  echo 'state: ' . $_GET['state'];
+  echo 'zip: ' . $_GET['zip'];  
+  echo 'country: ' . $_GET['country'];
+
   $correlationId = randString(11);
   $associationKey = $_GET['id'];
 
@@ -46,5 +56,7 @@
 
   $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
 
-  header('Location: ../check.php?authenticationKey=' . $authenticationKey);
+  echo "auth key: " . $authenticationKey;
+
+  //header('Location: ../check.php?authenticationKey=' . $authenticationKey);
 ?>
