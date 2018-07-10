@@ -29,7 +29,7 @@
 
     $iv = urlencode($iv);
 
-	$requestBody = '&redirect=https://bryant88.azurewebsites.net/getPhoneIdResult.php?id=' . $correlationId . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
+	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-getInfo.php?id=' . $correlationId . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
 

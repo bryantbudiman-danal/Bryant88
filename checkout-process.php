@@ -10,15 +10,15 @@
     	return $rand;
     }
 
-	$firstName = $_POST['firstName'];
-	$lastName = $_POST['lastName'];
-	$email = $_POST['email'];
-	$address1 = $_POST['address1'];
-	$address2 = $_POST['address2'];
-	$city = $_POST['city'];
-	$state = $_POST['state'];
-	$zip = $_POST['zip'];	
-	$country = $_POST['country'];
+	$firstName = $_GET['firstName'];
+	$lastName = $_GET['lastName'];
+	$email = $_GET['email'];
+	$address1 = $_GET['address1'];
+	$address2 = $_GET['address2'];
+	$city = $_GET['city'];
+	$state = $_GET['state'];
+	$zip = $_GET['zip'];	
+	$country = $_GET['country'];
 
 	$identityArray = array("consumerFirstName" => "" . $firstName . "",
 						   "consumerLastName" => "" . $lastName . "",
@@ -38,7 +38,7 @@
 				  "attributeGroups" => "matchScores", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
-				  "consumerMdn" => "+14444441002"
+				  "authenticationKey" => $authenticationKey
 				);
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
