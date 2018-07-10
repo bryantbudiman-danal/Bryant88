@@ -11,6 +11,8 @@
     return $rand;
   }
 
+  session_start();
+
   echo "firstName: " . $_SESSION['firstName'];
   echo "lastName: " . $_SESSION['lastName'];
   echo "email: " . $_SESSION['email'];
