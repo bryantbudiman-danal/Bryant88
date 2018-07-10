@@ -177,7 +177,7 @@
                 <label for="firstName">First name</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="firstName" class="form-control" id="firstName" placeholder="' . $firstName . '" value="' . $firstName . '" readonly>';
+                    echo '<input type="text" name="firstName" class="form-control" id="firstName" placeholder="' . $firstName . '" value="' . $firstName . '" required>';
                   } else {
                     echo '<input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required>';
                   }
@@ -190,7 +190,7 @@
                 <label for="lastName">Last name</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="lastName" class="form-control" id="lastName" placeholder="' . $lastName . '" value="' . $lastName . '" readonly>';
+                    echo '<input type="text" name="lastName" class="form-control" id="lastName" placeholder="' . $lastName . '" value="' . $lastName . '" required>';
                   } else {
                     echo '<input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required>';
                   }
@@ -205,7 +205,7 @@
               <label for="email">Email</label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                  echo '<input type="email" name="email" class="form-control" id="email" placeholder="' . $email . '" value="' . $email . '" readonly>';
+                  echo '<input type="email" name="email" class="form-control" id="email" placeholder="' . $email . '" value="' . $email . '" required>';
                 } else {
                   echo '<input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" required>';
                 }
@@ -219,7 +219,7 @@
               <label for="address">Address</label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                  echo '<input type="text" name="address1" class="form-control" id="address" placeholder="' . $address1 . '" value="' . $address1 . '" readonly>';
+                  echo '<input type="text" name="address1" class="form-control" id="address" placeholder="' . $address1 . '" value="' . $address1 . '" required>';
                 } else {
                   echo '<input type="text" name="address1" class="form-control" id="address" placeholder="1234 Main St" required>';
                 }
@@ -233,7 +233,7 @@
               <label for="address2">Address 2<span class="text-muted">(Optional)</span></label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="' . $address2 . '" value="' . $address2 . '" readonly>';
+                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="' . $address2 . '" value="' . $address2 . '" required>';
                 } else {
                   echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="Apartment or suite">';
                 }
@@ -244,7 +244,7 @@
               <label for="city">City</label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                  echo '<input type="text" name="city" class="form-control" id="city" placeholder="' . $city . '" value="' . $city . '" readonly>';
+                  echo '<input type="text" name="city" class="form-control" id="city" placeholder="' . $city . '" value="' . $city . '" required>';
                 } else {
                   echo '<input type="text" name="city" class="form-control" id="city" placeholder="Los Angeles" required>';
                 }
@@ -256,7 +256,7 @@
                 <label for="state">State</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="state" class="form-control" id="state" placeholder="' . $state . '" value="' . $state . '" readonly>';
+                    echo '<input type="text" name="state" class="form-control" id="state" placeholder="' . $state . '" value="' . $state . '" required>';
                   } else {
                     echo '<input type="text" name="state" class="form-control" id="state" placeholder="State" required>';
                   }
@@ -269,7 +269,7 @@
                 <label for="zip">Zip</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="zip" class="form-control" id="zip" placeholder="' . $zip . '" value="' . $zip . '" readonly>';
+                    echo '<input type="text" name="zip" class="form-control" id="zip" placeholder="' . $zip . '" value="' . $zip . '" required>';
                   } else {
                     echo '<input type="text" name="zip" class="form-control" id="zip" placeholder="Zip" required>';
                   }
@@ -282,7 +282,7 @@
                 <label for="country">Country</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="country" class="form-control" id="address2" placeholder="' . $country . '" value="' . $country . '" readonly>';
+                    echo '<input type="text" name="country" class="form-control" id="address2" placeholder="' . $country . '" value="' . $country . '" required>';
                   } else {
                 ?>
                 
