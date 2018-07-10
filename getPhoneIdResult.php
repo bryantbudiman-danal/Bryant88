@@ -15,7 +15,7 @@
 
   $associationKey = $_GET['id']);
 
-  header('Location: ../login.php?id=' . $associationKey); 
+  echo "association key: " . $associationKey . "\n\n\n";
 
   $evurlRequest = curl_init($EVURL);
 
