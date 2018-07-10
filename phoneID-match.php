@@ -45,5 +45,7 @@
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
 
-	header('Location: ' . $EVURL);
+	echo $getURL;
+
+	//header('Location: ' . $EVURL);
 ?>
