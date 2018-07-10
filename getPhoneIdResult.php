@@ -46,5 +46,6 @@
 
   $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
 
-  header('Location: ../getConsumerInfo.php?authenticationKey=' . $authenticationKey);
+  echo $authenticationKey;
+  //header('Location: ../getConsumerInfo.php?authenticationKey=' . $authenticationKey);
 ?>
