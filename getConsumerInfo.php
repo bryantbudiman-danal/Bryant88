@@ -11,39 +11,41 @@
     return $rand;
   }
 
-  $correlationID = randString();
+  $correlationId = randString();
   $authenticationKey = $_GET['authenticationKey'];
 
+  echo "auth key is: " $authenticationKey;
+  
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
                       "authenticationKey" => $authenticationKey,
-                      "correlationId" => $correlationID
+                      "correlationId" => $correlationId
                 );
 
-  $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+  // $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
-  date_default_timezone_set('UTC');
-  $date = date("c");
+  // date_default_timezone_set('UTC');
+  // $date = date("c");
                                                            
-  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
+  // $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
 
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
+  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
+  // curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
 
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
+  // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-    'Accept: application/json',
-    'RequestTime: ' . $date,
-    'Content-Type: application/json',                                          
-    'Content-Length: ' . strlen($parametersJSON))                                
-  );                     
+  // curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+  //   'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+  //   'Accept: application/json',
+  //   'RequestTime: ' . $date,
+  //   'Content-Type: application/json',                                          
+  //   'Content-Length: ' . strlen($parametersJSON))                                
+  // );                     
                                                                                                                        
-  $resultJSON = curl_exec($ch);
+  // $resultJSON = curl_exec($ch);
 
-  echo $resultJSON;
+  // echo $resultJSON;
   
   // $result = json_decode($resultJSON, true);
 
