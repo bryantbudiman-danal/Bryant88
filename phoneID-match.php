@@ -39,7 +39,7 @@
 	$zip = $_GET['zip'];	
 	$country = $_GET['country'];
 
-	$getURL = 'id=' . $id . '&firstName=' . $firstName . '&lastName=' . $lastName . '&email=' . $email . '&address1=' . $address1 . '&address2=' . $address2 . '&city=' . $city . '&state=' . $state . '&zip=' . $zip . '&country=' . $country;
+	$getURL = 'id=' . $id;
 
 	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?' . $getURL . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
