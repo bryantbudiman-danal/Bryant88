@@ -1,51 +1,51 @@
 <?php
-  // function randString() {
-  //   $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
+  function randString() {
+    $char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
 
-  //   $char = str_shuffle($char);
+    $char = str_shuffle($char);
 
-  //   for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
-  //     $rand .= $char{mt_rand(0, $l)};
-  //   }
+    for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
+      $rand .= $char{mt_rand(0, $l)};
+    }
       
-  //   return $rand;
-  // }
+    return $rand;
+  }
 
-  // $correlationId = randString();
+  $correlationId = randString();
   $authenticationKey = $_GET['authenticationKey'];
 
-  echo "auth key is: " $authenticationKey;
-  
-  // $parameters = array("merchantId" => "0218000710B56C", 
-  //                     "intendedUseCase" => "PC",
-  //                     "authenticationKey" => $authenticationKey,
-  //                     "correlationId" => $correlationId
-  //               );
+  echo "auth key is: " . $authenticationKey;
 
-  // $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+  $parameters = array("merchantId" => "0218000710B56C", 
+                      "intendedUseCase" => "PC",
+                      "authenticationKey" => $authenticationKey,
+                      "correlationId" => $correlationId
+                );
 
-  // date_default_timezone_set('UTC');
-  // $date = date("c");
+  $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+
+  date_default_timezone_set('UTC');
+  $date = date("c");
                                                            
-  // $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
+  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
 
-  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  // curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
 
-  // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
-  // curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-  //   'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-  //   'Accept: application/json',
-  //   'RequestTime: ' . $date,
-  //   'Content-Type: application/json',                                          
-  //   'Content-Length: ' . strlen($parametersJSON))                                
-  // );                     
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+    'Accept: application/json',
+    'RequestTime: ' . $date,
+    'Content-Type: application/json',                                          
+    'Content-Length: ' . strlen($parametersJSON))        
+  );                     
                                                                                                                        
-  // $resultJSON = curl_exec($ch);
+  $resultJSON = curl_exec($ch);
 
-  // echo $resultJSON;
+  echo $resultJSON;
   
   // $result = json_decode($resultJSON, true);
 
