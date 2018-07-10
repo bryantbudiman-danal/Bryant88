@@ -41,9 +41,10 @@
 
 	$getURL = 'id=' . $correlationId . '&firstName=' . $firstName . '&lastName=' . $lastName . '&email=' . $email . '&address1=' . $address1 . '&address2=' . $address2 . '&city=' . $city . '&state=' . $state . '&zip=' . $zip . '&country=' . $country;
 
+echo $getURL;
 	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?' . $getURL . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
 
-	header('Location: ' . $EVURL);
+	//header('Location: ' . $EVURL);
 ?>
