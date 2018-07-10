@@ -11,18 +11,6 @@
     return $rand;
   }
 
-  session_start();
-
-  echo "firstName: " . $_SESSION['firstName'];
-  echo "lastName: " . $_SESSION['lastName'];
-  echo "email: " . $_SESSION['email'];
-  echo 'address1: ' . $_SESSION['address1'];
-  echo 'address2: ' . $_SESSION['address2'];
-  echo 'city: ' . $_SESSION['city'];
-  echo 'state: ' . $_SESSION['state'];
-  echo 'zip: ' . $_SESSION['zip'];  
-  echo 'country: ' . $_SESSION['country'];
-
   $correlationId = randString(11);
   $associationKey = $_GET['id'];
 
@@ -60,5 +48,5 @@
 
   echo "auth key: " . $authenticationKey;
 
-  //header('Location: ../checkout.php?authenticationKey=' . $authenticationKey);
+  header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
 ?>-
