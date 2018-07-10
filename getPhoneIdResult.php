@@ -13,9 +13,9 @@
 
   // session_start();
 
-  // $associationKey = $_GET['id']);
+  $associationKey = $_GET['id'];
 
-  // echo "association key: " . $associationKey . "\n\n\n";
+  echo "association key: " . $associationKey . "\n\n\n";
 
   // $evurlRequest = curl_init($EVURL);
 
