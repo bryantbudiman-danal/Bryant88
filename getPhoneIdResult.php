@@ -13,6 +13,8 @@
 
   $associationKey = $_GET['id'];
 
+  echo $associationKey;
+
   // $parameters = array("merchantId" => "0218000710B56C", 
   //                     "correlationId" => $correlationId,
   //                     "associationKey" => $associationKey
