@@ -29,19 +29,19 @@
 
     $iv = urlencode($iv);
 
-    $firstName = $_GET['firstName'];
-	$lastName = $_GET['lastName'];
-	$email = $_GET['email'];
-	$address1 = $_GET['address1'];
-	$address2 = $_GET['address2'];
-	$city = $_GET['city'];
-	$state = $_GET['state'];
-	$zip = $_GET['zip'];	
-	$country = $_GET['country'];
+    session_start();
 
-	$getURL = 'id=' . $correlationId . '&firstName=' . $firstName . '&lastName=' . $lastName . '&email=' . $email . '&address1=' . $address1 . '&address2=' . $address2 . '&city=' . $city . '&state=' . $state . '&zip=' . $zip . '&country=' . $country;
+    $_SESSION['firstName'] = $_GET['firstName'];
+    $_SESSION['lastName'] = $_GET['lastName'];
+    $_SESSION['email'] = $_GET['email'];
+    $_SESSION['address1'] = $_GET['address1'];
+    $_SESSION['address2'] =  $_GET['address2'];
+    $_SESSION['city'] =  $_GET['city'];
+    $_SESSION['state'] =  $_GET['state'];
+    $_SESSION['zip'] =  $_GET['zip'];
+    $_SESSION['country'] =  $_GET['country'];
 
-	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?' . $getURL . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
+	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?id=' . $correlationId . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
 	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
 

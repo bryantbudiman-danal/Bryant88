@@ -11,15 +11,15 @@
     return $rand;
   }
 
-  echo "firstName: " . $_GET['firstName'];
-  echo "lastName: " . $_GET['lastName'];
-  echo "email: " . $_GET['email'];
-  echo 'address1: ' . $_GET['address1'];
-  echo 'address2: ' . $_GET['address2'];
-  echo 'city: ' . $_GET['city'];
-  echo 'state: ' . $_GET['state'];
-  echo 'zip: ' . $_GET['zip'];  
-  echo 'country: ' . $_GET['country'];
+  echo "firstName: " . $_SESSION['firstName'];
+  echo "lastName: " . $_SESSION['lastName'];
+  echo "email: " . $_SESSION['email'];
+  echo 'address1: ' . $_SESSION['address1'];
+  echo 'address2: ' . $_SESSION['address2'];
+  echo 'city: ' . $_SESSION['city'];
+  echo 'state: ' . $_SESSION['state'];
+  echo 'zip: ' . $_SESSION['zip'];  
+  echo 'country: ' . $_SESSION['country'];
 
   $correlationId = randString(11);
   $associationKey = $_GET['id'];
