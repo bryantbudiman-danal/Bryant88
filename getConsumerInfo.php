@@ -27,7 +27,7 @@
   date_default_timezone_set('UTC');
   $date = date("c");
                                                            
-  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoLookup');
+  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoWithMatch');
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
