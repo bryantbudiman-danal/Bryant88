@@ -38,7 +38,7 @@
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
@@ -58,5 +58,5 @@
 
   echo "auth key: " . $authenticationKey;
 
-  //header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
-?>
+  //header('Location: ../checkout.php?authenticationKey=' . $authenticationKey);
+?>-
