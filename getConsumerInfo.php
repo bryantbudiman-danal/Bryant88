@@ -19,9 +19,7 @@
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
                       "consumerMdn" => "+13333331001",
-                      "correlationId" => "$correlationID",
-                      "consentId" => $consentId,
-                      "consentTimeStamp" => $consentTimeStamp
+                      "correlationId" => "$correlationID"
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);

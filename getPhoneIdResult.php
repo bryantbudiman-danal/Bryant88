@@ -41,10 +41,12 @@
   );                     
                                                                                                                        
   $resultJSON = curl_exec($ch);
-
-  echo $resultJSON;
   
-  // $result = json_decode($resultJSON, true);
+  $result = json_decode($resultJSON, true);
+
+  $authenticationKey = trim($result['phoneIdResult']['authenticationKey']);
+
+  echo "authenticationKey is: " . $authenticationKey;
 
   // $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
