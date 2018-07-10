@@ -11,6 +11,7 @@
     return $rand;
   }
 
+  $correlationId = randString(11);
   $associationKey = $_GET['id'];
 
   $parameters = array("merchantId" => "0218000710B56C", 
