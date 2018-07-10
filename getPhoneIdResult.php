@@ -41,12 +41,10 @@
   );                     
                                                                                                                        
   $resultJSON = curl_exec($ch);
-
-  echo $resultJSON;
   
   $result = json_decode($resultJSON, true);
 
-  $authenticationKey = trim($result['phoneIdResult']['authenticationKey']);
+  $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
 
   echo "authenticationKey is: " . $authenticationKey;
 
