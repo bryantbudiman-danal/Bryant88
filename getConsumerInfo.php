@@ -11,6 +11,7 @@
     return $rand;
   }
 
+  date_default_timezone_set('UTC');
   $correlationID = randString();
   $consentId = randString();
   $consentTimeStamp = date("YmdHis");
