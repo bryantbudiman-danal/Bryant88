@@ -10,15 +10,17 @@
     	return $rand;
     }
 
-	$firstName = $_GET['firstName'];
-	$lastName = $_GET['lastName'];
-	$email = $_GET['email'];
-	$address1 = $_GET['address1'];
-	$address2 = $_GET['address2'];
-	$city = $_GET['city'];
-	$state = $_GET['state'];
-	$zip = $_GET['zip'];	
-	$country = $_GET['country'];
+    session_start();
+
+  	$firstName = $_SESSION['firstName'];
+    $lastName = $_SESSION['lastName'];
+    $email = $_SESSION['email'];
+    $address1 = $_SESSION['address1'];
+    $address2 = $_SESSION['address2'];
+    $city = $_SESSION['city'];
+    $state = $_SESSION['state'];
+    $zip = $_SESSION['zip']; 
+    $country = $_SESSION['country'];
 
 	$identityArray = array("consumerFirstName" => "" . $firstName . "",
 						   "consumerLastName" => "" . $lastName . "",
@@ -30,9 +32,23 @@
 						   "consumerEmailAddress" => "" . $email . ""
 				 	);
 
+	$_SESSION['firstName'] = "";
+    $_SESSION['lastName'] = "";
+    $_SESSION['email'] = "";
+    $_SESSION['address1'] = "";
+    $_SESSION['address2'] = "";
+    $_SESSION['city'] = "";
+    $_SESSION['state'] = "";
+    $_SESSION['zip'] = "";
+    $_SESSION['country'] = "";
+
 	$identityJSON = json_encode($identityArray);
 
 	$randomID = randString();
+
+	$authenticationKey = $_GET['authenticationKey'];
+
+	echo "auth key: " . $authenticationKey . "\n\n";
 
 	$parameters = array("merchantId" => "0218000710B56C", 
 				  "attributeGroups" => "matchScores", 
