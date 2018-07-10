@@ -29,15 +29,15 @@
 
     $iv = urlencode($iv);
 
-    $firstName = $_POST['firstName'];
-	$lastName = $_POST['lastName'];
-	$email = $_POST['email'];
-	$address1 = $_POST['address1'];
-	$address2 = $_POST['address2'];
-	$city = $_POST['city'];
-	$state = $_POST['state'];
-	$zip = $_POST['zip'];	
-	$country = $_POST['country'];
+    $firstName = $_GET['firstName'];
+	$lastName = $_GET['lastName'];
+	$email = $_GET['email'];
+	$address1 = $_GET['address1'];
+	$address2 = $_GET['address2'];
+	$city = $_GET['city'];
+	$state = $_GET['state'];
+	$zip = $_GET['zip'];	
+	$country = $_GET['country'];
 
 	$getURL = 'id=' . $id . '&firstName=' . $firstName . '&lastName=' . $lastName . '&email=' . $email . '&address1=' . $address1 . '&address2=' . $address2 . '&city=' . $city . '&state=' . $state . '&zip=' . $zip . '&country=' . $country;
 
