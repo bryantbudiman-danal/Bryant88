@@ -49,7 +49,8 @@
 	$authenticationKey = $_GET['authenticationKey'];
 
 	$parameters = array("merchantId" => "0218000710B56C", 
-				  "attributeGroups" => "matchScores", 
+				  "attributeGroups" => "matchScores,serviceInfo,accountInfo,additionAccountInfo,deviceInfo,tok
+enInfo,changeInfo", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
 				  "authenticationKey" => $authenticationKey
@@ -87,7 +88,9 @@
 
 	$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-	echo "decodedPayload: " . $pleaseDecode . "\n";
+	$result['results']['encryptedData'] = $pleaseDecode;
 
-	echo  $_SESSION['phoneIdResult-match'];
+	echo nl2br($result['results']['encryptedData']);
+
+	echo nl2br($_SESSION['phoneIdResult-match']);
 ?>
