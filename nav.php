@@ -29,7 +29,7 @@
                 echo '<a class="nav-link js-scroll-trigger" href="../login.php">Login</a>';
               echo '</li>';
               echo '<li class="nav-item">';
-                echo '<a class="nav-link js-scroll-trigger" href="../register.php">Register</a>';
+                echo '<a class="nav-link js-scroll-trigger" href="../pre-register.php">Register</a>';
               echo '</li>';
             }
 
