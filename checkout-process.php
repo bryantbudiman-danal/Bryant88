@@ -76,6 +76,8 @@ enInfo,changeInfo",
 	);                     
 	                                                                                                                     
 	$resultJSON = curl_exec($ch);
+
+	echo $resultJSON;
 	$result = json_decode($resultJSON, true);
 
 	$aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
@@ -88,6 +90,9 @@ enInfo,changeInfo",
 
 	$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-	echo nl2br($pleaseDecode);
-//	echo nl2br($_SESSION['phoneIdResult-match']);
+	$result['results']['encryptedData'] = $pleaseDecode;
+
+	echo nl2br($pleaseDecode
+
+	echo nl2br($_SESSION['phoneIdResult-match']);
 ?>
