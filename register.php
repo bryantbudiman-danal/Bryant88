@@ -57,6 +57,7 @@
   $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 // echo $pleaseDecode;
   $consumerInfo = json_decode($pleaseDecode, true);
+  echo $consumerInfo;
   // $consumerInfo = $pleaseDecode['consumerInfo'];
   echo $consumerInfo["consumerInfo"];
 
