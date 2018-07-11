@@ -18,7 +18,7 @@
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
-                      "authenticationKey" => $authenticationKey,
+                      "consumerMdn" => "+14444441001",
                       "correlationId" => $correlationId
                 );
 
@@ -31,7 +31,7 @@
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
