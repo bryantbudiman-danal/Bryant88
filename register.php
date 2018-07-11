@@ -175,7 +175,7 @@
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
                 <?php
-                  if(isset($_GET['phoneNumber'])) { {
+                  if(isset($_GET['phoneNumber'])) {
                     echo '<input type="text" class="form-control" id="lastName" placeholder="' . $lastName . '" value="'
                     . $lastName . '" required>';
                   } else {
