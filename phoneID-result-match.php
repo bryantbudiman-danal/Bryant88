@@ -42,11 +42,13 @@
                                                                                                                        
   $resultJSON = curl_exec($ch);
   
+  session_start();
+
+  $_SESSION['phoneIdResult-match'] = $resultJSON;
+
   $result = json_decode($resultJSON, true);
 
   $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
-
-  echo "auth key: " . $authenticationKey;
 
   header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
 ?>-
