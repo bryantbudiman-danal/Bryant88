@@ -12,9 +12,8 @@
   }
 
   $correlationId = randString();
-  $authenticationKey = $_GET['authenticationKey'];
 
-  echo "auth key is: " . $authenticationKey;
+  // $authenticationKey = $_GET['authenticationKey'];
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",

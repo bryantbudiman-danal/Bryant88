@@ -11,26 +11,26 @@
     return $rand;
   }
 
-  date_default_timezone_set('UTC');
-  $correlationID = randString();
-  $consentId = randString();
-  $consentTimeStamp = date("YmdHis");
+  $correlationId = randString();
+
+  // $authenticationKey = $_GET['authenticationKey'];
 
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
-                      "consumerMdn" => "+13333331001",
-                      "correlationId" => "$correlationID"
+                      "consumerMdn" => "+14444441001",
+                      "correlationId" => $correlationId
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
 
+  date_default_timezone_set('UTC');
   $date = date("c");
                                                            
   $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoWithMatch');
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);                   
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
 
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
@@ -39,13 +39,11 @@
     'Accept: application/json',
     'RequestTime: ' . $date,
     'Content-Type: application/json',                                          
-    'Content-Length: ' . strlen($parametersJSON))                                
+    'Content-Length: ' . strlen($parametersJSON))        
   );                     
                                                                                                                        
   $resultJSON = curl_exec($ch);
 
-  echo $resultJSON;
-  
   $result = json_decode($resultJSON, true);
 
   $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
@@ -58,8 +56,18 @@
 
   $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-  echo $pleaseDecode;
+  $consumerInfo = json_decode($pleaseDecode, JSON_PRETTY_PRINT);
+  $consumerInfo = $consumerInfo["consumerInfo"];
 
+  $firstName = $consumerInfo["consumerFirstName"];
+  $lastName = $consumerInfo["consumerLastName"];
+  $email = $consumerInfo["consumerEmail"];
+  $address1 = $consumerInfo["consumerAddress1"];
+  $address2 = $consumerInfo["consumerAddress2"];
+  $city = $consumerInfo["consumerCity"];
+  $state = $consumerInfo["consumerState"];
+  $zip = $consumerInfo["consumerPostalCode"];
+  $country = $consumerInfo["consumerCountryCode"];
 ?>
 
 <!doctype html>
@@ -153,14 +161,28 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                <?php
+                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                    echo '<input type="text" class="form-control" id="firstName" placeholder="' . $firstName . '" value="'
+                    . $firstName . '" required>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="firstName" placeholder="First name" required>';
+                  }
+                ?>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                <?php
+                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                    echo '<input type="text" class="form-control" id="lastName" placeholder="' . $lastName . '" value="'
+                    . $lastName . '" required>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="lastName" placeholder="Last name" required>';
+                  }
+                ?>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -169,15 +191,29 @@
 
             <div class="mb-3">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com" required>            
+              <?php
+                if(isset($_GET['success']) && $_GET['success'] == true) {
+                  echo '<input type="email" class="form-control" id="email" placeholder="' . $email . '" value="'
+                  . $email . '" required>';
+                } else {
+                  echo '<input type="email" class="form-control" id="email" placeholder="you@example.com" required>';
+                }
+              ?>       
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+              <label for="address1">Address</label>
+              <?php
+                if(isset($_GET['success']) && $_GET['success'] == true) {
+                  echo '<input type="text" class="form-control" id="address1" placeholder="' . $address1
+                   . '" value="' . $address1 . '" required>';
+                } else {
+                  echo '<input type="text" class="form-control" id="address1" placeholder="1234 Main St" required>';
+                }
+              ?>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -185,26 +221,52 @@
 
             <div class="mb-3">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              <?php
+                if(isset($_GET['success']) && $_GET['success'] == true) {
+                  echo '<input type="text" class="form-control" id="address2
+                  " placeholder="' . $address2 . '" value="' . $address2 . '">';
+                } else {
+                  echo '<input type="text" class="form-control" id="address2" placeholder="1234 Main St">';
+                }
+              ?>              
             </div>
 
             <div class="row">
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State" required>
+                <?php
+                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                    echo '<input type="text" class="form-control" id="state" placeholder="' . $state
+                    . '" value="' . $state.'" required>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="state" placeholder="State" required>';
+                  }
+                ?>                
                 <div class="invalid-feedback">
                   Please provide a valid state.
                 </div>
               </div>
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="Zip" required>
+                <?php
+                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                    echo '<input type="text" class="form-control" id="zip" 
+                     placeholder="' . $zip . '" value="' . $zip .'" required>';
+                  } else {
+                    echo '<input type="text" class="form-control" id="zip" placeholder="Zip" required>';
+                  }
+                ?>   
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
               </div>
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
+                <?php
+                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                    echo '<input type="text" name="country" class="form-control" id="country" placeholder="' . $country . '" value="' . $country . '" required>';
+                  } else {
+                ?>
                 <select class="custom-select d-block w-100" name ="country" id="country">
                   <option value="United States" selected="selected">United States</option> 
                   <option value="United Kingdom">United Kingdom</option> 
@@ -448,6 +510,7 @@
                   <option value="Zambia">Zambia</option> 
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
+                <?php } ?>
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>

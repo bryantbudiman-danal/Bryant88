@@ -282,7 +282,7 @@
                 <label for="country">Country</label>
                 <?php
                   if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
-                    echo '<input type="text" name="country" class="form-control" id="address2" placeholder="' . $country . '" value="' . $country . '" required>';
+                    echo '<input type="text" name="country" class="form-control" id="country" placeholder="' . $country . '" value="' . $country . '" required>';
                   } else {
                 ?>
                 
