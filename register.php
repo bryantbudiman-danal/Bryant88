@@ -58,7 +58,7 @@
 // echo $pleaseDecode;
   $consumerInfo = json_encode($pleaseDecode);
   // $consumerInfo = $pleaseDecode['consumerInfo'];
-  echo $consumerInfo;
+  echo $consumerInfo[0];
 
   $firstName = $consumerInfo["consumerFirstName"];
   $lastName = $consumerInfo["consumerLastName"];
