@@ -49,8 +49,7 @@
 	$authenticationKey = $_GET['authenticationKey'];
 
 	$parameters = array("merchantId" => "0218000710B56C", 
-				  "attributeGroups" => "matchScores,serviceInfo,accountInfo,additionAccountInfo,deviceInfo,tok
-enInfo,changeInfo", 
+				  "attributeGroups" => "matchScores,serviceInfo,accountInfo", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
 				  "authenticationKey" => $authenticationKey
