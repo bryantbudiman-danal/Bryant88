@@ -161,7 +161,7 @@
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
                 <?php
-                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                  if(isset($_GET['phoneNumber'])) {
                     echo '<input type="text" class="form-control" id="firstName" placeholder="' . $firstName . '" value="'
                     . $firstName . '" required>';
                   } else {
@@ -175,7 +175,7 @@
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
                 <?php
-                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                  if(isset($_GET['phoneNumber'])) { {
                     echo '<input type="text" class="form-control" id="lastName" placeholder="' . $lastName . '" value="'
                     . $lastName . '" required>';
                   } else {
@@ -191,7 +191,7 @@
             <div class="mb-3">
               <label for="email">Email</label>
               <?php
-                if(isset($_GET['success']) && $_GET['success'] == true) {
+                if(isset($_GET['phoneNumber'])) {
                   echo '<input type="email" class="form-control" id="email" placeholder="' . $email . '" value="'
                   . $email . '" required>';
                 } else {
@@ -206,7 +206,7 @@
             <div class="mb-3">
               <label for="address1">Address</label>
               <?php
-                if(isset($_GET['success']) && $_GET['success'] == true) {
+                if(isset($_GET['phoneNumber'])) {
                   echo '<input type="text" class="form-control" id="address1" placeholder="' . $address1
                    . '" value="' . $address1 . '" required>';
                 } else {
@@ -221,7 +221,7 @@
             <div class="mb-3">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
               <?php
-                if(isset($_GET['success']) && $_GET['success'] == true) {
+                if(isset($_GET['phoneNumber'])) {
                   echo '<input type="text" class="form-control" id="address2
                   " placeholder="' . $address2 . '" value="' . $address2 . '">';
                 } else {
@@ -234,7 +234,7 @@
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
                 <?php
-                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                  if(isset($_GET['phoneNumber'])) {
                     echo '<input type="text" class="form-control" id="state" placeholder="' . $state
                     . '" value="' . $state.'" required>';
                   } else {
@@ -248,7 +248,7 @@
               <div class="col-md-3 mb-3">
                 <label for="zip">Zip</label>
                 <?php
-                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                  if(isset($_GET['phoneNumber'])) {
                     echo '<input type="text" class="form-control" id="zip" 
                      placeholder="' . $zip . '" value="' . $zip .'" required>';
                   } else {
@@ -262,7 +262,7 @@
               <div class="col-md-5 mb-3">
                 <label for="country">Country</label>
                 <?php
-                  if(isset($_GET['success']) && $_GET['success'] == true) {
+                  if(isset($_GET['phoneNumber'])) {
                     echo '<input type="text" name="country" class="form-control" id="country" placeholder="' . $country . '" value="' . $country . '" required>';
                   } else {
                 ?>
