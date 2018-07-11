@@ -86,6 +86,13 @@
         color: black;
       }
 
+      #mainNav .navbar-nav .nav-item .nav-link  {
+        color: white;
+      }
+
+      #mainNav {
+        background-color: #232323;
+      }
     </style>
 
   </head>
