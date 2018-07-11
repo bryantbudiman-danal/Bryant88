@@ -93,11 +93,11 @@
 
 	$phoneIDResult = json_encode($_SESSION['phoneIdResult-match'], JSON_PRETTY_PRINT);
 
-	echo nl2br("phoneID api result: ");
+	echo nl2br("phoneID api result: \n");
 	echo nl2br($phoneIDResult);
 
-	echo nl2br(" ");
+	echo nl2br("\n");
 
-	echo nl2br("matchAndAttributes api result: ");
+	echo nl2br("matchAndAttributes api result: \n");
 	echo nl2br($result);
 ?>
