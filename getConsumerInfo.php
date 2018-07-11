@@ -45,20 +45,18 @@
                                                                                                                        
   $resultJSON = curl_exec($ch);
 
-  echo $resultJSON;
-  
-  // $result = json_decode($resultJSON, true);
+  $result = json_decode($resultJSON, true);
 
-  // $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
+  $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
 
-  // $iv =  trim($result['results']['cipherSalt']);
+  $iv =  trim($result['results']['cipherSalt']);
 
-  // $encryptedPayload = trim($result['results']['encryptedData']);
+  $encryptedPayload = trim($result['results']['encryptedData']);
 
-  // $decodedPayload = base64_decode($encryptedPayload);
+  $decodedPayload = base64_decode($encryptedPayload);
 
-  // $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
+  $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-  // echo $pleaseDecode;
+  echo $pleaseDecode;
 
 ?>
