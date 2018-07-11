@@ -92,7 +92,5 @@ enInfo,changeInfo",
 
 	$result['results']['encryptedData'] = $pleaseDecode;
 
-	echo nl2br($pleaseDecode
-
 	echo nl2br($_SESSION['phoneIdResult-match']);
 ?>
