@@ -88,9 +88,6 @@ enInfo,changeInfo",
 
 	$pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
 
-	$result['results']['encryptedData'] = $pleaseDecode;
-
 	echo nl2br($pleaseDecode);
-
-	echo nl2br($_SESSION['phoneIdResult-match']);
+//	echo nl2br($_SESSION['phoneIdResult-match']);
 ?>
