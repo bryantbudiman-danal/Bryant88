@@ -55,21 +55,18 @@
   $decodedPayload = base64_decode($encryptedPayload);
 
   $pleaseDecode = openssl_decrypt($decodedPayload, 'aes-128-ctr', $aesKey, OPENSSL_RAW_DATA|OPENSSL_ZERO_PADDING, $iv);
-// echo $pleaseDecode;
+
   $consumerInfo = json_decode($pleaseDecode, true);
 
-  // $consumerInfo = $pleaseDecode['consumerInfo'];
-  echo $consumerInfo["consumerInfo"]["consumerFirstName"];
-
-  $firstName = $consumerInfo["consumerFirstName"];
-  $lastName = $consumerInfo["consumerLastName"];
-  $email = $consumerInfo["consumerEmail"];
-  $address1 = $consumerInfo["consumerAddress1"];
-  $address2 = $consumerInfo["consumerAddress2"];
-  $city = $consumerInfo["consumerCity"];
-  $state = $consumerInfo["consumerState"];
-  $zip = $consumerInfo["consumerPostalCode"];
-  $country = $consumerInfo["consumerCountryCode"];
+  $firstName = $consumerInfo["consumerInfo"]["consumerFirstName"];
+  $lastName = $consumerInfo["consumerInfo"]["consumerLastName"];
+  $email = $consumerInfo["consumerInfo"]["consumerEmail"];
+  $address1 = $consumerInfo["consumerInfo"]["consumerAddress1"];
+  $address2 = $consumerInfo["consumerInfo"]["consumerAddress2"];
+  $city = $consumerInfo["consumerInfo"]["consumerCity"];
+  $state = $consumerInfo["consumerInfo"]["consumerState"];
+  $zip = $consumerInfo["consumerInfo"]["consumerPostalCode"];
+  $country = $consumerInfo["consumerInfo"]["consumerCountryCode"];
 ?>
 
 <!doctype html>
