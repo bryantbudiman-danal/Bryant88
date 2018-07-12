@@ -18,7 +18,7 @@
   $parameters = array("merchantId" => "0218000710B56C", 
                       "intendedUseCase" => "PC",
                       "consumerMdn" => "+14444441001",
-                      "correlationId" => $correlationId
+                      "correlationId" => $correlationId,
                 );
 
   $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);

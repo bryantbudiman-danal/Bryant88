@@ -59,30 +59,29 @@
 
 	$ch = curl_init('https://api.siftscience.com/v205/events');
 
-	$login_status = "$success";
-	if($loginSuccess == false) $login_status = "$failure";
+	$login_status = '$success';
+	if($loginSuccess == false) $login_status = '$failure';
 
 	$session_id = randString(11);
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
  
 	$browser = array(
-		        		"$user_agent" => $user_agent
+		        		"$user_agent" => $user_agent,
 				    );	
 
 	$data = array(
-					"$type" => "$login",
-					"$api_key" => "3203af73a23bcb46",
-					"$user_id" => $_SESSION['user'],
-					"$session_id" => $session_id,
-					"$login_status" => $login_status,
-					"$ip" => $ip,
-					"$browser" => $browser
+					'$type' => '$login',
+					'$api_key' => '3203af73a23bcb46',
+					'$user_id' => $_SESSION['user'],
+					'$session_id' => $session_id,
+					'$login_status' => $login_status,
+					'$ip' => $ip,
+					'$browser' => $browser,
 			    );
 
-	echo $data['$api_key'];
-
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+var_dump($data_string);
 	echo "hehe";
 
 	curl_setopt($ch, CURLOPT_POST, true);
