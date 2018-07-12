@@ -80,8 +80,7 @@
 					"$browser" => $browser
 			    );
 
-	$data_string = json_encode($data);
-	$json_output = json_decode($data_string, JSON_PRETTY_PRINT);
+	$data_string = json_encode($data, JSON_PRETTY_PRINT);
 	echo $json_output["$api_key"];
 	echo "hehe";
 
