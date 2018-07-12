@@ -49,9 +49,9 @@
 
 		$itemInfo = array(
 							'$product_title' => $id, 
-							'$price' => 8,
+							'$price' => (int)$price,
 							'$currency_code' => 'USD',
-							'$quantity' => $quantity,
+							'$quantity' => (int)$quantity,
 							'$item_id' => $id,
 						);
 
