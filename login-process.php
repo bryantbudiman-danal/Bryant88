@@ -65,6 +65,7 @@
 	$session_id = randString(11);
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
+	echo "user agent: " . $user_agent . " hehe ";
  
 	$browser = array(
 		        		"$user_agent" => $user_agent,
