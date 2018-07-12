@@ -239,6 +239,30 @@
               ?>              
             </div>
 
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <?php
+                if(isset($_GET['phoneNumber'])) {
+                  echo '<input type="text" name="address2" class="form-control" id="address2
+                  " placeholder="' . $address2 . '" value="' . $address2 . '">';
+                } else {
+                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="1234 Main St">';
+                }
+              ?>              
+            </div>
+
+            <div class="mb-3">
+              <label for="city">City</label>
+              <?php
+                if(isset($_GET['phoneNumber'])) {
+                  echo '<input type="text" name="city" class="form-control" id="city
+                  " placeholder="' . $city . '" value="' . $city . '">';
+                } else {
+                  echo '<input type="text" name="city" class="form-control" id="city" placeholder="Townsville">';
+                }
+              ?>              
+            </div>
+
             <div class="row">
               <div class="col-md-4 mb-3">
                 <label for="state">State</label>
