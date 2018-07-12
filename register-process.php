@@ -91,7 +91,7 @@
 
 					$data = array(
 									"$type" => "$create_account",
-									"$api_key" => "d5e30e6affe617f1",
+									"$api_key" => "3203af73a23bcb46",
 									"$user_id" => $username,
 									"$session_id" => $session_id,
 									"$user_email" => $email,

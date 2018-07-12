@@ -50,7 +50,7 @@
 
 		$data = array(
 						"$type" => "$add_item_to_cart",
-						"$api_key" => "d5e30e6affe617f1",
+						"$api_key" => "3203af73a23bcb46",
 						"$user_id" => $username,
 						"$session_id" => $session_id,
 						"$item" => $itemInfo
