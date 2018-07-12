@@ -80,8 +80,10 @@
 					"$browser" => $browser
 			    );
 
-	$data_string = json_encode($data, JSON_PRETTY_PRINT);
-	echo $data_string;
+	$data_string = json_encode($data);
+	$json_output = json_decode($data_string, JSON_PRETTY_PRINT);
+	echo $json_output;
+	echo "hehe";
 
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
