@@ -1,10 +1,23 @@
 <?php
+	function randString($length) {
+    	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
+    	$char = str_shuffle($char);
+    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < $length; $i ++) {
+        	$rand .= $char{mt_rand(0, $l)};
+    	}
+    	return $rand;
+    }
+
 	session_start();
 
 	$host = 'bryant88.mysql.database.azure.com';
 	$username = 'bryantbudiman@bryant88';
 	$password = 'KopiLuwak88';
 	$db_name = 'users';
+
+	$loginSuccess = true; 
+	$username = $_GET['username'];
+	$password = $_GET['password'];
 
 	//Establishes the connection
 	$mysqli = mysqli_init();
@@ -17,9 +30,6 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
-		$username = $_GET['username'];
-		$password = $_GET['password'];
-
 		$statement = "SELECT username FROM users.people where username='" . $username . "' and password='" . $password . "'";
 
 		$results = $mysqli->query($statement);
@@ -36,13 +46,54 @@
 				}
 
 				$_SESSION['login'] = true; 
-				header('Location: ../index.php'); 
+				$loginSuccess = true;
 				$results->close();
 			} else {
 				// don't login - redirect back to login.php
-				header('Location: ../login.php?fail=true'); 
+				$loginSuccess = false; 
 				$results->close();
 			}
 		}
+	}
+
+	$ch = curl_init('https://api.siftscience.com/v205/events');
+
+	$login_status = "$success";
+	if($loginSuccess == false) $login_status = "$failure";
+
+	$session_id = randString(11);
+	$ip = $_SERVER['REMOTE_ADDR'];
+	$user_agent = $_SERVER['HTTP_USER_AGENT'];
+ 
+	$browser = array(
+		        		"$user_agent" => $user_agent
+				    );	
+
+	$data = array(
+					"$type" => "$login",
+					"$api_key" => "d5e30e6affe617f1",
+					"$user_id" => $username,
+					"$session_id" => $session_id,
+					"$login_status" => $login_status,
+					"$ip" => $ip,
+					"$browser" => $browser
+			     );
+
+	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+	curl_setopt($ch, CURLOPT_HEADER, array(
+		'Content-Type: application/json', 
+		'Content-Length: ' . strlen($data_string))
+	);
+
+	$response = curl_exec($ch);	
+
+	if($loginSuccess == true) {
+		header('Location: ../index.php'); 
+	} else {
+		header('Location: ../login.php?fail=true'); 
 	}
 ?>

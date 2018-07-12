@@ -1,4 +1,13 @@
 <?php
+	function randString($length) {
+    	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
+    	$char = str_shuffle($char);
+    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < $length; $i ++) {
+        	$rand .= $char{mt_rand(0, $l)};
+    	}
+    	return $rand;
+    }
+
 	session_start();
 
 	$host = 'bryant88.mysql.database.azure.com';
@@ -58,4 +67,53 @@
 			}
 		}
 	}
+
+	// API CALL TO SIFT SCIENCE
+	$ch = curl_init('https://api.siftscience.com/v205/events');
+
+	$session_id = randString(11);
+	$username = $_POST['username'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+
+	$name = $_POST['firstName'] . " " . $_POST['lastName'];
+	$address1 = $_POST['address1'];
+	$address2 = $_POST['address2'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];
+	$country = $_POST['country'];
+	$zip = $_POST['zip'];
+
+	$billing_address = array(
+		             	"$name" => $name,
+		             	"$phone" => $phone,
+		             	"$address_1" => $address1,
+		             	"$address_2" => $address2,
+		             	"$city" => $city,
+		             	"$region" => $state,
+		             	"$country" => $country,
+		             	"$zipcode" => $zip
+				    );	
+
+	$data = array(
+					"$type" => "$create_account",
+					"$api_key" => "d5e30e6affe617f1",
+					"$user_id" => $username,
+					"$session_id" => $session_id,
+					"$user_email" => $email,
+					"$phone" => $phone,
+					"$billing_address" => $billing_address
+			     );
+
+	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+	curl_setopt($ch, CURLOPT_HEADER, array(
+		'Content-Type: application/json', 
+		'Content-Length: ' . strlen($data_string))
+	);
+
+	$response = curl_exec($ch);
 ?>

@@ -26,5 +26,48 @@
 	    $_SESSION['cart'][$id] = $cart_item;
 	}
 
+
+	$price = 8; 
+	if($id==2) {
+		$price = 88;
+	} else if($id==3) {
+		$price = 888;
+	}
+	
+	// API CALL TO SIFT SCIENCE - ADD ITEM
+	if ( isset($_SESSION['user']) ) {
+		$ch = curl_init('https://api.siftscience.com/v205/events');
+
+		$itemInfo = array(
+							"$product_title" => $id, 
+							"$price" => $price,
+							"$currency_code" => "USD",
+							"$quantity" => $quantity
+						);
+
+		$session_id = randString();
+		$username = $_SESSION['user'];
+
+		$data = array(
+						"$type" => "$add_item_to_cart",
+						"$api_key" => "d5e30e6affe617f1",
+						"$user_id" => $username,
+						"$session_id" => $session_id,
+						"$item" => $itemInfo
+					);
+
+		$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+		curl_setopt($ch, CURLOPT_HEADER, array(
+			'Content-Type: application/json', 
+			'Content-Length: ' . strlen($data_string))
+		);
+
+		$response = curl_exec($ch);
+	}
+
 	header('Location: ../cart.php');
 ?>
