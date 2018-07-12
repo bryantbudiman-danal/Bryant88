@@ -158,6 +158,14 @@
         <div class="col-md-12 order-md-1">
           <form class="needs-validation" action="register-process.php" method="POST" novalidate >
             <div class="row">
+                            <div class="mb-3">
+                <label for="userName">Username</label>
+                <input type="text" name="userName" class="form-control" id="userName" placeholder="Lil Pump" required>
+                      
+                <div class="invalid-feedback">
+                  Please enter a valid username.
+                </div>
+              </div>
 
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -189,15 +197,6 @@
               </div>
             </div>
 
-              <div class="mb-3">
-                <label for="userName">Username</label>
-                <input type="text" name="userName" class="form-control" id="userName" placeholder="Lil Pump" required>
-                      
-                <div class="invalid-feedback">
-                  Please enter a valid username.
-                </div>
-              </div>
-            
             <div class="mb-3">
               <label for="email">Email</label>
               <?php
