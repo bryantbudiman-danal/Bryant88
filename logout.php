@@ -9,7 +9,7 @@
 	$data = array(
 					"$type" => "$logout",
 					"$api_key" => "3203af73a23bcb46",
-					"$user_id" => $username
+					"$user_id" => $username,
 				);	
 
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
