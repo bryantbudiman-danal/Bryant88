@@ -65,11 +65,12 @@
 	$session_id = randString(11);
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	echo "user agent: " . $user_agent . " hehe ";
  
 	$browser = array(
 		        		"$user_agent" => $user_agent,
 				    );	
+
+	$browserJSON = json_encode($identityArray);
 
 	$data = array(
 					'$type' => '$login',
@@ -78,8 +79,9 @@
 					'$session_id' => $session_id,
 					'$login_status' => $login_status,
 					'$ip' => $ip,
-					'$browser' => $browser,
 			    );
+
+	$data['browser'] = json_decode($browserJSON, true);
 
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
