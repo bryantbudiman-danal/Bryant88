@@ -16,8 +16,6 @@
 	$db_name = 'users';
 
 	$loginSuccess = true; 
-	$username = $_GET['username'];
-	$password = $_GET['password'];
 
 	//Establishes the connection
 	$mysqli = mysqli_init();
@@ -30,6 +28,9 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
+		$username = $_GET['username'];
+		$password = $_GET['password'];
+
 		$statement = "SELECT username FROM users.people where username='" . $username . "' and password='" . $password . "'";
 
 		$results = $mysqli->query($statement);
@@ -72,7 +73,7 @@
 	$data = array(
 					"$type" => "$login",
 					"$api_key" => "d5e30e6affe617f1",
-					"$user_id" => $username,
+					"$user_id" => $_SESSION['user'],
 					"$session_id" => $session_id,
 					"$login_status" => $login_status,
 					"$ip" => $ip,
@@ -90,11 +91,10 @@
 	);
 
 	$response = curl_exec($ch);	
-	echo $response;
 
-	// if($loginSuccess == true) {
-	// 	header('Location: ../index.php'); 
-	// } else {
-	// 	header('Location: ../login.php?fail=true'); 
-	// }
+	if($loginSuccess == true) {
+		header('Location: ../index.php'); 
+	} else {
+		header('Location: ../login.php?fail=true'); 
+	}
 ?>
