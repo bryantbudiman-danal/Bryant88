@@ -158,7 +158,7 @@
         <div class="col-md-12 order-md-1">
           <form class="needs-validation" action="register-process.php" method="POST" novalidate >
             <div class="row">
-                            <div class="mb-3">
+              <div class="mb-12">
                 <label for="userName">Username</label>
                 <input type="text" name="userName" class="form-control" id="userName" placeholder="Lil Pump" required>
                       
