@@ -52,6 +52,7 @@
 							'$price' => $price,
 							'$currency_code' => 'USD',
 							'$quantity' => $quantity,
+							'$item_id' => $id,
 						);
 
 		$itemInfoJSON = json_encode($itemInfo);

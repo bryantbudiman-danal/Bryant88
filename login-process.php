@@ -67,10 +67,10 @@
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
  
 	$browser = array(
-		        		"$user_agent" => $user_agent,
+		        		'$user_agent' => $user_agent,
 				    );	
 
-	$browserJSON = json_encode($identityArray);
+	$browserJSON = json_encode($browser);
 
 	$data = array(
 					'$type' => '$login',
