@@ -39,22 +39,25 @@
 		$ch = curl_init('https://api.siftscience.com/v205/events');
 
 		$itemInfo = array(
-							"$product_title" => $id, 
-							"$price" => $price,
-							"$currency_code" => "USD",
-							"$quantity" => $quantity
+							'$product_title' => $id, 
+							'$price' => $price,
+							'$currency_code' => 'USD',
+							'$quantity' => $quantity,
 						);
+
+		$itemInfoJSON = json_encode($itemInfo);
 
 		$session_id = randString();
 		$username = $_SESSION['user'];
 
 		$data = array(
-						"$type" => "$add_item_to_cart",
-						"$api_key" => "3203af73a23bcb46",
-						"$user_id" => $username,
-						"$session_id" => $session_id,
-						"$item" => $itemInfo
+						'$type' => '$add_item_to_cart',
+						'$api_key' => '3203af73a23bcb46',
+						'$user_id' => $username,
+						'$session_id' => $session_id,
 					);
+
+		$data['item'] = json_decode($itemInfoJSON, true);
 
 		$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
