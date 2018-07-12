@@ -81,6 +81,7 @@
 			    );
 
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+	echo $data_string;
 
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
