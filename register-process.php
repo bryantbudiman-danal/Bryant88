@@ -115,8 +115,8 @@
 					$response = curl_exec($ch);
 					echo $response;
 
-					//header('Location: ../index.php?login=success'); 
-					$results->close();
+					// header('Location: ../index.php?login=success'); 
+					// $results->close();
 				}
 			}
 		}
