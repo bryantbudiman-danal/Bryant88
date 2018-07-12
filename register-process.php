@@ -79,25 +79,28 @@
 					$zip = $_POST['zip'];
 
 					$billing_address = array(
-						             	"$name" => $name,
-						             	"$phone" => $phone,
-						             	"$address_1" => $address1,
-						             	"$address_2" => $address2,
-						             	"$city" => $city,
-						             	"$region" => $state,
-						             	"$country" => $country,
-						             	"$zipcode" => $zip
+						             	'$name' => $name,
+						             	'$phone' => $phone,
+						             	'$address_1' => $address1,
+						             	'$address_2' => $address2,
+						             	'$city' => $city,
+						             	'$region' => $state,
+						             	'$country' => $country,
+						             	'$zipcode' => $zip
 								    );	
 
+					$billing_addressJSON = json_encode($billing_address);
+
 					$data = array(
-									"$type" => "$create_account",
-									"$api_key" => "3203af73a23bcb46",
-									"$user_id" => $username,
-									"$session_id" => $session_id,
-									"$user_email" => $email,
-									"$phone" => $phone,
-									"$billing_address" => $billing_address
+									'$type' => '$create_account',
+									'$api_key' => '3203af73a23bcb46',
+									'$user_id' => $username,
+									'$session_id' => $session_id,
+									'$user_email' => $email,
+									'$phone' => $phone,
 							     );
+
+					$data['$billing_address'] = json_decode($billing_addressJSON, true);
 
 					$data_string = json_encode($data, JSON_PRETTY_PRINT);
 

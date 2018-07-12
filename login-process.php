@@ -81,7 +81,7 @@
 					'$ip' => $ip,
 			    );
 
-	$data['browser'] = json_decode($browserJSON, true);
+	$data['$browser'] = json_decode($browserJSON, true);
 
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
