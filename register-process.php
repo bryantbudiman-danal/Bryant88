@@ -26,6 +26,7 @@
 		echo $mysqli->connect_error;
 	} else {
 		$username = "'" . $_POST['userName'] . "'";
+		echo "username: " . $username;
 		$firstName = "'" . $_POST['firstName'] . "'";
 		$lastName = "'" . $_POST['lastName'] . "'";
 		$email = "'" . $_POST['email'] . "'";
@@ -51,6 +52,8 @@
 				header('Location: ../register.php?fail=true'); 
 				$results->close();
 			} else {
+
+
 				$sql = "INSERT INTO users.people (username, firstName, lastName, email, address1, address2, city, state, zip, country, password)
 					VALUES (" . $username . ", " . $firstName . ", " .
 						$lastName . ", " . $email . ", " . $address1 . ", " . $address2 . ", " . $city . ", " . $state . ", " . $zip . ", " . $country . ", " . $password . ");";
