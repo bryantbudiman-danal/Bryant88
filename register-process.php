@@ -52,7 +52,8 @@
 				$results->close();
 			} else {
 				$sql = "INSERT INTO users.people (username, firstName, lastName, email, address1, address2, city, state, zip, country, password)
-					VALUES (" . $fullName . ", " . $address . ", " . $email . ", " . $phone . ", " . $username . ", " . $password . ");";
+					VALUES (" . $username . ", " . $firstName . ", " .
+						$lastName . ", " . $email . ", " . $address1 . ", " . $address2 . ", " . $city . ", " . $state . ", " . $zip . ", " . $country . ", " . $password . ");";
 						
 				$register = $mysqli->query($sql);
 
