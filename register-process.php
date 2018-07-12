@@ -71,7 +71,7 @@
 					$session_id = randString(11);
 
 					$name = $firstName . " " . $lastName; 
-					$phone = +"188888888";
+					$phone = "+188888888";
 
 					$billing_address = array(
 						             	'$name' => $name,
