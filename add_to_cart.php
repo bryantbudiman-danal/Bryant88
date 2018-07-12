@@ -36,11 +36,11 @@
 	}
 
 
-	$price = 8; 
+	$price = 8000000; 
 	if($id == '2') {
-		$price = 88;
+		$price = 88000000;
 	} else if($id == '3') {
-		$price = 888;
+		$price = 888000000;
 	}
 	
 	// API CALL TO SIFT SCIENCE - ADD ITEM
