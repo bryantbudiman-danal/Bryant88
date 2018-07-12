@@ -81,7 +81,7 @@
 			    );
 
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
-	echo $json_output["$api_key"];
+	echo $data_string['$api_key'];
 	echo "hehe";
 
 	curl_setopt($ch, CURLOPT_POST, true);
