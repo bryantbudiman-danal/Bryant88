@@ -156,16 +156,16 @@
       <div class="row">
   
         <div class="col-md-12 order-md-1">
-          <form class="needs-validation" action="getConsumerInfo.php" method="POST" novalidate >
+          <form class="needs-validation" action="register-process.php" method="POST" novalidate >
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
                 <?php
                   if(isset($_GET['phoneNumber'])) {
-                    echo '<input type="text" class="form-control" id="firstName" placeholder="' . $firstName . '" value="'
+                    echo '<input type="text" name="firstName" class="form-control" id="firstName" placeholder="' . $firstName . '" value="'
                     . $firstName . '" required>';
                   } else {
-                    echo '<input type="text" class="form-control" id="firstName" placeholder="First name" required>';
+                    echo '<input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required>';
                   }
                 ?>
                 <div class="invalid-feedback">
@@ -176,10 +176,10 @@
                 <label for="lastName">Last name</label>
                 <?php
                   if(isset($_GET['phoneNumber'])) {
-                    echo '<input type="text" class="form-control" id="lastName" placeholder="' . $lastName . '" value="'
+                    echo '<input type="text" name="lastName" class="form-control" id="lastName" placeholder="' . $lastName . '" value="'
                     . $lastName . '" required>';
                   } else {
-                    echo '<input type="text" class="form-control" id="lastName" placeholder="Last name" required>';
+                    echo '<input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required>';
                   }
                 ?>
                 <div class="invalid-feedback">
@@ -192,10 +192,10 @@
               <label for="email">Email</label>
               <?php
                 if(isset($_GET['phoneNumber'])) {
-                  echo '<input type="email" class="form-control" id="email" placeholder="' . $email . '" value="'
+                  echo '<input type="email" name="email" class="form-control" id="email" placeholder="' . $email . '" value="'
                   . $email . '" required>';
                 } else {
-                  echo '<input type="email" class="form-control" id="email" placeholder="you@example.com" required>';
+                  echo '<input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" required>';
                 }
               ?>       
               <div class="invalid-feedback">
@@ -207,10 +207,10 @@
               <label for="address1">Address</label>
               <?php
                 if(isset($_GET['phoneNumber'])) {
-                  echo '<input type="text" class="form-control" id="address1" placeholder="' . $address1
+                  echo '<input type="text" name="address1" class="form-control" id="address1" placeholder="' . $address1
                    . '" value="' . $address1 . '" required>';
                 } else {
-                  echo '<input type="text" class="form-control" id="address1" placeholder="1234 Main St" required>';
+                  echo '<input type="text" name="address1" class="form-control" id="address1" placeholder="1234 Main St" required>';
                 }
               ?>
               <div class="invalid-feedback">
@@ -222,10 +222,10 @@
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
               <?php
                 if(isset($_GET['phoneNumber'])) {
-                  echo '<input type="text" class="form-control" id="address2
+                  echo '<input type="text" name="address2" class="form-control" id="address2
                   " placeholder="' . $address2 . '" value="' . $address2 . '">';
                 } else {
-                  echo '<input type="text" class="form-control" id="address2" placeholder="1234 Main St">';
+                  echo '<input type="text" name="address2" class="form-control" id="address2" placeholder="1234 Main St">';
                 }
               ?>              
             </div>
@@ -235,10 +235,10 @@
                 <label for="state">State</label>
                 <?php
                   if(isset($_GET['phoneNumber'])) {
-                    echo '<input type="text" class="form-control" id="state" placeholder="' . $state
+                    echo '<input type="text" name="state" class="form-control" id="state" placeholder="' . $state
                     . '" value="' . $state.'" required>';
                   } else {
-                    echo '<input type="text" class="form-control" id="state" placeholder="State" required>';
+                    echo '<input type="text" name="state"  class="form-control" id="state" placeholder="State" required>';
                   }
                 ?>                
                 <div class="invalid-feedback">
@@ -249,10 +249,10 @@
                 <label for="zip">Zip</label>
                 <?php
                   if(isset($_GET['phoneNumber'])) {
-                    echo '<input type="text" class="form-control" id="zip" 
+                    echo '<input type="text" name="zip" class="form-control" id="zip" 
                      placeholder="' . $zip . '" value="' . $zip .'" required>';
                   } else {
-                    echo '<input type="text" class="form-control" id="zip" placeholder="Zip" required>';
+                    echo '<input type="text" name="zip" class="form-control" id="zip" placeholder="Zip" required>';
                   }
                 ?>   
                 <div class="invalid-feedback">
