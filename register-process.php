@@ -26,7 +26,6 @@
 		echo $mysqli->connect_error;
 	} else {
 		$username = "'" . $_POST['userName'] . "'";
-		echo "username: " . $username;
 		$firstName = "'" . $_POST['firstName'] . "'";
 		$lastName = "'" . $_POST['lastName'] . "'";
 		$email = "'" . $_POST['email'] . "'";
@@ -70,17 +69,9 @@
 					$ch = curl_init('https://api.siftscience.com/v205/events');
 
 					$session_id = randString(11);
-					$username = $_POST['username'];
-					$email = $_POST['email'];
-					$phone = $_POST['phone'];
 
-					$name = $_POST['firstName'] . " " . $_POST['lastName'];
-					$address1 = $_POST['address1'];
-					$address2 = $_POST['address2'];
-					$city = $_POST['city'];
-					$state = $_POST['state'];
-					$country = $_POST['country'];
-					$zip = $_POST['zip'];
+					$name = $firstName . " " . $lastName; 
+					$phone = +"188888888";
 
 					$billing_address = array(
 						             	'$name' => $name,
@@ -100,7 +91,6 @@
 									'$api_key' => '3203af73a23bcb46',
 									'$user_id' => $username,
 									'$session_id' => $session_id,
-									'$user_email' => $email,
 									'$phone' => $phone,
 							     );
 
