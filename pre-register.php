@@ -106,6 +106,19 @@
       <div class="container">
         <form action="register.php?success=true" method="GET" class="form-signin">
           <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
+
+          <?php
+
+            if(isset($_GET['fail']) && $_GET['fail'] == true) {
+              echo '<div class="row">';
+                echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                  echo "Registration failed: username is already taken!";
+                echo '</div>';
+              echo '</div>';
+            }
+
+          ?>
+
           <div class="row top_buffer"></div><!-- end row -->
           <label for="inputUsername" class="sr-only">Phone Number</label>
           <input type="tel" name = "phoneNumber" id="phoneNumber" class="form-control" placeholder="+123456789" required autofocus>

@@ -48,7 +48,7 @@
 			
 			if($result_count > 0) {
 				// credentials already used 
-				header('Location: ../register.php?fail=true'); 
+				header('Location: ../pre-register.php?fail=true'); 
 				$results->close();
 			} else {
 
