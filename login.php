@@ -107,7 +107,7 @@
         <form action="login-process.php" method="GET" class="form-signin">
    
           <div class="row">
-            <div class=".col-md-4 .offset-md-4">
+            <div class="col-md-4 offset-md-4">
               <h2 class="form-signin-heading">Please sign in</h2>
 
               <?php
@@ -144,7 +144,7 @@
 
             <div class="row top_buffer"></div><!-- end row -->
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
           </div>
         </form>
       </div> <!-- /container -->
