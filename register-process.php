@@ -77,7 +77,8 @@
 					$city = $_POST['city'];
 					$state = $_POST['state'];
 					$zip = $_POST['zip'];
-					$country = $_POST['country'];
+					//$country = $_POST['country'];
+					$country = "US";
 					$name = $_POST['firstName'] . " " . $_POST['lastName'];
 					$phone = '+188888888';
 
