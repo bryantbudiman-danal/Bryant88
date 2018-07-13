@@ -105,30 +105,32 @@
     <section id="product">
       <div class="container">
         <form action="login-process.php" method="GET" class="form-signin">
-          <h2 class="form-signin-heading">Please sign in</h2>
-
-          <?php
-
-            if(isset($_GET['fail']) && $_GET['fail'] == true) {
-              echo '<div class="row">';
-                echo '<div class="col-lg-12 text-center my-auto errorBar">';
-                  echo "Login failed: username or password is invalid!";
-                echo '</div>';
-              echo '</div>';
-            } else if(isset($_GET['sqlFail']))  {
-              echo '<div class="row">';
-                echo '<div class="col-lg-12 text-center my-auto errorBar">';
-                  echo "MySQL failure: " . $_GET['sqlFail'];
-                echo '</div>';
-              echo '</div>';              
-            }
-
-          ?>
-
-          <div class="row top_buffer"></div><!-- end row -->
-
+   
           <div class="row">
             <div class=".col-md-4 .offset-md-4">
+              <h2 class="form-signin-heading">Please sign in</h2>
+
+              <?php
+
+                if(isset($_GET['fail']) && $_GET['fail'] == true) {
+                  echo '<div class="row">';
+                    echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                      echo "Login failed: username or password is invalid!";
+                    echo '</div>';
+                  echo '</div>';
+                } else if(isset($_GET['sqlFail']))  {
+                  echo '<div class="row">';
+                    echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                      echo "MySQL failure: " . $_GET['sqlFail'];
+                    echo '</div>';
+                  echo '</div>';              
+                }
+
+              ?>
+
+              <div class="row top_buffer"></div><!-- end row -->
+
+
               <div class="mb-3">
                 <label for="inputUsername" class="sr-only">Username</label>
                 <input name = "username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
@@ -139,11 +141,11 @@
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
               </div>
             </div>
+
+            <div class="row top_buffer"></div><!-- end row -->
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           </div>
-
-          <div class="row top_buffer"></div><!-- end row -->
-
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
       </div> <!-- /container -->
     </section>
