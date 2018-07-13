@@ -4,7 +4,7 @@
 	function randString() {
     	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
     	$char = str_shuffle($char);
-    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 50; $i ++) {
+    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < 14; $i ++) {
         	$rand .= $char{mt_rand(0, $l)};
     	}
     	return $rand;
@@ -46,13 +46,17 @@
 
 	$randomID = randString();
 
-	$authenticationKey = $_GET['authenticationKey'];
+	//$authenticationKey = $_GET['authenticationKey'];
+
+	date_default_timezone_set('UTC');
 
 	$parameters = array("merchantId" => "0218000710B56C", 
 				  "attributeGroups" => "matchScores,serviceInfo,accountInfo", 
 				  "correlationId" => $randomID, 
 				  "intendedUseCase" => "RM",
-				  "authenticationKey" => $authenticationKey
+				  "authenticationKey" => "AK4444441001",
+				  "consentId" => randString(),
+				  "consentTimeStamp" => date("YmdHis")
 				);
 
 	$parameters['identity'] = json_decode($identityJSON, true); 
