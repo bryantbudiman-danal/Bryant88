@@ -131,7 +131,7 @@
 
 		$response = curl_exec($ch);
 
-		echo $response;
+		//echo $response;
 	}
 ?>
 
