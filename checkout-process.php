@@ -125,8 +125,6 @@
 		$data['$session_id'] = $session_id;
 	}
 
-	// $data['$item'] = json_decode($itemInfoJSON, true);
-
 	$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
 	curl_setopt($ch, CURLOPT_POST, true);

@@ -80,6 +80,7 @@
                   $statement = "SELECT * FROM users.people where username='" . $username . "'";
 
                   $results = $mysqli->query($statement);
+                  $row = $mysqli_fetch_row($results);
 
                   if(!$results) {
                     echo $mysqli->error;
