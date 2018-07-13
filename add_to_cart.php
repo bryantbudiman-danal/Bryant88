@@ -35,7 +35,6 @@
 	    $_SESSION['cart'][$id] = $cart_item;
 	}
 
-
 	$price = 8; 
 	if($id == '2') {
 		$price = 88;
@@ -82,7 +81,6 @@
 	);
 
 	$response = curl_exec($ch);
-	echo $response;
 
-	//header('Location: ../cart.php');
+	header('Location: ../cart.php');
 ?>
