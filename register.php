@@ -406,7 +406,7 @@
       <div class="row">
   
         <div class="col-md-12 order-md-1">
-          <form class="needs-validation" action="register-process.php" method="GET" novalidate >
+          <form class="needs-validation" action="register-process.php" method="POST" novalidate >
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -798,7 +798,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" id="password" required>
+                <input type="password" name="password" class="form-control inputPassword" id="password" required>
                 <div class="invalid-feedback">
                   Valid password is required.
                 </div>
