@@ -106,7 +106,9 @@
       <div class="container">
         <form action="register.php?success=true" method="GET" class="form-signin">
           <div class="row">
-            <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
+            <div class="col-md-12">
+              <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
+            </div>
             <div class="col-md-4 offset-md-4">
               <?php
 
