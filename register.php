@@ -407,15 +407,6 @@
   
         <div class="col-md-12 order-md-1">
           <form class="needs-validation" action="register-process.php" method="POST" novalidate >
-            <div class="mb-3">
-              <label for="userName">Username</label>
-              <input type="text" name="userName" class="form-control" id="userName" placeholder="Mr Danal" required>
-                    
-              <div class="invalid-feedback">
-                Please enter a valid username.
-              </div>
-            </div>
-
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
@@ -792,6 +783,15 @@
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="userName">Username</label>
+              <input type="text" name="userName" class="form-control" id="userName" required>
+                    
+              <div class="invalid-feedback">
+                Please enter a valid username.
               </div>
             </div>
 
