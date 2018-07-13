@@ -38,6 +38,8 @@
 		$country = "'" . $_POST['country'] . "'";
 		$password = "'" . $_POST['password'] + "'";
 
+		echo "password is: " $password;
+
 		$statement = "SELECT username FROM users.people where username=" . $username; 
 
 		$results = $mysqli->query($statement);
