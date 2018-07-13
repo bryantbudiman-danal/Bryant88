@@ -115,6 +115,12 @@
                   echo "Registration failed: username is already taken!";
                 echo '</div>';
               echo '</div>';
+            } else if(isset($_GET['sqlFail']))  {
+              echo '<div class="row">';
+                echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                  echo "MySQL failure: " . $_GET['sqlFail'];
+                echo '</div>';
+              echo '</div>';              
             }
 
           ?>

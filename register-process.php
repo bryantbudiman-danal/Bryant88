@@ -43,7 +43,8 @@
 		$results = $mysqli->query($statement);
 
 		if(!$results) {
-			echo $mysqli->error;
+			$errorMessage = $mysqli->error;
+			header('Location: ../pre-register.php?sqlFail=' . $errorMessage); 
 		} else {
 			$result_count = $results->num_rows;
 			
@@ -52,8 +53,6 @@
 				header('Location: ../pre-register.php?fail=true'); 
 				$results->close();
 			} else {
-
-
 				$sql = "INSERT INTO users.people (username, firstName, lastName, email, address1, address2, city, state, zip, country, password)
 					VALUES (" . $username . ", " . $firstName . ", " .
 						$lastName . ", " . $email . ", " . $address1 . ", " . $address2 . ", " . $city . ", " . $state . ", " . $zip . ", " . $country . ", " . $password . ");";

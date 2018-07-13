@@ -21,12 +21,13 @@
 	$mysqli = mysqli_init();
 	mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
 	if (mysqli_connect_errno($mysqli)) {
-		die('Failed to connect to MySQL: '.mysqli_connect_error());
+		$errorMessage = mysqli_connect_error();
+		header('Location: ../login.php?sqlFail=' . $errorMessage); 
 	}
 
 	if ($mysqli->connect_errno) {
-		// DB Error
-		echo $mysqli->connect_error;
+		$errorMessage = mysqli_connect_error();
+		header('Location: ../login.php?sqlFail=' . $errorMessage); 
 	} else {
 		$username = $_GET['username'];
 		$password = $_GET['password'];
