@@ -1,4 +1,30 @@
 <?php
+	function json_pretty($json, $html = false) {
+	    $out = ''; $nl = "\n"; $cnt = 0; $tab = 4; $len = strlen($json); $space = ' ';
+	    if($html) {
+	        $space = '&nbsp;';
+	        $nl = '<br/>';
+	    }
+	    $k = strlen($space)?strlen($space):1;
+	    for ($i=0; $i<=$len; $i++) {
+	        $char = substr($json, $i, 1);
+	        if($char == '}' || $char == ']') {
+	            $cnt --;
+	            $out .= $nl . str_pad('', ($tab * $cnt * $k), $space);
+	        } else if($char == '{' || $char == '[') {
+	            $cnt ++;
+	        }
+	        $out .= $char;
+	        if($char == ',' || $char == '{' || $char == '[') {
+	            $out .= $nl . str_pad('', ($tab * $cnt * $k), $space);
+	        }
+	        if($char == ':') {
+	            $out .= ' ';
+	        }
+	    }
+	    return $out;
+	}
+
 	session_start();
 
 	function randString() {
@@ -95,7 +121,9 @@
 	$result['results']['encryptedData'] = $pleaseDecode;
 	$result = json_encode($result,JSON_PRETTY_PRINT);
 
-	$phoneIDResult = json_encode($_SESSION['phoneIdResult-match'], JSON_PRETTY_PRINT);
+	$phoneIDResult = json_encode($_SESSION['phoneIdResult-match']);
+
+
 
 // API CALL TO SIFT SCIENCE - ADD ITEM
 	$ch = curl_init('https://api.siftscience.com/v205/events?return_score=true');
@@ -186,19 +214,18 @@
   <body >
   	<h3> phoneID Result: </h3>
   	<?php
-  		echo '<p>' . $phoneIDResult . '</p>';
+  		echo '<p>' . json_pretty($phoneIDResult, true) . '</p>';
   	?>
 
   	<h3> matchAndAttributes Result: </h3>
   	<?php
-  		echo '<p>' . $result . '</p>';
+  		echo '<p>' . json_pretty($result, true) . '</p>';
   	?>
 
   	<h3> addEvent Sift Science Result: </h3>
   	<?php
-  		echo '<p>' . $response . '</p>';
+  		echo '<p>' . json_pretty($response, true) . '</p>';
   	?>
-
 
   </body>
 
