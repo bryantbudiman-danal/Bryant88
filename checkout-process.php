@@ -111,9 +111,9 @@
 	$itemInfoJSON = json_encode($itemInfo);
 
 	$data = array(
-					'$type' => 'transaction',
+					'$type' => '$transaction',
 					'$api_key' => '3203af73a23bcb46',
-					'$amount' => '88888888',
+					'$amount' => 88888888,
 					'$currency_code' => 'USD'
 				);
 
