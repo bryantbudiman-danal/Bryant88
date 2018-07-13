@@ -54,7 +54,7 @@
     <section id="product">
       <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-4">       
+            <div class="col-md-4 offset-md-4">       
               <?php 
                 $host = 'bryant88.mysql.database.azure.com';
                 $username = 'bryantbudiman@bryant88';
