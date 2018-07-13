@@ -85,13 +85,13 @@
               ?>              
 
               <h3> Full Name </h3>
-              <h5> <?php echo $fullName; ?>
+              <h6> <?php echo $fullName; ?> </h6>
 
               <h3> Address </h3>
-              <h5> <?php echo $address; ?>
+              <h6> <?php echo $address; ?> </h6>
 
               <h3> Email </h3>
-              <h5> <?php echo $email; ?>
+              <h6> <?php echo $email; ?> </h6>
   
           </div>          
         </div>        
