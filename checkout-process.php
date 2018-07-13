@@ -97,13 +97,14 @@
 
 	$phoneIDResult = json_encode($_SESSION['phoneIdResult-match'], JSON_PRETTY_PRINT);
 
-	echo nl2br("PHONE API CALL RESULT: \n");
-	echo nl2br($phoneIDResult);
+	// echo nl2br("PHONE API CALL RESULT: \n");
+	// echo nl2br($phoneIDResult);
 
-	echo nl2br("\n");
+	// echo nl2br("\n");
 
-	echo nl2br("MATCHANDATTRIBUTES API CALL RESULT: \n");
-	echo nl2br($result);
+	// echo nl2br("MATCHANDATTRIBUTES API CALL RESULT: \n");
+	// echo nl2br($result);
+
 
 	if ( isset($_SESSION['user']) ) {
 		$userID = $_SESSION['user'];
@@ -134,6 +135,33 @@
 		//echo $response;
 	}
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bryant88 Cool Sneakers</title>
+
+  </head>
+
+  <body >
+  	<?php
+  		echo $phoneIDResult;
+
+  		echo $result;
+
+  	?>
+
+  </body>
+
+</html>
 
 
 
