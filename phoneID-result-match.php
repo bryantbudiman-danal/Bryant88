@@ -21,40 +21,42 @@
 
   session_start();
 
-  echo "phone: " . $_SESSION['phone'];
+  $phoneNumber = (string)$_SESSION['phone'];
 
-  // $match = array("match" => );
+  $match = array("consumerMdn" => $phoneNumber);
 
-  // $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+  $matchJson = json_encode($match);
 
-  // date_default_timezone_set('UTC');
-  // $date = date("c");
+  $parameters['match'] = json_decode($matchJson, true);
+
+  $parametersJSON = json_encode($parameters, JSON_PRETTY_PRINT);
+
+  date_default_timezone_set('UTC');
+  $date = date("c");
                                                            
-  // $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/phoneIdResult');        
+  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/phoneIdResult');        
 
-  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
-  // curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
 
-  // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
-  // curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-  //   'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
-  //   'Accept: application/json',
-  //   'RequestTime: ' . $date,
-  //   'Content-Type: application/json',                                          
-  //   'Content-Length: ' . strlen($parametersJSON))                                
-  // );                     
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+    'Accept: application/json',
+    'RequestTime: ' . $date,
+    'Content-Type: application/json',                                          
+    'Content-Length: ' . strlen($parametersJSON))                                
+  );                     
                                                                                                                        
-  // $resultJSON = curl_exec($ch);
-  
-  // session_start();
+  $resultJSON = curl_exec($ch);
 
-  // $_SESSION['phoneIdResult-match'] = $resultJSON;
+  $_SESSION['phoneIdResult-match'] = $resultJSON;
 
-  // $result = json_decode($resultJSON, true);
+  $result = json_decode($resultJSON, true);
 
-  // $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
+  $authenticationKey = trim($result['results']['phoneIdResult']['authenticationKey']);
 
-  // header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
-?>-
+  header('Location: ../checkout-process.php?authenticationKey=' . $authenticationKey);
+?>
