@@ -100,4 +100,36 @@
 
 	echo nl2br("MATCHANDATTRIBUTES API CALL RESULT: \n");
 	echo nl2br($result);
+
+	if ( isset($_SESSION['user']) ) {
+		$userID = $_SESSION['user'];
+		$ch = curl_init('https://api3.siftscience.com/v3/accounts/5b46980a4f0c05de1da1b600/users/' . $userID . '/decisions');
+
+		$decisionInfo = array(
+							  "decision_id" => "order_looks_bad_account_abuse",
+							  "source" => "AUTOMATED_RULE",
+							);
+
+  		$decisionInfoJSON = json_encode($decisionInfo, JSON_PRETTY_PRINT);
+                                                           
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
+
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
+
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
+
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+			'Authorization: 3203af73a23bcb46',
+		    'Accept: application/json',
+		    'Content-Type: application/json',                                          
+		    'Content-Length: ' . strlen($parametersJSON))        
+		);   
+
+		$response = curl_exec($ch);
+
+		echo $response;
+	}
 ?>
+
+
+

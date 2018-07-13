@@ -43,7 +43,7 @@
 	}
 	
 	// API CALL TO SIFT SCIENCE - ADD ITEM
-	$ch = curl_init('https://api.siftscience.com/v205/events');
+	$ch = curl_init('https://api.siftscience.com/v205/events?return_score=true');
 
 	$itemInfo = array(
 						'$product_title' => $id, 
@@ -82,5 +82,5 @@
 
 	$response = curl_exec($ch);
 
-	header('Location: ../cart.php');
+	//header('Location: ../cart.php');
 ?>
