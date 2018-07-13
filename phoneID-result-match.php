@@ -19,6 +19,8 @@
                       "associationKey" => $associationKey
                 );
 
+  session_start();
+
   echo "phone: " . $_SESSION['phone'];
 
   // $match = array("match" => );
