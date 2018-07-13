@@ -63,16 +63,30 @@
                 $password = 'KopiLuwak88';
                 $db_name = 'users';
 
-                // //Establishes the connection
-                // $mysqli = mysqli_init();
-                // mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
-                // if (mysqli_connect_errno($mysqli)) {
-                //   //die('Failed to connect to MySQL: '. mysqli_connect_error());
-                // }
-                
-                // $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
+                //Establishes the connection
+                $mysqli = mysqli_init();
+                mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+                if (mysqli_connect_errno($mysqli)) {
+                  $errorMessage = mysqli_connect_error();
+                  echo $errorMessage;
+                }
 
-                // $results = $mysqli->query($statement);
+                if ($mysqli->connect_errno) {
+                  $errorMessage = mysqli_connect_error();
+                  echo $errorMessage; 
+                } else {
+                  $username = $_SESSION['user'];
+
+                  $statement = "SELECT * FROM users.people where username='" . $username . "'";
+
+                  $results = $mysqli->query($statement);
+
+                  if(!$results) {
+                    echo $mysqli->error;
+                  } else {
+
+                  }
+
 
                 // $row = mysql_fetch_array($results);
 
