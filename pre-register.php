@@ -105,31 +105,42 @@
     <section id="product">
       <div class="container">
         <form action="register.php?success=true" method="GET" class="form-signin">
-          <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
 
-          <?php
+              <?php
 
-            if(isset($_GET['fail']) && $_GET['fail'] == true) {
-              echo '<div class="row">';
-                echo '<div class="col-lg-12 text-center my-auto errorBar">';
-                  echo "Registration failed: username is already taken!";
-                echo '</div>';
-              echo '</div>';
-            } else if(isset($_GET['sqlFail']))  {
-              echo '<div class="row">';
-                echo '<div class="col-lg-12 text-center my-auto errorBar">';
-                  echo "MySQL failure: " . $_GET['sqlFail'];
-                echo '</div>';
-              echo '</div>';              
-            }
+                if(isset($_GET['fail']) && $_GET['fail'] == true) {
+                  echo '<div class="row">';
+                    echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                      echo "Registration failed: username is already taken!";
+                    echo '</div>';
+                  echo '</div>';
+                } else if(isset($_GET['sqlFail']))  {
+                  echo '<div class="row">';
+                    echo '<div class="col-lg-12 text-center my-auto errorBar">';
+                      echo "MySQL failure: " . $_GET['sqlFail'];
+                    echo '</div>';
+                  echo '</div>';              
+                }
 
-          ?>
+              ?>
 
-          <div class="row top_buffer"></div><!-- end row -->
-          <label for="inputUsername" class="sr-only">Phone Number</label>
-          <input type="tel" name = "phoneNumber" id="phoneNumber" class="form-control" placeholder="+123456789" required autofocus>
-          <div class="row top_buffer"></div><!-- end row -->
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Proceed</button>
+              <div class="row top_buffer"></div><!-- end row -->
+
+              <div class="mb-4">
+                <label for="inputUsername" class="sr-only">Phone Number</label>
+                <input type="tel" name = "phoneNumber" id="phoneNumber" class="form-control" placeholder="+123456789" required autofocus>
+              </div>
+
+              <div class="row top_buffer"></div><!-- end row -->
+              
+              <div class="mb-4">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Proceed</button>
+              </div>
+            </div>
+          </div>
         </form>
       </div> <!-- /container -->
     </section>
