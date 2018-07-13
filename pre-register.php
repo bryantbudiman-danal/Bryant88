@@ -106,9 +106,8 @@
       <div class="container">
         <form action="register.php?success=true" method="GET" class="form-signin">
           <div class="row">
+            <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
             <div class="col-md-4 offset-md-4">
-              <h2 class="form-signin-heading">Please enter your phone number before registering!</h2>
-
               <?php
 
                 if(isset($_GET['fail']) && $_GET['fail'] == true) {
