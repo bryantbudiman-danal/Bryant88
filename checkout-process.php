@@ -153,11 +153,15 @@
 
   <body >
   	<?php
-  		echo $phoneIDResult;
+  		echo '<p>' . $phoneIDResult . '</p>';
 
-  		echo $result;
-
+  		echo '<p>' . $result . '</p>';
   	?>
+
+  	<script>
+  		
+
+  	</script>
 
   </body>
 
