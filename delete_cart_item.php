@@ -65,7 +65,7 @@
 		echo $response;
 		//END OF SIFT SCIENCE API CALL
 
-		// unset($_SESSION['cart'][$_GET['id']]);
-		// header('Location: ../cart.php');
+		unset($_SESSION['cart'][$_GET['id']]);
+		header('Location: ../cart.php');
 	}
 ?>
