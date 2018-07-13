@@ -84,14 +84,14 @@
                 }
               ?>              
 
-              <h3> Full Name </h3>
-              <h6> <?php echo $fullName; ?> </h6>
+              <h3 style="text-align:center;"> Full Name </h3>
+              <h6 style="text-align:center;"> <?php echo $fullName; ?> </h6><br>
 
-              <h3> Address </h3>
-              <h6> <?php echo $address; ?> </h6>
+              <h3 style="text-align:center;"> Address </h3>
+              <h6 style="text-align:center;"> <?php echo $address; ?> </h6><br>
 
-              <h3> Email </h3>
-              <h6> <?php echo $email; ?> </h6>
+              <h3 style="text-align:center;"> Email </h3>
+              <h6 style="text-align:center;"> <?php echo $email; ?> </h6>
   
           </div>          
         </div>        
