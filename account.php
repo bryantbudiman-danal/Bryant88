@@ -56,40 +56,36 @@
         <div class="row">
           <div class="col-md-12">
             <?php 
-                session_start();
-    
-                $host = 'bryant88.mysql.database.azure.com';
-                $username = 'bryantbudiman@bryant88';
-                $password = 'KopiLuwak88';
-                $db_name = 'users';
+              $host = 'bryant88.mysql.database.azure.com';
+              $username = 'bryantbudiman@bryant88';
+              $password = 'KopiLuwak88';
+              $db_name = 'users';
 
-                //Establishes the connection
-                $mysqli = mysqli_init();
-                mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
-                if (mysqli_connect_errno($mysqli)) {
-                  $errorMessage = mysqli_connect_error();
-                  echo $errorMessage;
-                }
+              $mysqli = mysqli_init();
+              mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+              if (mysqli_connect_errno($mysqli)) {
+                die('Failed to connect to MySQL: '.mysqli_connect_error());
+              } else {
+                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'";
 
-                if ($mysqli->connect_errno) {
-                  $errorMessage = mysqli_connect_error();
-                  echo $errorMessage; 
+                $results = $mysqli->query($statement);
+
+                if(!$results) {
+                  echo $mysqli->error;
                 } else {
-                  $username = $_SESSION['user'];
+                  $user = $results->fetch_assoc();
 
-                  $statement = "SELECT * FROM users.people where username='" . $username . "'";
-
-                  $results = $mysqli->query($statement);
-                  $row = $mysqli_fetch_row($results);
-
-                  if(!$results) {
-                    echo $mysqli->error;
-                  } else {
-                    
-                    //echo '<h2>' . "Fullname: " . $row['firstName'] . " " .  $row['lastName'] . '</h2>';
-                  }
+                  $firstName = $user['firstName'];
+                  $lastName = $user['lastName'];
+                  $email = $user['email'];
+                  $address1 = $user['address1'];
+                  $address2 = $user['address2'];
+                  $city = $user['city'];
+                  $state = $user['state'];
+                  $zip = $user['zip'];
+                  $country = $user['country'];
                 }
-
+              }              
 
                 // $row = mysql_fetch_array($results);
 
