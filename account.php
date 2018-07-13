@@ -68,7 +68,7 @@
                 $mysqli = mysqli_init();
                 mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
                 if (mysqli_connect_errno($mysqli)) {
-                  die('Failed to connect to MySQL: '. mysqli_connect_error());
+                  //die('Failed to connect to MySQL: '. mysqli_connect_error());
                 }
                 
                 $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
