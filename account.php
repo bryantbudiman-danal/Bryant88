@@ -54,49 +54,47 @@
     <section id="product">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <?php 
-              $host = 'bryant88.mysql.database.azure.com';
-              $username = 'bryantbudiman@bryant88';
-              $password = 'KopiLuwak88';
-              $db_name = 'users';
+            <div class="col-md-8 offset-md-4">       
+              <?php 
+                $host = 'bryant88.mysql.database.azure.com';
+                $username = 'bryantbudiman@bryant88';
+                $password = 'KopiLuwak88';
+                $db_name = 'users';
 
-              $mysqli = mysqli_init();
-              mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
-              if (mysqli_connect_errno($mysqli)) {
-                die('Failed to connect to MySQL: '.mysqli_connect_error());
-              } else {
-                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'";
-
-                $results = $mysqli->query($statement);
-
-                if(!$results) {
-                  echo $mysqli->error;
+                $mysqli = mysqli_init();
+                mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+                if (mysqli_connect_errno($mysqli)) {
+                  die('Failed to connect to MySQL: '.mysqli_connect_error());
                 } else {
-                  $user = $results->fetch_assoc();
+                  $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'";
 
-                  $firstName = $user['firstName'];
-                  $lastName = $user['lastName'];
-                  $email = $user['email'];
-                  $address1 = $user['address1'];
-                  $address2 = $user['address2'];
-                  $city = $user['city'];
-                  $state = $user['state'];
-                  $zip = $user['zip'];
-                  $country = $user['country'];
+                  $results = $mysqli->query($statement);
+
+                  if(!$results) {
+                    echo $mysqli->error;
+                  } else {
+                    $user = $results->fetch_assoc();
+
+                    $fullName = $user['firstName'] . $user['lastName'];
+                    $address = $user['address1'] . " " . $user['address2'] . ", " . $user['city'] . ", " .
+                    $user['state'] . ", " . $user['country'] . ", " . $user['zip'];
+                    $email = $user['email'];
+
+                  }
                 }
-              }              
+              ?>              
 
-                // $row = mysql_fetch_array($results);
+              <h3> Full Name </h3>
+              <h5> <?php echo $fullName; ?>
 
-                // echo "Fullname: " . $row['firstName'] . " " .  $row['lastName'];
-                // echo "Address: " . $row['address1'] . " " . $row['address2'] . ", " . $row['city']
-                //      . ", " . $row['state'] . ", " . $row['country'] . ", " . $row['zip'] . "\n";
-                // echo "Email: " . $row['email'] . "\n";
-            ?>
+              <h3> Address </h3>
+              <h5> <?php echo $address; ?>
 
-          </div> 
-        </div><!-- end row -->
+              <h3> Email </h3>
+              <h5> <?php echo $email; ?>
+  
+          </div>          
+        </div>        
       </div><!-- end container -->
     </section>
 
