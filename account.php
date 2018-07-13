@@ -85,7 +85,8 @@
                   if(!$results) {
                     echo $mysqli->error;
                   } else {
-                    echo '<h2>' . "Fullname: " . $row['firstName'] . " " .  $row['lastName'] . '</h2>';
+                    
+                    //echo '<h2>' . "Fullname: " . $row['firstName'] . " " .  $row['lastName'] . '</h2>';
                   }
                 }
 
