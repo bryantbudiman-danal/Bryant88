@@ -40,6 +40,7 @@
     $_SESSION['state'] =  $_GET['state'];
     $_SESSION['zip'] =  $_GET['zip'];
     $_SESSION['country'] =  $_GET['country'];
+    $_SESSION['phone'] = $_GET['phone'];
 
 	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?id=' . $correlationId . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 

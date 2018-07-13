@@ -202,6 +202,14 @@
             </div>
 
             <div class="mb-3">
+              <label for="phone">Phone</label>
+              <input type="tel" name="phone" class="form-control" id="phone" placeholder="+123456789" required>
+              <div class="invalid-feedback">
+                Please enter a valid phone number.
+              </div>
+            </div>            
+
+            <div class="mb-3">
               <label for="email">Email</label>
               <?php
                 if(isset($_GET['autoFill']) && $_GET['autoFill'] == true) {
