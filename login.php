@@ -131,20 +131,22 @@
               <div class="row top_buffer"></div><!-- end row -->
 
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="inputUsername" class="sr-only">Username</label>
                 <input name = "username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
               </div>
 
-              <div class="mb-3">
+              <div class="mb-4">
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
               </div>
+
+              <div class="row top_buffer"></div><!-- end row -->
+
+              <div class="mb-4">
+                <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+              </div>
             </div>
-
-            <div class="row top_buffer"></div><!-- end row -->
-
-            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
           </div>
         </form>
       </div> <!-- /container -->
