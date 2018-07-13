@@ -152,9 +152,13 @@
   </head>
 
   <body >
+  	<h3> phoneID Result: </h3>
   	<?php
   		echo '<p>' . $phoneIDResult . '</p>';
+  	?>
 
+  	<h3> matchAndAttributes Result: </h3>
+  	<?php
   		echo '<p>' . $result . '</p>';
   	?>
 
@@ -166,6 +170,3 @@
   </body>
 
 </html>
-
-
-
