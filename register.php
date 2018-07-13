@@ -408,7 +408,7 @@
           <form class="needs-validation" action="register-process.php" method="POST" novalidate >
             <div class="mb-3">
               <label for="userName">Username</label>
-              <input type="text" name="userName" class="form-control" id="userName" placeholder="Lil Pump" required>
+              <input type="text" name="userName" class="form-control" id="userName" placeholder="Mr Danal" required>
                     
               <div class="invalid-feedback">
                 Please enter a valid username.
