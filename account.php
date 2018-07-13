@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,23 +63,23 @@
                 $password = 'KopiLuwak88';
                 $db_name = 'users';
 
-                //Establishes the connection
-                $mysqli = mysqli_init();
-                mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
-                if (mysqli_connect_errno($mysqli)) {
-                  //die('Failed to connect to MySQL: '. mysqli_connect_error());
-                }
+                // //Establishes the connection
+                // $mysqli = mysqli_init();
+                // mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+                // if (mysqli_connect_errno($mysqli)) {
+                //   //die('Failed to connect to MySQL: '. mysqli_connect_error());
+                // }
                 
-                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
+                // $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
-                $results = $mysqli->query($statement);
+                // $results = $mysqli->query($statement);
 
-                $row = mysql_fetch_array($results);
+                // $row = mysql_fetch_array($results);
 
-                echo "Fullname: " . $row['firstName'] . " " .  $row['lastName'];
-                echo "Address: " . $row['address1'] . " " . $row['address2'] . ", " . $row['city']
-                     . ", " . $row['state'] . ", " . $row['country'] . ", " . $row['zip'] . "\n";
-                echo "Email: " . $row['email'] . "\n";
+                // echo "Fullname: " . $row['firstName'] . " " .  $row['lastName'];
+                // echo "Address: " . $row['address1'] . " " . $row['address2'] . ", " . $row['city']
+                //      . ", " . $row['state'] . ", " . $row['country'] . ", " . $row['zip'] . "\n";
+                // echo "Email: " . $row['email'] . "\n";
             ?>
 
           </div> 
