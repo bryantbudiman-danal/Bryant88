@@ -75,7 +75,7 @@
                   } else {
                     $user = $results->fetch_assoc();
 
-                    $fullName = $user['firstName'] . $user['lastName'];
+                    $fullName = $user['firstName'] . " " . $user['lastName'];
                     $address = $user['address1'] . " " . $user['address2'] . ", " . $user['city'] . ", " .
                     $user['state'] . ", " . $user['country'] . ", " . $user['zip'];
                     $email = $user['email'];
