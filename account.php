@@ -85,7 +85,7 @@
                 <div class="well well-sm">
                     <div class="row">
                         <div class="col-sm-6 col-md-12">
-                            <h4> <?php echo $fullName ?> </h4>
+                            <h4> Test </h4>
                             <small>
                               <cite title="San Francisco, USA">
                                 San Francisco, USA <i class="glyphicon glyphicon-map-marker"></i>
