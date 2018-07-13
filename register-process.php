@@ -23,7 +23,8 @@
 
 	if ($mysqli->connect_errno) {
 		// DB Error
-		echo $mysqli->connect_error;
+		$errorMessage = $mysqli->connect_error;
+		header('Location: ../pre-register.php?sqlFail=' . $errorMessage); 
 	} else {
 		$username = "'" . $_POST['userName'] . "'";
 		$firstName = "'" . $_POST['firstName'] . "'";
