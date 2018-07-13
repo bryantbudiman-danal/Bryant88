@@ -127,18 +127,22 @@
 
           <div class="row top_buffer"></div><!-- end row -->
 
-          <div class="mb-3">
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input name = "username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-          </div>
+          <div class="row">
+            <div class=".col-md-4 .offset-md-4">
+              <div class="mb-3">
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input name = "username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+              </div>
 
-          <div class="mb-3">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              <div class="mb-3">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+            </div>
           </div>
 
           <div class="row top_buffer"></div><!-- end row -->
-          
+
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
       </div> <!-- /container -->
