@@ -63,15 +63,23 @@
 					echo $mysqli->error;
 				} else {
 					// go back to home page
-					$_SESSION['user'] = $username;
 
 					// API CALL TO SIFT SCIENCE
 					$ch = curl_init('https://api.siftscience.com/v205/events');
 
 					$session_id = randString(11);
 
-					$name = $firstName . " " . $lastName; 
-					$phone = "+188888888";
+					$username = $_POST['userName'];
+					$_SESSION['user'] = $username;
+					$email = $_POST['email'];
+					$address1 = $_POST['address1'];
+					$address2 = $_POST['address2'];
+					$city = $_POST['city'];
+					$state = $_POST['state'];
+					$zip = $_POST['zip'];
+					$country = $_POST['country'];
+					$name = $_POST['firstName']; . " " . $_POST['lastName'];
+					$phone = '+188888888';
 
 					$billing_address = array(
 						             	'$name' => $name,
@@ -91,7 +99,7 @@
 									'$api_key' => '3203af73a23bcb46',
 									'$user_id' => $username,
 									'$session_id' => $session_id,
-									'$phone' => $phone,
+									'$phone' => $phone
 							     );
 
 					$data['$billing_address'] = json_decode($billing_addressJSON, true);
