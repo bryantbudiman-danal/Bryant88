@@ -96,9 +96,9 @@
 
 	$response = curl_exec($ch);	
 
-	if($loginSuccess == true) {
-		header('Location: ../index.php'); 
-	} else {
-		header('Location: ../login.php?fail=true'); 
-	}
+	// if($loginSuccess == true) {
+	// 	header('Location: ../index.php'); 
+	// } else {
+	// 	header('Location: ../login.php?fail=true'); 
+	// }
 ?>
