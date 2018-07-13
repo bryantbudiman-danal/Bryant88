@@ -97,45 +97,78 @@
 
 	$phoneIDResult = json_encode($_SESSION['phoneIdResult-match'], JSON_PRETTY_PRINT);
 
-	// echo nl2br("PHONE API CALL RESULT: \n");
-	// echo nl2br($phoneIDResult);
+// API CALL TO SIFT SCIENCE - ADD ITEM
+	$ch = curl_init('https://api.siftscience.com/v205/events?return_score=true');
 
-	// echo nl2br("\n");
+	$itemInfo = array(
+						'$product_title' => $id, 
+						'$price' => (int)$price,
+						'$currency_code' => 'USD',
+						'$quantity' => (int)$quantity,
+						'$item_id' => $id,
+					);
 
-	// echo nl2br("MATCHANDATTRIBUTES API CALL RESULT: \n");
-	// echo nl2br($result);
+	$itemInfoJSON = json_encode($itemInfo);
 
+	$data = array(
+					'$type' => 'transaction',
+					'$api_key' => '3203af73a23bcb46',
+					'$amount' => '88888888',
+					'$currency_code' => 'USD'
+				);
 
 	if ( isset($_SESSION['user']) ) {
-		$userID = $_SESSION['user'];
-		$ch = curl_init('https://api3.siftscience.com/v3/accounts/5b46980a4f0c05de1da1b600/users/' . $userID . '/decisions');
-
-		$decisionInfo = array(
-							  "decision_id" => "order_looks_bad_account_abuse",
-							  "source" => "AUTOMATED_RULE",
-							);
-
-  		$decisionInfoJSON = json_encode($decisionInfo, JSON_PRETTY_PRINT);
-                                                           
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
-
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
-
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
-
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-			'Authorization: 3203af73a23bcb46',
-		    'Accept: application/json',
-		    'Content-Type: application/json',                                          
-		    'Content-Length: ' . strlen($parametersJSON))        
-		);   
-
-		$response = curl_exec($ch);
-
-		//echo $response;
+		$user_id = $_SESSION['user'];
+		$data['$user_id'] = $user_id;
+	} else {
+		$session_id = randString(11);
+		$data['$session_id'] = $session_id;
 	}
-?>
 
+	// $data['$item'] = json_decode($itemInfoJSON, true);
+
+	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+	curl_setopt($ch, CURLOPT_HEADER, array(
+		'Content-Type: application/json', 
+		'Content-Length: ' . strlen($data_string))
+	);
+
+	$response = curl_exec($ch);
+
+
+	// if ( isset($_SESSION['user']) ) {
+	// 	$userID = $_SESSION['user'];
+	// 	$ch = curl_init('https://api3.siftscience.com/v3/accounts/5b46980a4f0c05de1da1b600/users/' . $userID . '/decisions');
+
+	// 	$decisionInfo = array(
+	// 						  "decision_id" => "order_looks_bad_account_abuse",
+	// 						  "source" => "AUTOMATED_RULE",
+	// 						);
+
+ //  		$decisionInfoJSON = json_encode($decisionInfo, JSON_PRETTY_PRINT);
+                                                           
+	// 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
+
+	// 	curl_setopt($ch, CURLOPT_POSTFIELDS, $parametersJSON);            
+
+	// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
+
+	// 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
+	// 		'Authorization: 3203af73a23bcb46',
+	// 	    'Accept: application/json',
+	// 	    'Content-Type: application/json',                                          
+	// 	    'Content-Length: ' . strlen($parametersJSON))        
+	// 	);   
+
+	// 	$response = curl_exec($ch);
+
+	// 	//echo $response;
+	// }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -162,10 +195,11 @@
   		echo '<p>' . $result . '</p>';
   	?>
 
-  	<script>
-  		
+  	<h3> addEvent Sift Science Result: </h3>
+  	<?php
+  		echo '<p>' . $response . '</p>';
+  	?>
 
-  	</script>
 
   </body>
 
