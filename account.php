@@ -1,30 +1,30 @@
 
-            <?php 
-              session_start();
+            <!-- <?php 
+              // session_start();
     
-                $host = 'bryant88.mysql.database.azure.com';
-                $username = 'bryantbudiman@bryant88';
-                $password = 'KopiLuwak88';
-                $db_name = 'users';
+              //   $host = 'bryant88.mysql.database.azure.com';
+              //   $username = 'bryantbudiman@bryant88';
+              //   $password = 'KopiLuwak88';
+              //   $db_name = 'users';
 
-                //Establishes the connection
-                $mysqli = mysqli_init();
-                mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
-                if (mysqli_connect_errno($mysqli)) {
-                  die('Failed to connect to MySQL: '. mysqli_connect_error());
-                }
+              //   //Establishes the connection
+              //   $mysqli = mysqli_init();
+              //   mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+              //   if (mysqli_connect_errno($mysqli)) {
+              //     die('Failed to connect to MySQL: '. mysqli_connect_error());
+              //   }
                 
-                $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
+              //   $statement = "SELECT * FROM users.people where username='" . $_SESSION['user'] . "'"; 
 
-                $results = $mysqli->query($statement);
+              //   $results = $mysqli->query($statement);
 
-                $row = mysql_fetch_array($results);
+              //   $row = mysql_fetch_array($results);
 
-                echo "Fullname: " . $row['fullname'] . "\n";
-                echo "Address: " . $row['address'] . "\n";
-                echo "Email: " . $row['email'] . "\n";
-                echo "Phone: " . $row['phone'] . "\n";
-            ?>
+              //   echo "Fullname: " . $row['fullname'] . "\n";
+              //   echo "Address: " . $row['address'] . "\n";
+              //   echo "Email: " . $row['email'] . "\n";
+              //   echo "Phone: " . $row['phone'] . "\n";
+            ?>-->
 
 <!DOCTYPE html>
 <html lang="en">
