@@ -44,44 +44,45 @@
 	}
 	
 	// API CALL TO SIFT SCIENCE - ADD ITEM
-	if ( isset($_SESSION['user']) ) {
-		$ch = curl_init('https://api.siftscience.com/v205/events');
+	$ch = curl_init('https://api.siftscience.com/v205/events');
 
-		$itemInfo = array(
-							'$product_title' => $id, 
-							'$price' => (int)$price,
-							'$currency_code' => 'USD',
-							'$quantity' => (int)$quantity,
-							'$item_id' => $id,
-						);
-
-		$itemInfoJSON = json_encode($itemInfo);
-
-		$session_id = randString(11);
-		$username = $_SESSION['user'];
-
-		$data = array(
-						'$type' => '$add_item_to_cart',
-						'$api_key' => '3203af73a23bcb46',
-						'$user_id' => $username,
-						'$session_id' => $session_id,
+	$itemInfo = array(
+						'$product_title' => $id, 
+						'$price' => (int)$price,
+						'$currency_code' => 'USD',
+						'$quantity' => (int)$quantity,
+						'$item_id' => $id,
 					);
 
-		$data['$item'] = json_decode($itemInfoJSON, true);
+	$itemInfoJSON = json_encode($itemInfo);
 
-		$data_string = json_encode($data, JSON_PRETTY_PRINT);
+	$data = array(
+					'$type' => '$add_item_to_cart',
+					'$api_key' => '3203af73a23bcb46'
+				);
 
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
-		curl_setopt($ch, CURLOPT_HEADER, array(
-			'Content-Type: application/json', 
-			'Content-Length: ' . strlen($data_string))
-		);
-
-		$response = curl_exec($ch);
-		echo $response;
+	if ( isset($_SESSION['user']) ) {
+		$user_id = $_SESSION['user'];
+		$data['$user_id'] = $user_id;
+	} else {
+		$session_id = randString(11);
+		$data['$session_id'] = $session_id;
 	}
+
+	$data['$item'] = json_decode($itemInfoJSON, true);
+
+	$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+	curl_setopt($ch, CURLOPT_HEADER, array(
+		'Content-Type: application/json', 
+		'Content-Length: ' . strlen($data_string))
+	);
+
+	$response = curl_exec($ch);
+	echo $response;
 
 	//header('Location: ../cart.php');
 ?>

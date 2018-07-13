@@ -24,6 +24,6 @@
 
 	$response = curl_exec($ch);
 
-	// session_destroy();
-	// header('Location: ../index.php');
+	session_destroy();
+	header('Location: ../index.php');
 ?>
