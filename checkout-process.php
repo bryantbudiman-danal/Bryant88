@@ -143,7 +143,6 @@
 					'$api_key' => '3203af73a23bcb46',
 					'$amount' => 88888888,
 					'$currency_code' => 'USD',
-					'$time' => 1483232461,
 				);
 
 	if ( isset($_SESSION['user']) ) {
