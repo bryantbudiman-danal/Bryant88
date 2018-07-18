@@ -5,12 +5,15 @@ require 'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-$spreadsheet = new Spreadsheet();
-$sheet = $spreadsheet->getActiveSheet();
-$sheet->setCellValue('A1', 'Hello World !');
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('result.xls');
 
-$writer = new Xlsx($spreadsheet);
-$writer->save('hello world.xlsx');
+$worksheet = $spreadsheet->getActiveSheet();
+
+$worksheet->getCell('A1')->setValue('John');
+$worksheet->getCell('A2')->setValue('Smith');
+
+$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xls');
+$writer->save('result.xls');
 
 ?>
 
@@ -226,6 +229,11 @@ $writer->save('hello world.xlsx');
     </footer>
 
     <!-- Bootstrap core JavaScript -->
+<script>
+  import {sendEmail} from 'backend/sendEmail.jsw';
+  
+</script>
+
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

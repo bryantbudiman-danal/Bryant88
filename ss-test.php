@@ -13,7 +13,7 @@
 
 	$data = array(
 					'$type' => '$add_item_to_cart',
-					'$api_key' => '3203af73a23bcb46',
+					'$api_key' => 'd5e30e6affe617f1',
 					'$user_id' => 'bryantbudiman',
 				);
 
@@ -23,7 +23,9 @@
 
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);  
+	curl_setopt($ch, CURLOPT_TIMEOUT, 5000);    
 	curl_setopt($ch, CURLOPT_HEADER, array(
 		'Content-Type: application/json', 
 		'Content-Length: ' . strlen($data_string))
@@ -32,4 +34,6 @@
 	$response = curl_exec($ch);
 
 	echo $response;
+
+	echo "idk";
 ?>
