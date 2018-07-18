@@ -15,6 +15,8 @@ $worksheet->getCell('A2')->setValue('Smith');
 $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xls');
 $writer->save('result.xls');
 
+echo "hi!";
+
 ?>
 
 <!DOCTYPE html>
