@@ -1,24 +1,3 @@
-<?php
-
-require 'vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
-$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('result.xls');
-
-$worksheet = $spreadsheet->getActiveSheet();
-
-$worksheet->getCell('A1')->setValue('John');
-$worksheet->getCell('A2')->setValue('Smith');
-
-$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xls');
-$writer->save('result.xls');
-
-echo "hi!";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

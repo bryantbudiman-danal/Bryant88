@@ -3,7 +3,12 @@
 	$endDateRandom = 1531761875;
 	$time = mt_rand($startDateRandom, $endDateRandom);
 
-	for ($x = 0; $x <= 10; $x++) {
+	$addToCart_Events = array();
+	$createOrder_Events = array();
+	$transaction_Events = array();
+
+	$response = "heheh";
+	for ($x = 0; $x <= 1; $x++) {
 		////////////////////////////////////ADD TO CART//////////////////////////////////////////////
 		$ch = curl_init('https://api.siftscience.com/v205/events?return_score=true');
 
@@ -30,12 +35,14 @@
 
 		$data = array(
 						'$type' => '$add_item_to_cart',
-						'$api_key' => '3203af73a23bcb46'
+						'$api_key' => 'd5e30e6affe617f1',
 						'$time' => $time,
 						'$user_id' => "john.wick",
 					);
 
 		$data['$item'] = json_decode($itemInfoJSON, true);
+
+		$addToCart_Events[] = $data;
 
 		$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
@@ -67,12 +74,14 @@
 
 		$data = array(
 						'$type' => '$create_order',
-						'$api_key' => '3203af73a23bcb46',
+						'$api_key' => 'd5e30e6affe617f1',
 						'$amount' => 88888888,
 						'$currency_code' => 'USD',
 						'$time' => $time,
 						'$user_id' => "john.wick",
 					);
+
+		$createOrder_Events[] = $data;
 
 		$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
@@ -105,7 +114,7 @@
 
 		$data = array(
 						'$type' => '$transaction',
-						'$api_key' => '3203af73a23bcb46',
+						'$api_key' => 'd5e30e6affe617f1',
 						'$amount' => 88888888,
 						'$currency_code' => 'USD',
 						'$time' => $time,
@@ -113,6 +122,8 @@
 					);
 
 		$data['$billing_address'] = json_decode($billing_address, true);
+
+		$transaction_Events[] = $data;
 
 		$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
@@ -126,6 +137,29 @@
 		);
 
 		$response = curl_exec($ch);
-	 ///////////////////////////////////ADD TO CART END//////////////////////////////////////////////
+	 ///////////////////////////////////TRANSACTION END//////////////////////////////////////////////
 	}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+  </head>
+
+  <body >
+  	<?php
+  		var_dump($addToCart_Events);
+  		var_dump($createOrder_Events);
+  		var_dump($transaction_Events);
+  		echo "response is: " . $response;
+  	?>
+  </body>
+
+</html>
