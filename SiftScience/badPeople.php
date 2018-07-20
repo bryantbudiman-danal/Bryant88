@@ -783,6 +783,8 @@
 
 			curl_exec($ch); 
 
+			usleep(100000);
+
 			$numberOfTimesPurchased = mt_rand(1,5);
 
 			$fraudAddress = \Faker\Address::streetName();
@@ -945,7 +947,7 @@
 				$register = $mysqli->query($sql);
 			}	
 
-			sleep(1);
+			usleep(100000);
 		}
 	}
 ?>
