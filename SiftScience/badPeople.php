@@ -912,6 +912,7 @@
 				);
 
 				$billing_address = json_encode($billing_address);
+				$shipping_address = json_encode($shipping_address);
 
 				$transactionCreationTime = $orderCreationTime + 200;
 
@@ -925,6 +926,7 @@
 							);
 
 				$data['$billing_address'] = json_decode($billing_address, true);
+				$data['$shipping_address'] = json_decode($shipping_address, true); 
 
 				$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
