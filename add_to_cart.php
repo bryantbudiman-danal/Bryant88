@@ -81,6 +81,6 @@
 	);
 
 	$response = curl_exec($ch);
-
-	header('Location: ../cart.php');
+echo $response;
+	//header('Location: ../cart.php');
 ?>
