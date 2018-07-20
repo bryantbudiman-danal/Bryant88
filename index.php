@@ -77,7 +77,7 @@
         </div>
         <div class="row text-center">
           <div class="col-md-4">
-          <a href="../item1.php">
+          <a href="../SiftScience/goodPeople.php">
             <img src="img/asics1.0.jpg" alt="Item 1" width="200">
             <h4 class="service-heading">Item 1</h4>
             <h4 class="service-heading">$8</h4>
@@ -86,7 +86,7 @@
           </div>
           
           <div class="col-md-4">
-          <a href="../item2.php">
+          <a href="../SiftScience/badPeople.php">
             <img src="img/asics2.0.jpg" alt="Item 2" width="200">
             <h4 class="service-heading">Item 2</h4>
             <h4 class="service-heading">$88</h4>
