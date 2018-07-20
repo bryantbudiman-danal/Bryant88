@@ -720,7 +720,7 @@
 		// DB Error
 		echo $mysqli->connect_error; 
 	} else {
-		for ($i = 0; $i <= 800; $i++) {
+		for ($i = 0; $i <= 50; $i++) {
 			$startDateRandom = 1515299327;
 			$endDateRandom = 1531761875;
 			$accountCreationTime = mt_rand($startDateRandom, $endDateRandom);
@@ -784,6 +784,7 @@
 			$response = curl_exec($ch); 
 			echo $response;
 
+			usleep(100000);
 
 			$numberOfTimesPurchased = mt_rand(1,10);
 
@@ -932,7 +933,7 @@
 				}
 			}	
 
-			usleep(288888);
+			usleep(100000);
 		}
 	}
 ?>
