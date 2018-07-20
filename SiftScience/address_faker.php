@@ -9,8 +9,6 @@
  */
 namespace Faker;
 
-include 'Faker.php';
-
 /**
  * Address Faker.
  *

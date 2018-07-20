@@ -9,7 +9,6 @@
  */
 namespace Faker;
 
-include 'Faker.php';
 /**
  * Phone number Faker.
  *
