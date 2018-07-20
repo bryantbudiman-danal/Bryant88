@@ -781,7 +781,9 @@
 				'Content-Length: ' . strlen($jsonData))
 			);
 
-			curl_exec($ch); 
+			$response = curl_exec($ch); 
+			echo $response;
+
 
 			$numberOfTimesPurchased = mt_rand(1,10);
 
@@ -831,7 +833,8 @@
 					'Content-Length: ' . strlen($data_string))
 				);
 
-				curl_exec($ch);
+				$response = curl_exec($ch);
+				echo $response;
 				////////////////////////////////////ADD TO CART END//////////////////////////////////////////////
 
 				/////////////////////////////////////CREATE_ORDER////////////////////////////////////////////////
@@ -871,7 +874,8 @@
 					'Content-Length: ' . strlen($data_string))
 				);
 
-				curl_exec($ch);
+				$response = curl_exec($ch);
+				echo $response;
 				////////////////////////////////////CREATE-ORDER END/////////////////////////////////////////////
 
 				////////////////////////////////////TRANSACTION//////////////////////////////////////////////////
@@ -913,7 +917,8 @@
 					'Content-Length: ' . strlen($data_string))
 				);
 
-				curl_exec($ch);
+				$response = curl_exec($ch);
+				echo $response;
 			 ///////////////////////////////////TRANSACTION END//////////////////////////////////////////////
 
 				$sql = "INSERT INTO users.people (fullName, userName, address, city, state, country, zip, accountCreationTime, itemBought, quantityBought, addToCartTime, orderCreationTime, transactionCreationTime)
