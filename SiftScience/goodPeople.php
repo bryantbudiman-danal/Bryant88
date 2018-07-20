@@ -626,7 +626,7 @@
 	     * @static
 	     * @return string ZIP code
 	     */
-	    public static function zipCode()
+	    public static function zipCode($state)
 	    {
 	        return self::numerify(self::pickOne(array('#####', '#####-####')));
 	    }

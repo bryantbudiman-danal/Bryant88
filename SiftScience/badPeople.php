@@ -940,9 +940,9 @@
 				curl_exec($ch);
 			 ///////////////////////////////////TRANSACTION END//////////////////////////////////////////////
 
-				$sql = "INSERT INTO users.people (fullName, userName, address, city, state, country, zip, accountCreationTime, itemBought, quantityBought, addToCartTime, orderCreationTime, transactionCreationTime,  fraudAddress, fraudCity, fraudState, fraudZip)
+				$sql = "INSERT INTO users.people (fullName, userName, address, city, state, country, zip, accountCreationTime, itemBought, quantityBought, addToCartTime, orderCreationTime, transactionCreationTime,  fraudAddress, fraudCity, fraudState, fraudZip, type)
 					VALUES ('" . $randomName . "', '" . $randomUserName . "', '" .
-						$randomAddress . "', '" . $randomCity . "', '" . $randomState . "', 'US', '" . $randomZip . "', '" . date("Y-m-d H:i:s", $accountCreationTime) . "', '" . $id . "', '" . $quantity . "', '" . date("Y-m-d H:i:s", $addToCartTime) . "', '" . date("Y-m-d H:i:s", $orderCreationTime) . "', '" . date("Y-m-d H:i:s", $transactionCreationTime) .  "','". $fraudAddress . "','" . $fraudCity ."','". $fraudState ."','". $fraudZip . "');";
+						$randomAddress . "', '" . $randomCity . "', '" . $randomState . "', 'US', '" . $randomZip . "', '" . date("Y-m-d H:i:s", $accountCreationTime) . "', '" . $id . "', '" . $quantity . "', '" . date("Y-m-d H:i:s", $addToCartTime) . "', '" . date("Y-m-d H:i:s", $orderCreationTime) . "', '" . date("Y-m-d H:i:s", $transactionCreationTime) .  "','". $fraudAddress . "','" . $fraudCity ."','". $fraudState ."','". $fraudZip ."','bad1');";
 						
 				$register = $mysqli->query($sql);
 			}	
