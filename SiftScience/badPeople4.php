@@ -824,7 +824,7 @@
 				usleep(100000);
 			}	
 
-			$sql = "INSERT INTO users.badpeople4 (userName1, userName2, userName3, userName4, userName5, userName6, userName7, userName8, userName9, userName10, userName11, userName12, userName13, userName14, userName15, loginTime, ipAddress) VALUES ('";
+			$sql = "INSERT INTO users.badpeople4 (userName1, userName2, userName3, userName4, userName5, userName6, userName7, userName8, userName9, userName10, userName11, userName12, userName13, userName14, userName15, loginTime, ipAddress) VALUES (";
 
 			$userNames = "";
 
@@ -834,7 +834,7 @@
 				$userNames .= "', ";
 			}
 
-			$sql .= $userNames . date("Y-m-d H:i:s", $failedLogInTime) . "', '" . $randIP . "');";
+			$sql .= $userNames . "'" . date("Y-m-d H:i:s", $failedLogInTime) . "', '" . $randIP . "');";
 			echo $sql;
 			$register = $mysqli->query($sql);
 			if (!$register) {
