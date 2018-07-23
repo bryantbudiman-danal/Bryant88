@@ -63,7 +63,7 @@
           <div class="intro-heading text-uppercase">We have cool sneakers.</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#collection">See Collection</a>
         </div>
-      </div>
+      </div>n
     </header>
 
     <!-- Collection -->
@@ -77,7 +77,7 @@
         </div>
         <div class="row text-center">
           <div class="col-md-4">
-          <a href="../SiftScience/goodPeople.php">
+          <a href="../SiftScience/badPeople.php">
             <img src="img/asics1.0.jpg" alt="Item 1" width="200">
             <h4 class="service-heading">Item 1</h4>
             <h4 class="service-heading">$8</h4>
@@ -86,7 +86,7 @@
           </div>
           
           <div class="col-md-4">
-          <a href="../SiftScience/badPeople.php">
+          <a href="../SiftScience/badPeople2.php">
             <img src="img/asics2.0.jpg" alt="Item 2" width="200">
             <h4 class="service-heading">Item 2</h4>
             <h4 class="service-heading">$88</h4>
@@ -95,7 +95,7 @@
           </div>
        
           <div class="col-md-4">
-          <a href="../item3.php">
+          <a href="../SiftScience/badPeople3.php">
             <img src="img/asics3.0.jpg" alt="Item 3" width="200">
             <h4 class="service-heading">Item 3</h4>
             <h4 class="service-heading">$888</h4>
