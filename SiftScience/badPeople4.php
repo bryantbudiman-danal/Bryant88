@@ -705,11 +705,10 @@
 	    }
 	}
 
-	function makeAccounts() {
+	function makeAccounts(&$userNames) {
 		$startDateRandom = 1515299327;
 		$endDateRandom = 1531761875;
 
-		$userNames = array();
 
 		for ($i = 0; $i < 15;	$i++) {
 			$randomFirstName = \Faker\Name::firstName();
@@ -773,10 +772,8 @@
 
 			curl_exec($ch); 
 
-			$userNames[] = $randomUserName;
+			array_push($userNames, $randomUserName);
 		}
-
-		return $userNames;
 	}
 
 	$host = 'bryant88.mysql.database.azure.com';
@@ -795,7 +792,8 @@
 		echo $mysqli->connect_error;
 	} else {
 		for ($i = 0; $i < 20;	$i++) {
-			$createdAccounts = makeAccounts();
+			$userNamesArray = array();
+			makeAccounts($userNamesArray);
 
 			usleep(100000);
 
@@ -806,7 +804,7 @@
 				$loginAttempt = array(
 					'$type' => '$login',
 					'$api_key' => 'e7e2cfa100771efb',
-					'$user_id' => $createdAccounts[$x],
+					'$user_id' => $userNamesArray[$x],
 					'$time' => $failedLogInTime,
 					'$ip' => $randIP,
 				);
@@ -831,11 +829,13 @@
 			$userNames = "";
 
 			for ($x = 0; $x < 15; $x++) {	
-				$userNames .= $createdAccounts[$x];
-				$userNames .= ", ";
+				$userNames .= "'";
+				$userNames .= $userNamesArray[$x];
+				$userNames .= "', ";
 			}
 
-			$sql = $sql . date("Y-m-d H:i:s", $failedLogInTime) . "', '" . $randIP . "');";
+			$sql .= $userNames . date("Y-m-d H:i:s", $failedLogInTime) . "', '" . $randIP . "');";
+			echo $sql;
 			$register = $mysqli->query($sql);
 			if (!$register) {
 				echo $mysqli->error;
