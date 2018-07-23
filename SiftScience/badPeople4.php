@@ -711,7 +711,7 @@
 
 		$userNames = array();
 
-		for ($i = 0; $i <= 15;	$i++) {
+		for ($i = 0; $i < 15;	$i++) {
 			$randomFirstName = \Faker\Name::firstName();
 			$randomLastName = \Faker\Name::lastName();
 			$randomName = $randomFirstName . " " . $randomLastName;
@@ -794,7 +794,7 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
-		for ($i = 0; $i <= 15;	$i++) {
+		for ($i = 0; $i < 15;	$i++) {
 			$createdAccounts = makeAccounts();
 
 			usleep(100000);
@@ -802,7 +802,7 @@
 			$failedLogInTime = 1532248718;			
 			$randIP = "".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255);
 
-			for ($x = 0; $x <= count($createdAccounts); $x++) {	
+			for ($x = 0; $x < 15; $x++) {	
 				$loginAttempt = array(
 					'$type' => '$login',
 					'$api_key' => 'e7e2cfa100771efb',
@@ -830,7 +830,7 @@
 
 			$userNames = "";
 
-			for ($x = 0; $x <= 15; $x++) {	
+			for ($x = 0; $x < 15; $x++) {	
 				$userNames .= $createdAccounts[$x];
 				$userNames .= ", ";
 			}
