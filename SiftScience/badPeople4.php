@@ -830,7 +830,7 @@
 
 			$userNames = "";
 
-			for ($x = 0; $x <= count($createdAccounts); $x++) {	
+			for ($x = 0; $x <= 15; $x++) {	
 				$userNames .= $createdAccounts[$x];
 				$userNames .= ", ";
 			}
