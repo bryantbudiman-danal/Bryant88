@@ -720,7 +720,7 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
-		for ($i = 0; $i <= 10;	$i++) {
+		for ($i = 0; $i <= 15;	$i++) {
 			$startDateRandom = 1515299327;
 			$endDateRandom = 1531761875;
 			$accountCreationTime = mt_rand($startDateRandom, $endDateRandom);
