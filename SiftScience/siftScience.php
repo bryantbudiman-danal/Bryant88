@@ -723,8 +723,8 @@
 			} else if($this->id == '3') {
 				$this->price = 888;
 			}
-			$this->price = (string)$this->price;
-			$this->amount = (string)((int)$this->price*(int)$this->quantity);
+			$this->price = $this->price;
+			$this->amount = (int)$this->price*$this->quantity;
 		}
 
 		public function makeAccount($timestamp) {
