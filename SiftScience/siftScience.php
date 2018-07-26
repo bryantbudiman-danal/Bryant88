@@ -225,7 +225,7 @@
 				'$user_id' => $this->username,
 			);
 
-			$billing_address = array(
+			$shipping_address = array(
 				'$name' => "Bad Person", 
 				'$phone' => "123456890",
 				'$address_1' => "Very Bad Street",
@@ -235,9 +235,9 @@
 				'$zipcode' => "33333",	
 			);
 
-			$billing_address = json_encode($billing_address);
+			$shipping_address = json_encode($shipping_address);
 
-			$data['$billing_address'] = json_decode($billing_address, true);
+			$data['$shipping_address'] = json_decode($shipping_address, true);
 
 			$data_string = json_encode($data, JSON_PRETTY_PRINT);
 
