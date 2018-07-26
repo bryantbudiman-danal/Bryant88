@@ -261,7 +261,7 @@
 	$createOrderTime = 1532488020;
 	$transactionTime = 1532488140;
 
-	$ss = new SiftScienceSimulator("Bella","Haddad");
+	$ss = new SiftScienceSimulator("Bob","Johnson");
 
 	$ss->makeAccount($makeAccountTime);
 	$ss->updateAccount($updateAccountTime);
