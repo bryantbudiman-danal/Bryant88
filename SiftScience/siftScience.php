@@ -4,8 +4,10 @@
 		private $price;
 		private $quantity;
 		private $amount;
+		private $fullname;
+		private $username;
 
-		public function __construct() {
+		public function __construct($firstName, $lastName) {
 			$this->id = mt_rand(1,3);
 			$this->id = (string)$this->id;
 
@@ -19,18 +21,22 @@
 			}
 			$this->price = $this->price;
 			$this->amount = (int)$this->price*$this->quantity;
+
+			$this->fullname = $firstName . " " . $lastName;
+
+			$this->username = strtolower($firstName) . "." . strtolower($lastName);
 		}
 
 		public function makeAccount($timestamp) {
 			$createAccount = array(
 				'$type' => '$create_account',
 				'$api_key' => 'e7e2cfa100771efb',
-				'$user_id' => 'john.wick',
+				'$user_id' => $this->username,
 				'$time' => $timestamp,
 			);
 
 			$billing_address = array(
-									'$name' => "John Wick", 
+									'$name' => $this->fullname, 
 									'$phone' => "1-388-8888-888",
 									'$address_1' => "325 West Adams Boulevard",
 									'$city' => "Los Angeles",
@@ -42,7 +48,7 @@
 			$billing_address = json_encode($billing_address);
 
 			$shipping_address = array(
-									'$name' => "John Wick", 
+									'$name' => $this->fullname, 
 									'$phone' => "1-388-8888-888",
 									'$address_1' => "325 West Adams Boulevard",
 									'$city' => "Los Angeles",
@@ -87,7 +93,7 @@
 			$data = array(
 							'$type' => '$add_item_to_cart',
 							'$api_key' => 'e7e2cfa100771efb',
-							'$user_id' => 'john.wick',
+							'$user_id' => $this->username,
 							'$time' => $timestamp,
 						);
 
@@ -112,7 +118,7 @@
 			$loginAttempt = array(
 				'$type' => '$login',
 				'$api_key' => 'e7e2cfa100771efb',
-				'$user_id' => 'john.wick',
+				'$user_id' => $this->username,
 				'$time' => $timestamp,
 			);
 
@@ -150,7 +156,7 @@
 				'$amount' => $this->amount,
 				'$currency_code' => 'USD',
 				'$time' => $timestamp,
-				'$user_id' => 'john.wick',
+				'$user_id' => $this->username,
 			);
 
 			$data_string = json_encode($data, JSON_PRETTY_PRINT);
@@ -173,12 +179,12 @@
 
 			$billing_address = array(
 				'$name' => "Bad Person", 
-				'$phone' => "696969696",
+				'$phone' => "123456890",
 				'$address_1' => "Very Bad Street",
 				'$city' => "Not Nice City",
 				'$region' => "New Mexico",
 				'$country' => "US",
-				'$zipcode' => "44444",		
+				'$zipcode' => "33333",		
 			);
 
 			$billing_address = json_encode($billing_address);
@@ -189,7 +195,7 @@
 				'$amount' => $this->amount,
 				'$currency_code' => 'USD',
 				'$time' => $timestamp,	
-				'$user_id' => 'john.wick',
+				'$user_id' => $this->username,
 			);
 
 			$data['$billing_address'] = json_decode($billing_address, true);
@@ -216,17 +222,17 @@
 				'$type' => '$update_account',
 				'$api_key' => 'e7e2cfa100771efb',
 				'$time' => $timestamp,
-				'$user_id' => 'john.wick',
+				'$user_id' => $this->username,
 			);
 
 			$billing_address = array(
 				'$name' => "Bad Person", 
-				'$phone' => "696969696",
+				'$phone' => "123456890",
 				'$address_1' => "Very Bad Street",
 				'$city' => "Not Nice City",
-				'$region' => "New Mexico",
+				'$region' => "North Dakota",
 				'$country' => "US",
-				'$zipcode' => "44444",	
+				'$zipcode' => "33333",	
 			);
 
 			$billing_address = json_encode($billing_address);
@@ -250,12 +256,12 @@
 	}
 
 	$makeAccountTime = 1529965014;
-	$updateAccountTime = 1532125014; 
-	$addToCartTime = 1532125254;
-	$createOrderTime = 1532125314;
-	$transactionTime = 1532125434;
+	$updateAccountTime = 1532487600; 
+	$addToCartTime = 1532487900;
+	$createOrderTime = 1532488020;
+	$transactionTime = 1532488140;
 
-	$ss = new SiftScienceSimulator();
+	$ss = new SiftScienceSimulator("Bella","Haddad");
 
 	$ss->makeAccount($makeAccountTime);
 	$ss->updateAccount($updateAccountTime);
