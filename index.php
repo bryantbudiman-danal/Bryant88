@@ -48,12 +48,22 @@
               <div class="mb-4">
                 <button class="btn btn-primary btn-block" type="submit">Check Score!</button>
               </div>
+
+
+              <?php
+                  if (($handle = fopen("people.csv", "r")) !== FALSE) {
+                      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                        echo $data[0];
+                      }
+
+                      fclose($handle);
+                  }
+              ?>
             </div>
           </div>
         </form>
       </div> <!-- /container -->
     </section>
-
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
