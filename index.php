@@ -121,7 +121,7 @@
                         VALUES ('" . $username  . "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
                         $accountTakeoverScore . "', '" .  $accountTakeoverReasonsString . "', '" . $accountTakeoverReasonsScores . "', '" . 
-                        $paymentAbuseScore . "', '" . $paymentAbuseReasonsString . $paymentAbuseReasonsScores ."');";
+                        $paymentAbuseScore . "', '" . $paymentAbuseReasonsString . "', '" . $paymentAbuseReasonsScores ."');";
                 
                       $sqlResult = $mysqli->query($sql);
                       if (!$sqlResult) {
