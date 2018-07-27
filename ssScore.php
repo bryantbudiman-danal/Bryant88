@@ -25,13 +25,40 @@
 	    return $out;
 	}
 
+  $host = 'siftscience.mysql.database.azure.com';
+  $username = 'bryantbudiman@siftscience';
+  $password = 'KopiLuwak88';
+  $db_name = 'people';
 
-	$username = $_GET['username'];
+  $mysqli = mysqli_init();
+  mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
+  if (mysqli_connect_errno($mysqli)) {
+    echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
+  }
 
-	$ch = curl_init('https://api.siftscience.com/v205/score/'. $username . '/?api_key=e7e2cfa100771efb');
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
-	$response = curl_exec($ch); 
+  if ($mysqli->connect_errno) {
+    // DB Error
+    echo $mysqli->connect_error;
+  } else {
+    
+
+
+  }
+
+ //  if (($handle = fopen("people.csv", "r")) !== FALSE) {
+ //    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+ //      echo $data[0];
+ //    }
+
+ //    fclose($handle);
+ //  }
+
+	// $username = $_GET['username'];
+
+	// $ch = curl_init('https://api.siftscience.com/v205/score/'. $username . '/?api_key=e7e2cfa100771efb');
+	// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
+	// $response = curl_exec($ch); 
 ?>
 
 <!DOCTYPE html>
