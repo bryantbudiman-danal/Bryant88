@@ -63,13 +63,32 @@
                 } else {
                   if (($handle = fopen("people.csv", "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                      $username = $data[0];
+                      $username = urlencode($data[0]);
                       $ch = curl_init('https://api.siftscience.com/v205/score/'. $username . '/?api_key=e7e2cfa100771efb');
                       curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
                       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
                       $response = curl_exec($ch); 
-                      echo $response;
-                      usleep(100000);
+                      $result = json_decode($response, true);
+
+                      $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
+                      $accountAbuseReasons = trim($result["scores"]["reasons"]["reasons"]);
+                      foreach($accountAbuseReasons as $accountAbuseReason) {
+                        echo $accountAbuseReason; 
+                      }
+
+                      $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
+                      $accountTakeoverReasons = trim($result["scores"]["account_takeover"]["reasons"]);
+                      foreach($accountTakeoverReasons as $accountTakeoverReason) {
+                        echo $accountTakeoverReason; 
+                      }
+
+                      $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
+                      $paymentAbuseReasons = trim($result["scores"]["payment_abuse"]["reasons"]);
+                      foreach($paymentAbuseReasons as $paymentAbuseReason) {
+                        echo $paymentAbuseReason; 
+                      }
+
+                      usleep(88888);
                     }
 
                     fclose($handle);
