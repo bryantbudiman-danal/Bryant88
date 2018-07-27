@@ -73,18 +73,50 @@
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
                       $accountAbuseReasons = $result["scores"]["account_abuse"]["reasons"];
+                      $accountAbuseReasonsString = "";
                       for($i=0; $i<count($accountAbuseReasons); $i++) {
-                        echo $accountAbuseReasons[$i]["name"];
+                        if($i < count($accountAbuseReasons)-1) {
+                          $accountAbuseReasonsString .= $accountAbuseReasons[$i] . "/";
+                        }
+                        else if($i == count($accountAbuseReasons)-1) {
+                          $accountAbuseReasonsString .= $accountAbuseReasons[$i];
+                        }
                       }
-          
+
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
                       $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"]);
-          
+                      $accountTakeoverReasonsString = "";
+                      for($i=0; $i<count($accountTakeoverReasons); $i++) {
+                        if($i < count($accountTakeoverReasons)-1) {
+                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i] . "/";
+                        }
+                        else if($i == count($accountTakeoverReasons)-1) {
+                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i];
+                        }
+                      }
 
                       $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
                       $paymentAbuseReasons = json_decode($result["scores"]["payment_abuse"]["reasons"]);
+                      $paymentAbuseReasonsString = "";
+                      for($i=0; $i<count($paymentAbuseReasons); $i++) {
+                        if($i < count($paymentAbuseReasons)-1) {
+                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i] . "/";
+                        }
+                        else if($i == count($paymentAbuseReasons)-1) {
+                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i];
+                        }
+                      } 
+
+                      $sql = "INSERT INTO people.badpeople1score (accountAbuseScore, accountAbuseReasons, accountTakeoverScore, accountTakeoverReasons, paymentAbuseScore, paymentAbuseReasons)
+                        VALUES ('" . $accountAbuseScore . "', '" . $accountAbuseReasons . "', '" . $accountTakeoverScore . "', '" . 
+                        $accountTakeoverReasons . "', '" . $paymentAbuseScore . "', '" . $paymentAbuseReasons ."');";
+                
+                      $sqlResult = $mysqli->query($sql);
+                      if (!$sqlResult) {
+                        echo $mysqli->error;
+                      }                      
      
-                     usleep(88888);
+                      usleep(88888);
                     }
 
                     fclose($handle);
