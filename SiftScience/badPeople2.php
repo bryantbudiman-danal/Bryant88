@@ -705,7 +705,7 @@
 	    }
 	}
 
-	function createOrder($id, $quantity, $orderCreationTime, $randomUserName) {
+	function createOrder($id, $quantity, $orderCreationTime, $randomUserName, $ip) {
 		$ch = curl_init('https://api.siftscience.com/v205/events');
 
 		$price = 8; 
@@ -734,6 +734,7 @@
 					'$currency_code' => 'USD',
 					'$time' => $orderCreationTime,
 					'$user_id' => $randomUserName,
+					'$ip' => $ip,
 				);
 
 		$data_string = json_encode($data, JSON_PRETTY_PRINT);
@@ -750,7 +751,7 @@
 		curl_exec($ch);
 	}
 
-	function addToCart($id, $quantity, $addToCartTime, $userName) {
+	function addToCart($id, $quantity, $addToCartTime, $userName, $ip) {
 		$ch = curl_init('https://api.siftscience.com/v205/events');
 
 		$price = 8; 
@@ -775,6 +776,7 @@
 			'$api_key' => 'e7e2cfa100771efb',
 			'$time' => $addToCartTime,
 			'$user_id' => $userName,
+			'$ip' => $ip,
 		);
 
 		$data['$item'] = json_decode($itemInfoJSON, true);
@@ -791,11 +793,10 @@
 
 		curl_exec($ch);		
 	}
-
-	$host = 'bryant88.mysql.database.azure.com';
-	$username = 'bryantbudiman@bryant88';
-	$password = 'KopiLuwak88';
-	$db_name = 'users';
+                $host = 'siftscience.mysql.database.azure.com';
+                $username = 'bryantbudiman@siftscience';
+                $password = 'KopiLuwak88';
+                $db_name = 'people';
 
 	$mysqli = mysqli_init();
 	mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
@@ -824,11 +825,14 @@
 
 			$randomUserName = strtolower($randomFirstName) . "." . strtolower($randomLastName);
 
+			$firstIP = "".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255);
+
 			$createAccount = array(
 				'$type' => '$create_account',
 				'$api_key' => 'e7e2cfa100771efb',
 				'$user_id' => $randomUserName,
 				'$time' => $accountCreationTime,
+				'$ip' => $firstIP,
 			);
 
 			$billing_address = array(
@@ -870,14 +874,18 @@
 
 			curl_exec($ch); 
 
-			usleep(100000);
+			usleep(88888);
 
 			$fraudAddress = \Faker\Address::streetName();
 			$fraudCity = \Faker\Address::city();
 			$fraudState = \Faker\Address::state();
 			$fraudZip = \Faker\Address::zipCode();
+			$fraudName = \Faker\Name::firstName() . " " . \Faker\Name::lastName();
+			$fraudPhone = \Faker\PhoneNumber::phoneNumber();
 
 			////////////////////////////////////CHANGE PASSWORD//////////////////////////////////////////////
+
+			$secondIP = "".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255).".".mt_rand(0,255);
 			$passwordChangeTime = mt_rand($accountCreationTime, $endDateRandom);
 
 			$changePassword = array(
@@ -886,6 +894,7 @@
 				'$user_id' => $randomUserName,
 				'$time' => $passwordChangeTime,
 				'$changed_password' => true,
+				'$ip' => $secondIP,
 			);
 
 			$ch = curl_init('https://api.siftscience.com/v205/events');
@@ -901,6 +910,47 @@
 			curl_exec($ch); 
 			////////////////////////////////////CHANGE PASSWORD END//////////////////////////////////////////////
 
+			////////////////////////////////////UPDATE ACCOUNT///////////////////////////////////////////////////
+			$ch = curl_init('https://api.siftscience.com/v205/events');
+
+			$updateAccountTime = $passwordChangeTime + 888;
+
+			$data = array(
+				'$type' => '$update_account',
+				'$api_key' => 'e7e2cfa100771efb',
+				'$user_id' => $randomUserName,
+				'$ip' => $secondIP,
+				'$time' => $updateAccountTime,
+			);
+
+			$shipping_address = array(
+				'$name' => $fraudName, 
+				'$phone' => $fraudPhone,
+				'$address_1' => $fraudAddress,
+				'$city' => $fraudCity,
+				'$region' => $fraudState,
+				'$country' => "US",
+				'$zipcode' => $fraudZip,	
+			);
+
+			$shipping_address = json_encode($shipping_address);
+
+			$data['$shipping_address'] = json_decode($shipping_address, true);
+
+			$data_string = json_encode($data, JSON_PRETTY_PRINT);
+
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
+			curl_setopt($ch, CURLOPT_HEADER, array(
+				'Content-Type: application/json', 
+				'Content-Length: ' . strlen($data_string))
+			);
+
+			$result = curl_exec($ch);	
+			/////////////////////////////////UPDATE ACCOUNT END///////////////////////////////////////////////////////
+
 			// START OF FRAUD
 			// 600000 is one week in UNIX time
 			$endOfFraud = $passwordChangeTime + 600000;
@@ -915,12 +965,12 @@
 
 				////////////////////////////////////ADD TO CART//////////////////////////////////////////////
 				$addToCartTime = mt_rand($passwordChangeTime, $endOfFraud);
-				addToCart($id, $quantity, $addToCartTime, $randomUserName);
+				addToCart($id, $quantity, $addToCartTime, $randomUserName, $secondIP);
 				////////////////////////////////////ADD TO CART END//////////////////////////////////////////////
 
 				/////////////////////////////////////CREATE_ORDER////////////////////////////////////////////////
 				$orderCreationTime = $addToCartTime + 200;
-				createOrder($id, $quantity, $orderCreationTime, $randomUserName);
+				createOrder($id, $quantity, $orderCreationTime, $randomUserName, $secondIP);
 				////////////////////////////////////CREATE-ORDER END/////////////////////////////////////////////
 
 				////////////////////////////////////TRANSACTION//////////////////////////////////////////////////
@@ -937,8 +987,8 @@
 								);
 
 				$shipping_address = array(
-									'$name' => $randomName, 
-									'$phone' => $randomPhone,
+									'$name' => $fraudName, 
+									'$phone' => $fraudPhone,
 									'$address_1' => $fraudAddress,
 									'$city' => $fraudCity,
 									'$region' => $fraudState,
@@ -967,6 +1017,7 @@
 								'$currency_code' => 'USD',
 								'$time' => $transactionCreationTime,
 								'$user_id' => $randomUserName,
+								'$ip' => $secondIP,
 							);
 
 				$data['$billing_address'] = json_decode($billing_address, true);
@@ -986,9 +1037,11 @@
 				curl_exec($ch);
 			 ///////////////////////////////////TRANSACTION END//////////////////////////////////////////////
 
-				$sql = "INSERT INTO users.badpeople2 (fullName, userName, address, city, state, country, zip, accountCreationTime, passwordChangeTime, itemBought, quantityBought, addToCartTime, orderCreationTime, transactionCreationTime,  fraudAddress, fraudCity, fraudState, fraudZip)
+				$sql = "INSERT INTO people.badpeople5 (fullName, userName, address, city, state, country, zip, accountCreationTime, passwordChangeTime, 
+				updateAccountTime, itemBought, quantityBought, addToCartTime, orderCreationTime, transactionCreationTime,  fraudAddress, fraudCity, fraudState, fraudZip)
 					VALUES ('" . $randomName . "', '" . $randomUserName . "', '" .
-						$randomAddress . "', '" . $randomCity . "', '" . $randomState . "', 'US', '" . $randomZip . "', '" . date("Y-m-d H:i:s", $accountCreationTime) . "', '" . date("Y-m-d H:i:s", $passwordChangeTime) . "', '" . $id . "', '" . $quantity . "', '" . date("Y-m-d H:i:s", $addToCartTime) . "', '" . date("Y-m-d H:i:s", $orderCreationTime) . "', '" . date("Y-m-d H:i:s", $transactionCreationTime) .  "','". $fraudAddress . "','" . $fraudCity ."','". $fraudState ."','". $fraudZip ."');";
+						$randomAddress . "', '" . $randomCity . "', '" . $randomState . "', 'US', '" . $randomZip . "', '" . date("Y-m-d H:i:s", $accountCreationTime) . "', '" . date("Y-m-d H:i:s", $passwordChangeTime) . "', '" . date("Y-m-d H:i:s", $updateAccountTime)
+						 . "', '" . $id . "', '" . $quantity . "', '" . date("Y-m-d H:i:s", $addToCartTime) . "', '" . date("Y-m-d H:i:s", $orderCreationTime) . "', '" . date("Y-m-d H:i:s", $transactionCreationTime) .  "','". $fraudAddress . "','" . $fraudCity ."','". $fraudState ."','". $fraudZip ."');";
 						
 				$register = $mysqli->query($sql);
 				if (!$register) {
@@ -996,7 +1049,7 @@
 				}
 			}	
 
-			usleep(100000);
+			usleep(88888);
 		}
 	}
 ?>
