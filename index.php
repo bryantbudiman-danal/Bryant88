@@ -107,9 +107,8 @@
                         }
                       } 
 
-                      $sql = "INSERT INTO people.badpeople1score (accountAbuseScore, accountAbuseReasons, accountTakeoverScore, accountTakeoverReasons, paymentAbuseScore, paymentAbuseReasons)
-                        VALUES ('" . $accountAbuseScore . "', '" . $accountAbuseReasons . "', '" . $accountTakeoverScore . "', '" . 
-                        $accountTakeoverReasons . "', '" . $paymentAbuseScore . "', '" . $paymentAbuseReasons ."');";
+                      $sql = "INSERT INTO people.badpeople1score (username, accountAbuseScore, accountAbuseReasons, accountTakeoverScore, accountTakeoverReasons, paymentAbuseScore, paymentAbuseReasons)
+                        VALUES ('" . $username  . "', '" . $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountTakeoverScore . "', '" .  $accountTakeoverReasonsString . "', '" . $paymentAbuseScore . "', '" . $paymentAbuseReasonsString ."');";
                 
                       $sqlResult = $mysqli->query($sql);
                       if (!$sqlResult) {
