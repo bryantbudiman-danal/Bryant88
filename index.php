@@ -73,19 +73,19 @@
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
                       $accountAbuseReasons = json_decode($result["scores"]["account_abuse"]["reasons"], true);
                       foreach($accountAbuseReasons as $accountAbuseReason) {
-                        echo $accountAbuseReason; 
+                        echo $accountAbuseReason["name"]; 
                       }
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
                       $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"], true);
                       foreach($accountTakeoverReasons as $accountTakeoverReason) {
-                        echo $accountTakeoverReason; 
+                        echo $accountTakeoverReason["name"]; 
                       }
 
                       $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
                       $paymentAbuseReasons = json_decode($result["scores"]["payment_abuse"]["reasons"], true);
                       foreach($paymentAbuseReasons as $paymentAbuseReason) {
-                        echo $paymentAbuseReason; 
+                        echo $paymentAbuseReason["name"]; 
                       }
 
                       usleep(88888);
