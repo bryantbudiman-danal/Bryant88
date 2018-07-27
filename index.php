@@ -84,7 +84,7 @@
                       }
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
-                      $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"]);
+                      $accountTakeoverReasons = $result["scores"]["account_takeover"]["reasons"];
                       $accountTakeoverReasonsString = "";
                       for($i=0; $i<count($accountTakeoverReasons); $i++) {
                         if($i < count($accountTakeoverReasons)-1) {
@@ -96,7 +96,7 @@
                       }
 
                       $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
-                      $paymentAbuseReasons = json_decode($result["scores"]["payment_abuse"]["reasons"]);
+                      $paymentAbuseReasons = $result["scores"]["payment_abuse"]["reasons"];
                       $paymentAbuseReasonsString = "";
                       for($i=0; $i<count($paymentAbuseReasons); $i++) {
                         if($i < count($paymentAbuseReasons)-1) {
