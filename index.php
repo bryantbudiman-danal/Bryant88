@@ -75,7 +75,7 @@ $data = fgetcsv($handle, 1000, ","); //DELETE
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
                       $accountAbuseReasons = json_decode($result["scores"]["account_abuse"]["reasons"]);
-                      echo $accountAbuseReasons;
+                      var_dump($accountAbuseReasons);
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
                       $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"]);
