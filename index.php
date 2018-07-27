@@ -71,7 +71,7 @@
                       $result = json_decode($response, true);
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
-                      $accountAbuseReasons = trim($result["scores"]["reasons"]["reasons"]);
+                      $accountAbuseReasons = trim($result["scores"]["account_abuse"]["reasons"]);
                       foreach($accountAbuseReasons as $accountAbuseReason) {
                         echo $accountAbuseReason; 
                       }
