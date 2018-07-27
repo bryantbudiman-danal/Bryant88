@@ -76,10 +76,10 @@
                       $accountAbuseReasonsString = "";
                       for($i=0; $i<count($accountAbuseReasons); $i++) {
                         if($i < count($accountAbuseReasons)-1) {
-                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"]; . "/";
+                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"] . "/";
                         }
                         else if($i == count($accountAbuseReasons)-1) {
-                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"];;
+                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"];
                         }
                       }
 
@@ -88,7 +88,7 @@
                       $accountTakeoverReasonsString = "";
                       for($i=0; $i<count($accountTakeoverReasons); $i++) {
                         if($i < count($accountTakeoverReasons)-1) {
-                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"]; . "/";
+                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"] . "/";
                         }
                         else if($i == count($accountTakeoverReasons)-1) {
                           $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"];
@@ -100,7 +100,7 @@
                       $paymentAbuseReasonsString = "";
                       for($i=0; $i<count($paymentAbuseReasons); $i++) {
                         if($i < count($paymentAbuseReasons)-1) {
-                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"]; . "/";
+                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"] . "/";
                         }
                         else if($i == count($paymentAbuseReasons)-1) {
                           $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"];
