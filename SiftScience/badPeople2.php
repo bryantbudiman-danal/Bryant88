@@ -874,7 +874,7 @@
 
 			curl_exec($ch); 
 
-			usleep(88888);
+			usleep(38888);
 
 			$fraudAddress = \Faker\Address::streetName();
 			$fraudCity = \Faker\Address::city();
@@ -1049,7 +1049,7 @@
 				}
 			}	
 
-			usleep(88888);
+			usleep(38888);
 		}
 	}
 ?>
