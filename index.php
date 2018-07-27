@@ -71,18 +71,21 @@
                       $result = json_decode($response, true);
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
+                      echo "acct abuse score: " . $accountAbuseScore;
                       $accountAbuseReasons = trim($result["scores"]["account_abuse"]["reasons"]);
                       foreach($accountAbuseReasons as $accountAbuseReason) {
                         echo $accountAbuseReason; 
                       }
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
+                      echo "acct takeover score: " . $accountTakeoverScore;
                       $accountTakeoverReasons = trim($result["scores"]["account_takeover"]["reasons"]);
                       foreach($accountTakeoverReasons as $accountTakeoverReason) {
                         echo $accountTakeoverReason; 
                       }
 
                       $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
+                      echo "payment abuse score: " . $paymentAbuseScore;
                       $paymentAbuseReasons = trim($result["scores"]["payment_abuse"]["reasons"]);
                       foreach($paymentAbuseReasons as $paymentAbuseReason) {
                         echo $paymentAbuseReason; 
