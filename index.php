@@ -73,7 +73,7 @@
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
                       $accountAbuseReasons = $result["scores"]["account_abuse"]["reasons"];
-                     echo $accountAbuseReasons->name;
+                     echo $accountAbuseReasons;
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
                       $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"]);
