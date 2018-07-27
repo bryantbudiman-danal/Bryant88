@@ -72,8 +72,8 @@
                       $result = json_decode($response, true);
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
-                      $accountAbuseReasons = json_decode($result["scores"]["account_abuse"]["reasons"]);
-                     echo $accountAbuseReasons;
+                      $accountAbuseReasons = $result["scores"]["account_abuse"]["reasons"];
+                     echo $accountAbuseReasons->name;
 
                       $accountTakeoverScore = trim($result["scores"]["account_takeover"]["score"]);
                       $accountTakeoverReasons = json_decode($result["scores"]["account_takeover"]["reasons"]);
