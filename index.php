@@ -62,9 +62,7 @@
                   echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
                 } else {
                   if (($handle = fopen("people.csv", "r")) !== FALSE) {
-                    //while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-
-$data = fgetcsv($handle, 1000, ","); //DELETE
+                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
                       $username = urlencode($data[0]);
                       $ch = curl_init('https://api.siftscience.com/v205/score/'. $username . '/?api_key=e7e2cfa100771efb');
@@ -84,8 +82,8 @@ $data = fgetcsv($handle, 1000, ","); //DELETE
                       $paymentAbuseScore = trim($result["scores"]["payment_abuse"]["score"]);
                       $paymentAbuseReasons = json_decode($result["scores"]["payment_abuse"]["reasons"]);
      
-                     // usleep(88888);
-                    //}
+                     usleep(88888);
+                    }
 
                     fclose($handle);
                   } 
