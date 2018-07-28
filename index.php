@@ -51,7 +51,7 @@
 
 
               <?php
-                 $host = 'siftscience.mysql.database.azure.com';
+                $host = 'siftscience.mysql.database.azure.com';
                 $username = 'bryantbudiman@siftscience';
                 $password = 'KopiLuwak88';
                 $db_name = 'people';
@@ -116,7 +116,7 @@
                         }
                       } 
 
-                      $sql = "INSERT INTO people.badpeople4score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
+                      $sql = "INSERT INTO people.badpeople5score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
                       accountTakeoverScore, accountTakeoverReasons, accountTakeoverReasonsScores, paymentAbuseScore, paymentAbuseReasons, paymentAbuseReasonsScores)
                         VALUES ('" . $username  . "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
