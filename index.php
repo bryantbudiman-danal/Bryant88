@@ -61,7 +61,7 @@
                 if (mysqli_connect_errno($mysqli)) {
                   echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
                 } else {
-                  if (($handle = fopen("badPeople3.csv", "r")) !== FALSE) {
+                  if (($handle = fopen("badPeople4.csv", "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
                       $username = urlencode($data[0]);
@@ -116,7 +116,7 @@
                         }
                       } 
 
-                      $sql = "INSERT INTO people.badpeople3score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
+                      $sql = "INSERT INTO people.badpeople4score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
                       accountTakeoverScore, accountTakeoverReasons, accountTakeoverReasonsScores, paymentAbuseScore, paymentAbuseReasons, paymentAbuseReasonsScores)
                         VALUES ('" . $username  . "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
