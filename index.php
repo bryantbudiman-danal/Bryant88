@@ -61,7 +61,7 @@
                 if (mysqli_connect_errno($mysqli)) {
                   echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
                 } else {
-                  if (($handle = fopen("people.csv", "r")) !== FALSE) {
+                  if (($handle = fopen("goodPeople.csv", "r")) !== FALSE) {
                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
                       $username = urlencode($data[0]);
@@ -77,8 +77,8 @@
                       $accountAbuseReasonsScores = "";
                       for($i=0; $i<count($accountAbuseReasons); $i++) {
                         if($i < count($accountAbuseReasons)-1) {
-                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"] . "/";
-                          $accountAbuseReasonsScores .=$accountAbuseReasons[$i]["value"] . "/";
+                          $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"] . "+";
+                          $accountAbuseReasonsScores .=$accountAbuseReasons[$i]["value"] . "+";
                         }
                         else if($i == count($accountAbuseReasons)-1) {
                           $accountAbuseReasonsString .= $accountAbuseReasons[$i]["name"];
@@ -92,8 +92,8 @@
                       $accountTakeoverReasonsScores = "";
                       for($i=0; $i<count($accountTakeoverReasons); $i++) {
                         if($i < count($accountTakeoverReasons)-1) {
-                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"] . "/";
-                          $accountTakeoverReasonsScores .= $accountTakeoverReasons[$i]["value"] . "/";
+                          $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"] . "+";
+                          $accountTakeoverReasonsScores .= $accountTakeoverReasons[$i]["value"] . "+";
                         }
                         else if($i == count($accountTakeoverReasons)-1) {
                           $accountTakeoverReasonsString .= $accountTakeoverReasons[$i]["name"];
@@ -107,8 +107,8 @@
                       $paymentAbuseReasonsScores = "";
                       for($i=0; $i<count($paymentAbuseReasons); $i++) {
                         if($i < count($paymentAbuseReasons)-1) {
-                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"] . "/";
-                          $paymentAbuseReasonsScores .= $paymentAbuseReasons[$i]["value"] . "/";
+                          $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"] . "+";
+                          $paymentAbuseReasonsScores .= $paymentAbuseReasons[$i]["value"] . "+";
                         }
                         else if($i == count($paymentAbuseReasons)-1) {
                           $paymentAbuseReasonsString .= $paymentAbuseReasons[$i]["name"];
