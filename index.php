@@ -116,7 +116,7 @@
                         }
                       } 
 
-                      $sql = "INSERT INTO people.badpeople2score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
+                      $sql = "INSERT INTO people.badpeople3score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
                       accountTakeoverScore, accountTakeoverReasons, accountTakeoverReasonsScores, paymentAbuseScore, paymentAbuseReasons, paymentAbuseReasonsScores)
                         VALUES ('" . $username  . "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
