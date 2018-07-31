@@ -5,7 +5,7 @@
                         'decision_id' => 'compromised_account_account_takeover',
                         'source' => 'MANUAL_REVIEW',
                         'analyst' => "Chow Kahn",
-                        'description' => "This woman is a bad!",
+                        'description' => "This woman is bad!",
                 );
 
                 $data_string = json_encode($data, JSON_PRETTY_PRINT);
