@@ -12,10 +12,12 @@
 
                 curl_setopt($ch, CURLOPT_POST, true);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_USERPWD,"e7e2cfa100771efb:");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
                 curl_setopt($ch, CURLOPT_HEADER, array(
                   'Content-Type: application/json', 
-                ));
+                  'Content-Length: ' . strlen($data_string)),
+                );
 
                 $response = curl_exec($ch);
 
