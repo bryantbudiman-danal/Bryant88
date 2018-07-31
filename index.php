@@ -17,6 +17,9 @@
                   'Content-Type: application/json', 
                 ));
 
-                curl_exec($ch);
+                $response = curl_exec($ch);
 
+                echo $response;
+
+                echo "hi!";
               ?>
