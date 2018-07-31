@@ -16,8 +16,8 @@
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
                 curl_setopt($ch, CURLOPT_HEADER, array(
                   'Content-Type: application/json', 
-                  'Content-Length: ' . strlen($data_string)),
-                );
+                  'Content-Length: ' . strlen($data_string),
+                ));
 
                 $response = curl_exec($ch);
 
