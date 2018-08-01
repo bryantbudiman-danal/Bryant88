@@ -705,10 +705,10 @@
 	    }
 	}
 
-	$host = 'bryant88.mysql.database.azure.com';
-	$username = 'bryantbudiman@bryant88';
-	$password = 'KopiLuwak88';
-	$db_name = 'users';
+    $host = 'siftscience.mysql.database.azure.com';
+    $username = 'bryantbudiman@siftscience';
+    $password = 'KopiLuwak88';
+    $db_name = 'people';
 
 	$mysqli = mysqli_init();
 	mysqli_real_connect($mysqli, $host, $username, $password, $db_name, 3306);
@@ -720,7 +720,7 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
-		for ($i = 0; $i <= 20;	$i++) {
+		for ($i = 0; $i <= 8;	$i++) {
 			$startDateRandom = 1515299327;
 			$endDateRandom = 1531761875;
 			$accountCreationTime = mt_rand($startDateRandom, $endDateRandom);
