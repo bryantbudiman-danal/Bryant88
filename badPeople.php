@@ -884,10 +884,16 @@
 
             $sql = "INSERT INTO people.badpeople6score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
                       accountTakeoverScore, accountTakeoverReasons, accountTakeoverReasonsScores, paymentAbuseScore, paymentAbuseReasons, paymentAbuseReasonsScores)
-                        VALUES ('" . $randomUserName. "', '" . 
+                        VALUES ('" . $person . "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
                         $accountTakeoverScore . "', '" .  $accountTakeoverReasonsString . "', '" . $accountTakeoverReasonsScores . "', '" . 
                         $paymentAbuseScore . "', '" . $paymentAbuseReasonsString . "', '" . $paymentAbuseReasonsScores ."');";
+      
+            $register = $mysqli->query($sql);
+
+			if (!$register) {
+				echo $mysqli->error;
+			}
         }
 	}
 ?>
