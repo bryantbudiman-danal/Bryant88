@@ -720,6 +720,7 @@
 		// DB Error
 		echo $mysqli->connect_error;
 	} else {
+		$usernames = array();
 		for ($i = 0; $i <= 8;	$i++) {
 			$startDateRandom = 1515299327;
 			$endDateRandom = 1531761875;
@@ -783,7 +784,7 @@
 
 			curl_exec($ch); 
 
-			usleep(100000);
+			usleep(88888);
 
 			//Failed log in
 			$numberOfTimesLoggingIn = 8;
@@ -817,11 +818,24 @@
 				$failedLogInTime += 888; 
 			}	
 
-                      $ch = curl_init('https://api.siftscience.com/v205/score/'. $randomUserName. '/?api_key=e7e2cfa100771efb');
-                      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
-                      $response = curl_exec($ch); 
-                      $result = json_decode($response, true);
+            $usernames[] = $randomUserName;
+
+			$register = $mysqli->query($sql);
+
+			if (!$register) {
+				echo $mysqli->error;
+			}
+
+			usleep(888);
+		}
+
+		for ($x = 0; $x <= count($usernames); $x++) {	
+			$person = $usernames[$x];
+		    $ch = curl_init('https://api.siftscience.com/v205/score/'. $person . '/?api_key=e7e2cfa100771efb');
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);                   
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
+			$response = curl_exec($ch); 
+            $result = json_decode($response, true);
 
                       $accountAbuseScore = trim($result["scores"]["account_abuse"]["score"]);
                       $accountAbuseReasons = $result["scores"]["account_abuse"]["reasons"];
@@ -874,14 +888,6 @@
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
                         $accountTakeoverScore . "', '" .  $accountTakeoverReasonsString . "', '" . $accountTakeoverReasonsScores . "', '" . 
                         $paymentAbuseScore . "', '" . $paymentAbuseReasonsString . "', '" . $paymentAbuseReasonsScores ."');";
-
-			$register = $mysqli->query($sql);
-
-			if (!$register) {
-				echo $mysqli->error;
-			}
-
-			usleep(888);
-		}
+        }
 	}
 ?>
