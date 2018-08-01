@@ -868,9 +868,9 @@
                         }
                       } 
 
-                      $sql = "INSERT INTO people.badpeople6score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
+            $sql = "INSERT INTO people.badpeople6score (username, accountAbuseScore, accountAbuseReasons, accountAbuseReasonsScores,
                       accountTakeoverScore, accountTakeoverReasons, accountTakeoverReasonsScores, paymentAbuseScore, paymentAbuseReasons, paymentAbuseReasonsScores)
-                        VALUES ('" . $username  . "', '" . 
+                        VALUES ('" . $randomUserName. "', '" . 
                         $accountAbuseScore . "', '" . $accountAbuseReasonsString  . "', '" . $accountAbuseReasonsScores . "', '" . 
                         $accountTakeoverScore . "', '" .  $accountTakeoverReasonsString . "', '" . $accountTakeoverReasonsScores . "', '" . 
                         $paymentAbuseScore . "', '" . $paymentAbuseReasonsString . "', '" . $paymentAbuseReasonsScores ."');";
