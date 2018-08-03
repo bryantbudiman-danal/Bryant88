@@ -54,19 +54,42 @@
 
   <body id="page-top">
     <script type="text/javascript">
-      <?php
-      //  session_start() 
-       // if(!isset($_SESSION['jsDone']) && isset($_SESSION['user'])) {
-         // unset($_SESSION['jsDone']);
-         // echo "var _user_id =" . $_SESSION['user'];
-         // echo "var _session_id = 'unique_session_id'";
-         //  echo "var _api_key = '88888888'";
-         //  echo "var _timestamp = Math.round(Date.now()/1000)";
 
-         // echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +"&apiKey=" + _api_key + "&userID=" + _user_id';
-        //} 
+      <?php
+        session_start();
+
+        echo "var _user_id =" . $_SESSION['user'];
+        echo "var _session_id = 'unique_session_id'";
+        echo "var _api_key = '88888888'"
+        echo "var _timestamp = Math.round(Date.now()/1000)";
+
+        if(!isset($_SESSION['jsDone']) ) {
+          unset(($_SESSION['jsDone']);
+          echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
+          "&apiKey=" + _api_key + "&userID=" + _user_id;';
+        } 
       ?>
-    </script>
+
+     // (function() {
+     //   function ls() {
+          // console.log(PluginDetect.getVersion(k));
+          // console.log(document.cookie);
+          // console.log(document.referrer);
+          // console.log(document.title);
+          // console.log(window.location.href);
+          // console.log(window.location.hostname);
+          // console.log(window.top.document.referrer);
+          // console.log(window.parent.document.referrer);
+     //      window.location = "jsSnippetToDatabase.php?url=" + window.location.href;
+
+     //   }
+     //   if (window.attachEvent) {
+     //     window.attachEvent('onload', ls);
+     //   } else {
+     //     window.addEventListener('load', ls, false);
+     //   }
+     // })();
+  </script>
 
     <?php include 'nav.php'; ?>
     
@@ -223,6 +246,12 @@
         </div>
       </div>
     </footer>
+
+    <!-- Bootstrap core JavaScript -->
+<script>
+  import {sendEmail} from 'backend/sendEmail.jsw';
+  
+</script>
 
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
