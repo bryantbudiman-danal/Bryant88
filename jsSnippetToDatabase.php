@@ -5,7 +5,7 @@
 
 	$ipStackURL = 'http://api.ipstack.com/' . $_SERVER['REMOTE_ADDR'] . '?access_key=46060a72ff525ad6e6f6a8998eefa90d';
 
-	$ch = curl_init('https://api.siftscience.com/v205/events?return_score=true');
+	$ch = curl_init($ipStackURL);
 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
 
