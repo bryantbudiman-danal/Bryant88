@@ -72,10 +72,11 @@
 
       <?php
         if(!isset($_SESSION['jsDone']) ) {
-          unset($_SESSION['jsDone']);
           echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
-        } 
+        } else {
+          unset($_SESSION['jsDone']);
+        }
       ?>
   </script>
 
