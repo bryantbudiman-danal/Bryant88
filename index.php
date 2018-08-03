@@ -62,7 +62,7 @@
         if($_SESSION['user'] != "") {
       ?>
 
-      _user_id = <?php $_SESSION['user'] ?> ;
+      _user_id = <?php strtolower($_SESSION['user']) ?> ;
       
       <?php } ?>
 
