@@ -55,10 +55,10 @@
   <body id="page-top">
     <script type="text/javascript">
       <?php
+        session_start() 
         if(!isset($_SESSION['jsDone']) && isset($_SESSION['user'])) {
           unset($_SESSION['jsDone']);
-          session_start() 
-          echo "var _user_id =' . $_SESSION['user'] . ';";
+          echo "var _user_id =" . $_SESSION['user'] . ";";
           echo "var _session_id = 'unique_session_id'";
           echo "var _api_key = '88888888'";
           echo "var _timestamp = Math.round(Date.now()/1000)";
