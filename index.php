@@ -65,7 +65,7 @@
           "&apiKey=" + _api_key + "&userID="' . $_SESSION['user'] . '";';
         } 
       ?>
-  </script>
+    </script>
 
     <?php include 'nav.php'; ?>
     
