@@ -57,13 +57,15 @@
       var _user_id = 'al_capone'; // Set to the user's ID, username, or email address, or '' if not yet known.
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
+      var _timestamp = Math.round(Date.now()/1000);
 
       <?php
         session_start();
 
         if(!isset($_GET['jsDone'])) {
-          echo 'window.location = "jsSnippetToDatabase.php?url=" + window.location.href;';
-        }
+          echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
+          "&apiKey=" + _api_key + "&userID=" + _user_id;';
+        } 
       ?>
 
      // (function() {
