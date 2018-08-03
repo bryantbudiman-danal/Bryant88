@@ -42,7 +42,7 @@
 		}		  
 
 		$sql = "INSERT INTO javascriptsnippet." . $username . "(latitude, longitude, timestamp)
-					VALUES (" . $latitude . ", " . $longitude . ", " . date("Y-m-d H:i:s", $timestamp) . ");";
+					VALUES ('" . $latitude . "', '" . $longitude . "', '" . date("Y-m-d H:i:s", $timestamp) . "'');";
 						
 		$exec = $mysqli->query($sql);
 
