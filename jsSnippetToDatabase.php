@@ -52,6 +52,6 @@
 	}
 
 	}
-	
-	header('Location: ../' . $_GET['url'] .'?jsDone=true');
+	echo  $_GET['url'] .'?jsDone=true';
+	//header('Location: ../' . $_GET['url'] .'?jsDone=true');
 ?>
