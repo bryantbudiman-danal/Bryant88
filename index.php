@@ -54,9 +54,11 @@
 
   <body id="page-top">
     <script type="text/javascript">
-      session_start();
+      <?php
+        session_start();
 
-      var _user_id = $_SESSION['user']; // Set to the user's ID, username, or email address, or '' if not yet known.
+        echo "var _user_id = " . $_SESSION['user'] , ";"; // Set to the user's ID, username, or email address, or '' if not yet known.
+      ?>
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
       var _timestamp = Math.round(Date.now()/1000);
