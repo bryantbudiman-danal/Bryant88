@@ -31,7 +31,7 @@
 		$timestamp = date("Y-m-d H:i:s", $_GET['timestamp']);
 
 		$sql = "CREATE TABLE IF NOT EXISTS javascriptsnippet." . $username . "(
-				  latitute VARCHAR(45) NOT NULL,
+				  latitude VARCHAR(45) NOT NULL,
 				  longitude VARCHAR(45) NOT NULL,
 				  timestamp DATETIME NOT NULL);";
 
