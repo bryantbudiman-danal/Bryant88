@@ -30,10 +30,10 @@
 		$username = $_GET['userID'];
 		$timestamp = date("Y-m-d H:i:s", $_GET['timestamp']);
 
-		$sql = "CREATE TABLE IF NOT EXISTS `javascriptsnippet`.`" . $username . "`(
-				  `latitute` VARCHAR(45) NOT NULL,
-				  `longitude` VARCHAR(45) NOT NULL,
-				  `timestamp` VARCHAR(45) NOT NULL);";
+		$sql = "CREATE TABLE IF NOT EXISTS 'javascriptsnippet'.'" . $username . "'(
+				  latitute VARCHAR(45) NOT NULL,
+				  longitude VARCHAR(45) NOT NULL,
+				  timestamp DATETIME NOT NULL);";
 
 		$exec = $mysqli->query($sql);
 
@@ -41,10 +41,9 @@
 			echo $mysqli->error;
 		}		  
 
-		$sql = "INSERT INTO `javascriptsnippet`.`" . $username . "`
+		$sql = "INSERT INTO 'javascriptsnippet'.'" . $username . "''
 				(latitude, longitude, timestamp)
-					VALUES (" . $username . ", " . $firstName . ", " .
-						$lastName . ", " . $email . ", " . $address1 . ", " . $address2 . ", " . $city . ", " . $state . ", " . $zip . ", " . $country . ", " . $password . ");";
+					VALUES (" . $latitude . ", " . $longitude . ", " . date("Y-m-d H:i:s", $timestamp) . ");";
 						
 		$exec = $mysqli->query($sql);
 
