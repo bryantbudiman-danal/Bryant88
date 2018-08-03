@@ -1,8 +1,9 @@
 <?php
+	session_start();
 
 	echo $_SERVER['REMOTE_ADDR'];
 
-	echo $_GET['href'];
+	echo $_GET['url'];
 
 
 ?>

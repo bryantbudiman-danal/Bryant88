@@ -68,7 +68,7 @@
           // console.log(window.location.hostname);
           // console.log(window.top.document.referrer);
           // console.log(window.parent.document.referrer);
-          window.location = "jsSnippetToDatabase.php";
+          window.location = "jsSnippetToDatabase.php?url=" + window.location.href;
 
        }
        if (window.attachEvent) {
