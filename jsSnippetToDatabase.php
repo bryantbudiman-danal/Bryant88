@@ -52,6 +52,7 @@
 	}
 
 	}
-	$_SESSION['jsDone'] = true; 
-	header('Location: ../index.php');
+	
+	echo $_GET['url'];
+	//header('Location: ../index.php?jsDone=true');
 ?>

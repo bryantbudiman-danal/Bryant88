@@ -90,6 +90,6 @@
 	if($loginSuccess == true) {
 		header('Location: ../index.php'); 
 	} else {
-		header('Location: ../login.php?fail=true'); 
+		header('Location: ../login.php?jsDone=true'); 
 	}
 ?>

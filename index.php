@@ -69,13 +69,12 @@
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
       var _timestamp = Math.round(Date.now()/1000);
+      var _url = window.location.href;
 
       <?php
-        if(!isset($_SESSION['jsDone']) ) {
-          echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
+        if(!isset($_GET['jsDone'])) {
+          echo 'window.location = "jsSnippetToDatabase.php?url" + _url + "&timestamp=" + _timestamp +
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
-        } else {
-          unset($_SESSION['jsDone']);
         }
       ?>
   </script>
