@@ -53,21 +53,24 @@
   </head>
 
   <body id="page-top">
-    <script type="text/javascript">
+    <script type="text/javascript"> 
+      var _user_id = "-88";
 
       <?php
         session_start();
 
         if($_SESSION['user'] != "") {
-          echo "var _user_id =" . $_SESSION['user'];
-        } else {
-          echo "var _user_id = -88";
-        }
+      ?>
 
-        echo "var _session_id = 'unique_session_id'";
-        echo "var _api_key = '88888888'";
-        echo "var _timestamp = Math.round(Date.now()/1000)";
+      _user_id = <?php $_SESSION['user'] ?> ;
+      
+      <?php } ?>
 
+      var _session_id = 'unique_session_id';
+      var _api_key = '88888888';
+      var _timestamp = Math.round(Date.now()/1000);
+
+      <?php
         if(!isset($_SESSION['jsDone']) ) {
           unset($_SESSION['jsDone']);
           echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
