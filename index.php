@@ -58,7 +58,7 @@
       <?php
         session_start();
 
-        if(isset($_SESSION['user'])) {
+        if($_SESSION['user'] != "") {
           echo "var _user_id =" . $_SESSION['user'];
         } else {
           echo "var _user_id = -88";
