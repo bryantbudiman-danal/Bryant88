@@ -72,7 +72,7 @@
       var _url = window.location.href;
 
       <?php
-        if(!isset($_GET['jsDone'])) {
+        if($_GET['jsDone'] != "true") {
           echo 'window.location = "jsSnippetToDatabase.php?url=" + _url + "&timestamp=" + _timestamp +
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
         }
