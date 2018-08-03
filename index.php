@@ -58,9 +58,17 @@
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
 
-     (function() {
-       function ls() {
-          //console.log(PluginDetect.getVersion(k));
+      <?php
+        session_start();
+
+        if(!isset($_GET['jsDone'])) {
+          echo 'window.location = "jsSnippetToDatabase.php?url=" + window.location.href;';
+        }
+      ?>
+
+     // (function() {
+     //   function ls() {
+          // console.log(PluginDetect.getVersion(k));
           // console.log(document.cookie);
           // console.log(document.referrer);
           // console.log(document.title);
@@ -68,15 +76,15 @@
           // console.log(window.location.hostname);
           // console.log(window.top.document.referrer);
           // console.log(window.parent.document.referrer);
-          window.location = "jsSnippetToDatabase.php?url=" + window.location.href;
+     //      window.location = "jsSnippetToDatabase.php?url=" + window.location.href;
 
-       }
-       if (window.attachEvent) {
-         window.attachEvent('onload', ls);
-       } else {
-         window.addEventListener('load', ls, false);
-       }
-     })();
+     //   }
+     //   if (window.attachEvent) {
+     //     window.attachEvent('onload', ls);
+     //   } else {
+     //     window.addEventListener('load', ls, false);
+     //   }
+     // })();
   </script>
 
     <?php include 'nav.php'; ?>
