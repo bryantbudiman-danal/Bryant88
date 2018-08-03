@@ -51,9 +51,7 @@
 		}
 	}
 
-		$_SESSION['jsDone'] = true; 
-
 	}
-
+	$_SESSION['jsDone'] = true; 
 	header('Location: ../index.php');
 ?>
