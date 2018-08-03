@@ -53,5 +53,5 @@
 
 	}
 	//echo  $_GET['url'] .'?jsDone=true';
-	header('Location: ../index.php?' . '?jsDone=true');
+	header('Location: ../index.php?' . 'jsDone=true');
 ?>
