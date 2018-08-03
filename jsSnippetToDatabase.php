@@ -53,5 +53,7 @@
 
 	$_SESSION['jsDone'] = true; 
 
-	header('Location: ../index.php');
+	echo "test";
+
+	//header('Location: ../index.php');
 ?>

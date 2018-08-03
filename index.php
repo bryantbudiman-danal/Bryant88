@@ -68,26 +68,6 @@
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
         } 
       ?>
-
-     // (function() {
-     //   function ls() {
-          // console.log(PluginDetect.getVersion(k));
-          // console.log(document.cookie);
-          // console.log(document.referrer);
-          // console.log(document.title);
-          // console.log(window.location.href);
-          // console.log(window.location.hostname);
-          // console.log(window.top.document.referrer);
-          // console.log(window.parent.document.referrer);
-     //      window.location = "jsSnippetToDatabase.php?url=" + window.location.href;
-
-     //   }
-     //   if (window.attachEvent) {
-     //     window.attachEvent('onload', ls);
-     //   } else {
-     //     window.addEventListener('load', ls, false);
-     //   }
-     // })();
   </script>
 
     <?php include 'nav.php'; ?>
