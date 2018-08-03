@@ -69,7 +69,7 @@
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
       var _timestamp = Math.round(Date.now()/1000);
-      var _url = window.location.pathname;
+      var _url = window.location.href;
 
       <?php
         if(!isset($_GET['jsDone'])) {
