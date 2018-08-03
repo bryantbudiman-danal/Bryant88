@@ -63,8 +63,7 @@
           echo "var _api_key = '88888888'";
           echo "var _timestamp = Math.round(Date.now()/1000)";
 
-          echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
-          "&apiKey=" + _api_key + "&userID=" + _user_id';
+         // echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +"&apiKey=" + _api_key + "&userID=" + _user_id';
         } 
       ?>
     </script>
