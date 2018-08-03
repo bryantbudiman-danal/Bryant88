@@ -247,12 +247,6 @@
       </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-<script>
-  import {sendEmail} from 'backend/sendEmail.jsw';
-  
-</script>
-
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
     <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
