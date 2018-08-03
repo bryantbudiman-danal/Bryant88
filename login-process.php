@@ -1,29 +1,4 @@
 <?php
-require 'vendor/autoload.php';
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-
-$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('result.xls');
-
-$worksheet = $spreadsheet->getActiveSheet();
-
-$worksheet->getCell('A1')->setValue('John');
-$worksheet->getCell('A2')->setValue('Smith');
-
-$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xls');
-$writer->save('result.xls');
-
-
-	function randString($length) {
-    	$char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678987654321QWERTYUIOPASDFGHJKLZXCVBNMmnbvcxzqwertyuioplkjhgfdsa";
-    	$char = str_shuffle($char);
-    	for($i = 0, $rand = '', $l = strlen($char) - 1; $i < $length; $i ++) {
-        	$rand .= $char{mt_rand(0, $l)};
-    	}
-    	return $rand;
-    }
-
 	session_start();
 
 	$host = 'siftscience.mysql.database.azure.com';
