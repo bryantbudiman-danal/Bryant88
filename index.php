@@ -62,7 +62,7 @@
         if($_SESSION['user'] != "") {
       ?>
 
-      var _user_id = <?php echo strtolower($_SESSION['user']) ?> ;
+      _user_id = <?php echo strtolower($_SESSION['user']) ?>;
       
       <?php } ?>
 
@@ -72,7 +72,7 @@
       var _url = window.location.href;
 
       <?php
-        if($_GET['jsDone'] != "true") {
+        if(!isset($_GET['jsDone']) && $_GET['jsDone'] != "true") {
           echo 'window.location = "jsSnippetToDatabase.php?url=" + _url + "&timestamp=" + _timestamp +
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
         }
