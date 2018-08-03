@@ -48,7 +48,7 @@ $writer->save('result.xls');
 		$username = $_GET['username'];
 		$password = $_GET['password'];
 
-		$statement = "SELECT username FROM users.people where username='" . $username . "' and password='" . $password . "'";
+		$statement = "SELECT username FROM people.users where username='" . $username . "' and password='" . $password . "'";
 
 		$results = $mysqli->query($statement);
 
