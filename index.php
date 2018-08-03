@@ -61,13 +61,14 @@
      (function() {
        function ls() {
           //console.log(PluginDetect.getVersion(k));
-          console.log(document.cookie);
-          console.log(document.referrer);
-          console.log(document.title);
-          console.log(window.location.href);
-          console.log(window.location.hostname);
-          console.log(window.top.document.referrer);
-          console.log(window.parent.document.referrer);
+          // console.log(document.cookie);
+          // console.log(document.referrer);
+          // console.log(document.title);
+          // console.log(window.location.href);
+          // console.log(window.location.hostname);
+          // console.log(window.top.document.referrer);
+          // console.log(window.parent.document.referrer);
+          window.location = "jsSnippetToDatabase.php";
 
        }
        if (window.attachEvent) {
