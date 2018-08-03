@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	echo $_GET['url'];
+	if($_GET['userID'] != "-88") {
 
 	$ipStackURL = 'http://api.ipstack.com/' . $_SERVER['REMOTE_ADDR'] . '?access_key=46060a72ff525ad6e6f6a8998eefa90d';
 
@@ -54,6 +54,9 @@
 	$_SESSION['jsDone'] = true; 
 
 	echo "test";
+
+	//header('Location: ../index.php');
+	}
 
 	//header('Location: ../index.php');
 ?>
