@@ -51,5 +51,7 @@
 		}
 	}
 
-	header('Location: ../index.php?jsDone=true');
+	$_SESSION['jsDone'] = true; 
+
+	header('Location: ../index.php');
 ?>

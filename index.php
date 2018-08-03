@@ -54,7 +54,7 @@
 
   <body id="page-top">
     <script type="text/javascript">
-      var _user_id = 'al_capone'; // Set to the user's ID, username, or email address, or '' if not yet known.
+      var _user_id = $_SESSION['user']; // Set to the user's ID, username, or email address, or '' if not yet known.
       var _session_id = 'unique_session_id';
       var _api_key = '88888888';
       var _timestamp = Math.round(Date.now()/1000);
@@ -62,7 +62,8 @@
       <?php
         session_start();
 
-        if(!isset($_GET['jsDone'])) {
+        if(!isset($_SESSION['jsDone']) && isset($_SESSION['user'])) {
+          unset($_SESSION['jsDone']);
           echo 'window.location = "jsSnippetToDatabase.php?timestamp=" + _timestamp +
           "&apiKey=" + _api_key + "&userID=" + _user_id;';
         } 
