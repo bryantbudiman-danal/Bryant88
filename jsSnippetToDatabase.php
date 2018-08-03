@@ -51,12 +51,9 @@
 		}
 	}
 
-	$_SESSION['jsDone'] = true; 
+		$_SESSION['jsDone'] = true; 
 
-	echo "test";
-
-	//header('Location: ../index.php');
 	}
 
-	//header('Location: ../index.php');
+	header('Location: ../index.php');
 ?>
