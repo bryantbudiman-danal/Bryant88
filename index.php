@@ -56,7 +56,7 @@
     <script type="text/javascript"> 
 
       // PLUGIN
-      console.log("PluginDetect.getVersion('.'): " + PluginDetect.getVersion("."));
+      //console.log("PluginDetect.getVersion('.'): " + PluginDetect.getVersion("."));
 
       // DOCUMENT
       console.log("document.cookie: " + document.cookie);
