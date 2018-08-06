@@ -92,8 +92,8 @@
       console.log("navigator.vendorSub: " + navigator.vendorSub);
       console.log("navigator.hardwareConcurrency: " + navigator.hardwareConcurrency); 
       console.log("navigator.javaEnabled(): " + navigator.javaEnabled());
-      console.log("navigator.mimeTypes: " + navigator.mimeTypes);
-      console.log("navigator.plugins: " + navigator.plugins);
+      console.dir("navigator.mimeTypes: " + navigator.mimeTypes);
+      console.dir("navigator.plugins: " + navigator.plugins);
 
   //    var _user_id = "bryantbudiman";
   //    var _session_id = 'unique_session_id';
