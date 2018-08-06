@@ -54,17 +54,58 @@
 
   <body id="page-top">
     <script type="text/javascript"> 
-      var _user_id = "bryantbudiman";
-      var _session_id = 'unique_session_id';
-      var _api_key = '88888888';
-      var _timestamp = Math.round(Date.now()/1000);
-      var _url = window.location.href;
+
+      // PLUGIN
+      console.log("PluginDetect.getVersion("."): " + PluginDetect.getVersion("."));
+
+      // DOCUMENT
+      console.log("document.cookie: " + document.cookie);
+      console.log("document.referrer: " + document.referrer);
+      console.log("document.title: " + document.title); 
+      console.log("document.characterSet: " + document.characterSet);
+      console.log("document.charset: " + document.charset);
+      //console.log(document.getElementById("plugindetect")
+
+      // WINDOW
+      console.log("window.location.href: " + window.location.href);
+      console.log("window.location.hostname: " + window.location.hostname);
+      console.log("window.top.document.referrer: " + window.top.document.referrer);
+      console.log("window.parent.document.referrer: " + window.parent.document.referrer);
+
+      // SCREEN
+      console.log("screen.height: " + screen.height);
+      console.log("screen.width: " + screen.width);
+      console.log("screen.colorDepth: " + screen.colorDepth); 
+
+      // NAVIGATOR
+      console.log("navigator.platform: " + navigator.platform);
+      console.log("navigator.language: " + navigator.language);
+      console.log("navigator.browserLanguage: " + navigator.browserLanguage);
+      console.log("navigator.userAgent: " + navigator.userAgent);
+      console.log("navigator.cookieEnabled: " + navigator.cookieEnabled);
+      console.log("navigator.doNotTrack: " + navigator.doNotTrack);
+      console.log("navigator.maxTouchPoints: " + navigator.maxTouchPoints);
+      console.log("navigator.onLine: " + navigator.onLine);
+      console.log("navigator.product: " + navigator.product);
+      console.log("navigator.productSub: " + navigator.productSub);
+      console.log("navigator.vendor: " + navigator.vendor);
+      console.log("navigator.vendorSub: " + navigator.vendorSub);
+      console.log("navigator.hardwareConcurrency: " + navigator.hardwareConcurrency); 
+      console.log("navigator.javaEnabled(): " + navigator.javaEnabled());
+      console.log("navigator.mimeTypes: " + navigator.mimeTypes);
+      console.log("navigator.plugins: " + navigator.plugins);
+
+  //    var _user_id = "bryantbudiman";
+  //    var _session_id = 'unique_session_id';
+  //    var _api_key = '88888888';
+  //    var _timestamp = Math.round(Date.now()/1000);
+  //    var _url = window.location.href;
 
       <?php
-        if(!isset($_GET['jsDone']) && $_GET['jsDone'] != "true") {
-          echo 'window.location = "jsSnippetToDatabase.php?url=" + _url + "&timestamp=" + _timestamp +
-          "&apiKey=" + _api_key + "&userID=" + _user_id;';
-        }
+        // if(!isset($_GET['jsDone']) && $_GET['jsDone'] != "true") {
+        //   echo 'window.location = "jsSnippetToDatabase.php?url=" + _url + "&timestamp=" + _timestamp +
+        //   "&apiKey=" + _api_key + "&userID=" + _user_id;';
+        // }
       ?>
   </script>
 
@@ -78,7 +119,7 @@
           <div class="intro-heading text-uppercase">We have cool sneakers.</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#collection">See Collection</a>
         </div>
-      </div>n
+      </div>
     </header>
 
     <!-- Collection -->
