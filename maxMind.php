@@ -11,6 +11,17 @@
 	curl_setopt($ch, CURLOPT_USERPWD, $userID . ":" . $password);
 
 	$response = curl_exec($ch);
+	$response = json_decode($response, true);
 
-	echo $response; 
+	$city = $response["city"]["names"]["en"];
+	$country = $response["country"]["names"]["en"];
+	$latitude = $response["location"]["latitude"];
+	$longitude = $response["location"]["longitude"];
+	$isp = $response["traits"]["isp"];
+
+	echo $city . "\n";
+	echo $country . "\n";
+	echo $latitude . "\n";
+	echo $longitude . "\n";
+	echo $isp;
 ?>
