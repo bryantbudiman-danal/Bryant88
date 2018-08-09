@@ -287,7 +287,7 @@
         uu: "document.cookie",
         t: s(document.title, 100),
         u: s(window.location.href, 200),
-        rf: s(window.top.document.referrer, 200),
+        rf: document.referrer,
         ua: s(navigator.userAgent, 200),
         nm: numMimeTypes_,
         mh: mimeTypesHash_,
