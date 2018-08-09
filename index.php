@@ -16,7 +16,7 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-123580463-1', 'auto');
-      ga('send');
+      ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
 
