@@ -209,12 +209,6 @@ var vendorSub_ = navigator.vendorSub;
 var hardwareConcurrency_ = navigator.hardwareConcurrency;
 var online_ = navigator.onLine;
 
-console.log(cookieEnabled_);
-console.log(doNotTrack_);
-console.log(dstOffset_);
-console.log(hardwareConcurrency_);
-console.log(maxTouchPoints_);
-
 ga('create', 'UA-123580463-1', 'auto');
 ga('set', 'dimension1', String(pluginsHash_));
 ga('set', 'dimension2', String(numPlugins_));
@@ -233,4 +227,4 @@ ga('set', 'dimension14', String(vendor_));
 ga('set', 'dimension15', String(vendorSub_));
 ga('set', 'dimension16', String(hardwareConcurrency_));
 ga('set', 'dimension17', String(online_));
-ga('send', 'dimension1');
+ga('send', 'pageview');
