@@ -179,12 +179,12 @@
          return endian([b, d, e, f])
       }
 
-var j = n.plugins;
+var j = navigator.plugins;
 var numPlugins_ =  j ? j.length : 0;
 for (var j , i = "", m = 0; m < numPlugins_; m++) var a = j[m], i = i + (a.name + a.description + a.filename + a.length);
 var pluginsHash_ = MD5(i)   
  
-j = n.mimeTypes;
+j = navigator.mimeTypes;
 var numMimeTypes_ =  j ? j.length : 0;
 for (var j , i = "", m = 0; m < numMimeTypes__; m++) i += j[m].type;
 var mimeTypesHash_ = MD5(i);   
