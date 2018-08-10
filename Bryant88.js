@@ -186,7 +186,7 @@ var pluginsHash_ = MD5(i)
  
 j = navigator.mimeTypes;
 var numMimeTypes_ =  j ? j.length : 0;
-for (var j , i = "", m = 0; m < numMimeTypes__; m++) i += j[m].type;
+for (var j , i = "", m = 0; m < numMimeTypes_; m++) i += j[m].type;
 var mimeTypesHash_ = MD5(i);   
 
 var platform_ = window.encodeURIComponent(navigator.platform);
