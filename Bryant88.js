@@ -209,6 +209,12 @@ var vendorSub_ = navigator.vendorSub;
 var hardwareConcurrency_ = navigator.hardwareConcurrency;
 var online_ = navigator.onLine;
 
+console.log(cookieEnabled_);
+console.log(doNotTrack_);
+console.log(dstOffset_);
+console.log(hardwareConcurrency_);
+console.log(maxTouchPoints_);
+
 ga('create', 'UA-123580463-1', 'auto');
 ga('set', 'pluginsHash_', pluginsHash_);
 ga('set', 'numPlugins_', numPlugins_);
