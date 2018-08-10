@@ -10,64 +10,25 @@
 
     <!-- Google Analytics -->
     <script>
-      var Q = (new Date).getTime()
+      var Q = window.Q = (new Date).getTime()
 
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      var j = n.plugins;
-      var numPlugins_ =  j ? j.length : 0;
-      for (var j , i = "", m = 0; m < numPlugins_; m++) var a = j[m],
-        i = i + (a.name + a.description + a.filename + a.length);
-      var pluginsHash_ = t.MD5(i)   
- 
-    var mimeTypesHash_ = ;
-      var numMimeTypes_ = ;
-
- 
-      var platform_ = window.encodeURIComponent(navigator.platform);
-      var j = new Date;
-      var time_ = (new Date).getTime() - Q;
-      var timezoneOffset_ = j.getTimezoneOffset();;
-      j.setDate(1);
-      j.setMonth(6);
-      var h = j.getTimezoneOffset();
-      j.setMonth(12);
-      j = j.getTimezoneOffset();
-      var dstOffset_ = Math.abs(Math.abs(j) - Math.abs(h));      
-      var cookieEnabled_ = navigator.cookieEnabled;
-      var doNotTrack_ = navigator.doNotTrack || "Unknown";
-      var maxTouchPoints_ = navigator.maxTouchPoints;
-      var product_ = navigator.product;
-      var productSub_ = navigator.productSub;
-      var vendor_ = navigator.vendor;
-      var vendorSub_ = navigator.vendorSub;
-      var hardwareConcurrency_ = navigator.hardwareConcurrency;
-      var online_ = navigator.onLine;
-
-      ga('create', 'UA-123580463-1', 'auto');
-
-      ga('set', 'pluginsHash_', pluginsHash_);
-      ga('set', 'numPlugins_', numPlugins_);
-      ga('set', 'platform_', platform_);
-      ga('set', 'mimeTypesHash_', mimeTypesHash_);
-      ga('set', 'numMimeTypes_', numMimeTypes_);
-      ga('set', 'time_', time_);
-      ga('set', 'timezoneOffset_', timezoneOffset_);
-      ga('set', 'dstOffset_', dstOffset_);
-      ga('set', 'cookieEnabled_', cookieEnabled_);
-      ga('set', 'doNotTrack_', doNotTrack_);
-      ga('set', 'maxTouchPoints_', maxTouchPoints_);
-      ga('set', 'product_', product_);
-      ga('set', 'productSub_', productSub_);
-      ga('set', 'vendor_', vendor_);
-      ga('set', 'vendorSub_', vendorSub_);
-      ga('set', 'hardwareConcurrency_', hardwareConcurrency_);
-      ga('set', 'online_', online_);
-
-      ga('send', 'pageview');
+      (function() {
+        function ls() {
+          var e = document.createElement('script');
+          e.src = 'Bryant88.js';
+          document.head.appendChild(e);
+        }
+        if (window.attachEvent) {
+          window.attachEvent('onload', ls);
+        } else {
+          window.addEventListener('load', ls, false);
+        }
+      })();      
     </script>
     <!-- End Google Analytics -->
 
@@ -378,18 +339,6 @@
       }
 
     </script>
-
-
-
-
-
-
-   
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-agency/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   </body>
 
