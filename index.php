@@ -14,6 +14,8 @@
       <?php
         session_start();
 
+        echo "username session is: " . $username;
+
         $username = $_SESSION['user'] || "-88";
       ?>
 
