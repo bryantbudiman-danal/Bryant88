@@ -14,9 +14,9 @@
       <?php
         session_start();
 
-        echo "username session is: " . $username;
+        $username = "-88";
 
-        $username = $_SESSION['user'] || "-88";
+        if(isset($_SESSION['user'])) $username = $_SESSION['user'];
       ?>
 
       var username = window.username = <?php echo $username; ?>;
