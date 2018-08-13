@@ -191,7 +191,7 @@ var mimeTypesHash_ = MD5(i);
 
 var platform_ = window.encodeURIComponent(navigator.platform);
 var j = new Date;
-var time_ = (new Date).getTime() - Q;
+var time_ = (new Date).getTime();
 var timezoneOffset_ = j.getTimezoneOffset();
 j.setDate(1);
 j.setMonth(6);
