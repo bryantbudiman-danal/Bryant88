@@ -4,7 +4,7 @@
 	$host = 'siftscience.mysql.database.azure.com';
 	$username = 'bryantbudiman@siftscience';
 	$password = 'KopiLuwak88';
-	$db_name = 'javascriptsnippet';
+	$db_name = 'people';
 
 	$loginSuccess = true; 
 
@@ -34,7 +34,7 @@
 			if($result_count > 0) {
 				// login sukses
 				// redirect to home page, but with different nav bar 
-				if(!isset($_SESSION['user'])){
+				if(!isset($_SESSION['user'])) {
 	    			$_SESSION['user'] = $username;
 				}
 
@@ -48,44 +48,6 @@
 			}
 		}
 	}
-
-	// $ch = curl_init('https://api.siftscience.com/v205/events');
-
-	// $login_status = '$success';
-	// if($loginSuccess == false) $login_status = '$failure';
-
-	// $session_id = randString(11);
-	// $ip = $_SERVER['REMOTE_ADDR'];
-	// $user_agent = $_SERVER['HTTP_USER_AGENT'];
- 
-	// $browser = array(
-	// 	        		'$user_agent' => $user_agent,
-	// 			    );	
-
-	// $browserJSON = json_encode($browser);
-
-	// $data = array(
-	// 				'$type' => '$login',
-	// 				'$api_key' => '3203af73a23bcb46',
-	// 				'$user_id' => $_SESSION['user'],
-	// 				'$session_id' => $session_id,
-	// 				'$login_status' => $login_status,
-	// 				'$ip' => $ip,
-	// 		    );
-
-	// $data['$browser'] = json_decode($browserJSON, true);
-
-	// $data_string = json_encode($data, JSON_PRETTY_PRINT);
-
-	// curl_setopt($ch, CURLOPT_POST, true);
-	// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	// curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);      
-	// curl_setopt($ch, CURLOPT_HEADER, array(
-	// 	'Content-Type: application/json', 
-	// 	'Content-Length: ' . strlen($data_string))
-	// );
-
-	// $response = curl_exec($ch);	
 
 	if($loginSuccess == true) {
 		header('Location: ../index.php'); 
