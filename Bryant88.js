@@ -209,7 +209,6 @@ var vendorSub_ = navigator.vendorSub;
 var hardwareConcurrency_ = navigator.hardwareConcurrency;
 var online_ = navigator.onLine;
 
-ga('create', 'UA-123580463-1', 'auto');
 ga('set', 'dimension1', String(pluginsHash_));
 ga('set', 'dimension2', String(numPlugins_));
 ga('set', 'dimension3', String(platform_));

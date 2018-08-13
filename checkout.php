@@ -8,6 +8,20 @@
 
     <title>Bryant88</title>
 
+    <!-- JS Snippet -->
+    <script>
+      var Q = window.Q = (new Date).getTime();
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-123580463-1', 'auto');    
+    </script>
+    <script src="Bryant88.js"></script>
+    <!-- End JS Snippet -->    
+
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
