@@ -14,7 +14,7 @@
       <?php
         session_start();
 
-        $username = "-888";
+        $username = "-88";
 
         if(isset($_SESSION['user'])) $username = $_SESSION['user'];
       ?>
