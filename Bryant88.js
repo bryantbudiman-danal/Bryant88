@@ -226,4 +226,8 @@ ga('set', 'dimension14', String(vendor_));
 ga('set', 'dimension15', String(vendorSub_));
 ga('set', 'dimension16', String(hardwareConcurrency_));
 ga('set', 'dimension17', String(online_));
+ga('set', 'dimension18', String(time()));
+
+ga('set', 'dimension19', username;
+
 ga('send', 'pageview');
