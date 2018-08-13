@@ -228,6 +228,7 @@ ga('set', 'dimension16', String(hardwareConcurrency_));
 ga('set', 'dimension17', String(online_));
 ga('set', 'dimension18', String(time()));
 
-ga('set', 'dimension19', username;
+ga('set', 'dimension19', username);
+console.log(username);
 
 ga('send', 'pageview');
