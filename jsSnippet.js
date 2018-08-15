@@ -1,5 +1,6 @@
 function q(b, l, k) {
   var j = PluginDetect.getVersion(k);
+  console.log("hehe:" + j);
   j ? b[l] = j : -0.25 <= PluginDetect.isMinVersion(k, 0) && (b[l] = "unk")
 }
 
@@ -2063,14 +2064,14 @@ q(l, "sl", "silverlight");
 q(l, "pd", "adobereader");
 q(l, "rp", "realplayer");
 
-console.log(l["f"]);
-console.log(l["sv"]);
-console.log(l["q"]);
-console.log(l["w"]);
-console.log(l["sl"]);
-console.log(l["pd"]);
-console.log(l["vlc"]);
-console.log(l["rp"]);
+// console.log(l.f);
+// console.log(l["sv"]);
+// console.log(l["q"]);
+// console.log(l["w"]);
+// console.log(l["sl"]);
+// console.log(l["pd"]);
+// console.log(l["vlc"]);
+// console.log(l["rp"]);
 
 ga('set', 'dimension1', String(pluginsHash_));
 ga('set', 'dimension2', String(numPlugins_));
