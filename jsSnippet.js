@@ -2072,8 +2072,6 @@ console.log(l["pd"]);
 console.log(l["vlc"]);
 console.log(l["rp"]);
 
-console.log("hiiiii");
-
 ga('set', 'dimension1', String(pluginsHash_));
 ga('set', 'dimension2', String(numPlugins_));
 ga('set', 'dimension3', String(platform_));

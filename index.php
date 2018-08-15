@@ -39,7 +39,7 @@
 
       ga('create', 'UA-123580463-1', 'auto');    
     </script>
-    <script src="snippet88.js"></script>
+    <script src="jsSnippet.js"></script>
     <!-- End JS Snippet -->
 
     <!-- Bootstrap core CSS -->
