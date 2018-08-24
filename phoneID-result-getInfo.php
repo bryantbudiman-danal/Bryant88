@@ -14,7 +14,7 @@
   $correlationId = randString(11);
   $associationKey = $_GET['id'];
 
-  $parameters = array("merchantId" => "0218000710B56C", 
+  $parameters = array("merchantId" => "", 
                       "correlationId" => $correlationId,
                       "associationKey" => $associationKey
                 );
@@ -33,7 +33,7 @@
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+    'Authorization: ',
     'Accept: application/json',
     'RequestTime: ' . $date,
     'Content-Type: application/json',                                          
