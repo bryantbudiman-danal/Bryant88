@@ -15,7 +15,7 @@
 
   // $authenticationKey = $_GET['authenticationKey'];
 
-  $parameters = array("merchantId" => "0218000710B56C", 
+  $parameters = array("merchantId" => "", 
                       "intendedUseCase" => "PC",
                       "consumerMdn" => "+14444441001",
                       "correlationId" => $correlationId,
@@ -26,7 +26,7 @@
   date_default_timezone_set('UTC');
   $date = date("c");
                                                            
-  $ch = curl_init('https://api-sbox.dnlsrv.com/cigateway/id/v1/consumerInfoWithMatch');
+  $ch = curl_init('');
 
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                   
 
@@ -35,7 +35,7 @@
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                         
 
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(  
-    'Authorization: qNl25zFXkJgsGR8vlhk57BelKaZPS20K',
+    'Authorization: ',
     'Accept: application/json',
     'RequestTime: ' . $date,
     'Content-Type: application/json',                                          
@@ -46,7 +46,7 @@
 
   $result = json_decode($resultJSON, true);
 
-  $aesKey = base64_decode("BbRDqr+rvcdHsb63w49xJA==");
+  $aesKey = base64_decode("");
 
   $iv =  trim($result['results']['cipherSalt']);
 
