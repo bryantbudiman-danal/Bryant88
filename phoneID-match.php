@@ -17,7 +17,7 @@
 			   '&nonce=' . rand(10000,99999);
 
 	// Remove the base64 encoding from our key
-	$aesKey = base64_decode("ExNYKNKh2iCwPGijJdP64A==");
+	$aesKey = base64_decode("");
 
 	$iv = randString(14);
 
@@ -44,7 +44,7 @@
 
 	$requestBody = '&redirect=https://bryant88.azurewebsites.net/phoneID-result-match.php?id=' . $correlationId . '&data=' . $encryptedPayload . '&cipherSalt=' . $iv;
 
-	$EVURL = 'http://mi-sbox.dnlsrv.com/msbox/id/kJlSiWWo?' . $requestBody;
+	$EVURL = '' . $requestBody;
 
 	header('Location: ' . $EVURL);
 ?>
